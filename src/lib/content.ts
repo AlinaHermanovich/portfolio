@@ -6,9 +6,9 @@
    ============================================================================ */
 
 export const site = {
-  name: "Nova Reyes",
-  role: "Web Designer & Interaction Designer",
-  location: "Lisbon, PT",
+  name: "Алина Германович",
+  role: "UI/UX Designer",
+  location: "Могилев, Беларусь",
   email: "hello@novareyes.design",
   cvUrl: "/nova-reyes-cv.pdf",
   socials: [
