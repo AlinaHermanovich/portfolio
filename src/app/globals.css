@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+/* ============================================================
+   WEB DESIGNER PORTFOLIO — sleek / dark / interactive
+   ============================================================ */
+
+:root {
+  /* Black & white — light. No color anywhere. */
+  --bg: #ffffff;
+  --bg-elev: #82909b;
+  --surface: #82909b;
+  --line: #0000001a;
+  --line-strong: #00000033;
+  --fg: #0a0a0a;
+  --fg-dim: #82909b;
+  --fg-faint: #82909b;
+  --accent: #0a0a0a;      /* "accent" == ink; emphasis via tone, not color */
+  --accent-ink: #ffffff;
+  --violet: #0a0a0a;
+
+  --font-display: var(--font-pliant);
+  --font-body: var(--font-pliant);
+  --font-mono: var(--font-pliant);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-dim: var(--fg-dim);
+  --color-fg-faint: var(--fg-faint);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-violet: var(--violet);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+  /* Body is one of the 3 text styles */
+  font-size: 1.0625rem;   /* 17px */
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+/* Lenis smooth-scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Oversized arrow cursor on fine pointers */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='54' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 19.5 L9 15 L12 21.5 L15 20 L11.7 13.7 L18.5 13.7 Z' fill='%230a0a0a' stroke='%23ffffff' stroke-width='1.1' stroke-linejoin='round'/%3E%3C/svg%3E")
+        7 5,
+      auto !important;
+  }
+
+  /* over the wordmark, hide the arrow — the waving hand takes over */
+  [data-wave],
+  [data-wave] * {
+    cursor: none !important;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Utilities ------------------------------------------------- */
+.shell {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.hairline {
+  border-top: 1px solid var(--line);
+}
+
+/* ------------------------------------------------------------
+   TYPE SYSTEM — exactly 3 styles, 2 cases
+   1. Heading (.display)  → h1 max 48px / h2 max 32px, sentence case
+   2. Body (base <body>)  → 17px, sentence case
+   3. Label (.eyebrow)    → 12px mono, UPPERCASE
+   ------------------------------------------------------------ */
+
+/* 3 — Label (in the components layer so text-* utilities can override it) */
+@layer components {
+  .eyebrow {
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.2;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fg-faint);
+  }
+}
+
+/* 1 — Heading (family + weight; sizes via .t-h1 / .t-h2) */
+.display {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.t-h1 {
+  font-size: clamp(2rem, 5vw, 3rem);       /* 32 → 48px cap */
+  line-height: 1.04;
+}
+
+.t-h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);   /* 24 → 32px cap */
+  line-height: 1.12;
+}
+
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease-out);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Animated case visuals — grayscale moving gradients + drifting lines */
+@keyframes cv-spin {
+  to { transform: rotate(1turn); }
+}
+@keyframes cv-drift {
+  from { transform: translate3d(-4%, -3%, 0) rotate(0deg); }
+  to { transform: translate3d(4%, 3%, 0) rotate(4deg); }
+}
+.cv-swirl {
+  position: absolute;
+  inset: -50%;
+  filter: blur(26px);
+  animation: cv-spin var(--spin, 34s) linear infinite;
+  animation-direction: var(--dir, normal);
+  will-change: transform;
+}
+.cv-lines {
+  position: absolute;
+  inset: -15%;
+  animation: cv-drift var(--drift, 22s) ease-in-out infinite alternate;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv-swirl,
+  .cv-lines {
+    animation: none;
+  }
+}
+
+/* Typewriter caret */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.tw-caret {
+  display: inline-block;
+  width: 0.055em;
+  height: 0.8em;
+  margin-left: 0.08em;
+  vertical-align: -0.04em;
+  background: currentColor;
+  animation: caret-blink 1.05s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
