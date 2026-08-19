@@ -7,9 +7,9 @@ import { projects } from "@/lib/content";
 import TypewriterText from "./TypewriterText";
 import CaseFrame from "./CaseFrame";
 
-const NAME = "Hey, I’m Nova,";
+const NAME = "Привет, я Алина —";
 const HERO_REST =
-  "a designer who treats motion as a building material for the web.";
+  "дизайнер и маркетолог. Упаковываю продукты экспертов и предпринимателей.";
 
 // continuation per case: "and this is how I …"
 const caseRest = (title: string) =>
