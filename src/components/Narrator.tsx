@@ -7,8 +7,9 @@ import { projects } from "@/lib/content";
 import TypewriterText from "./TypewriterText";
 import CaseFrame from "./CaseFrame";
 
-const NAME = "Привет, я Алина — дизайнер и маркетолог";
-const HERO_REST = "для экспертов и предпринимателей.";
+const NAME = "Привет, я Алина";
+const HERO_REST =
+  "— дизайнер и маркетолог для экспертов и предпринимателей.";
 
 // continuation per case: "and this is how I …"
 const caseRest = (title: string) =>
@@ -73,14 +74,28 @@ export default function Narrator() {
       className="relative"
       style={{ height: `${TOTAL * 100}vh` }}
     >
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden pt-24">
-        {/* pinned headline — names the current case as you scroll */}
-        <div className="shell w-full">
-          <h1 className="display t-h1 min-h-[3.3em] max-w-6xl">
-            <span className="text-fg">{NAME}</span>{" "}
-            <span className="text-fg-dim">
-              <TypewriterText text={rests[state]} />
-            </span>
+             <div className="shell w-full">
+          <h1 className="display t-h1 min-h-[3.3em] max-w-4xl">
+            <span className="text-fg">{NAME}</span>
+            {state === 0 ? (
+              <>
+                <span className="text-fg-dim">
+                  {" "}
+                  — дизайнер и маркетолог
+                </span>
+                <br />
+                <span className="text-fg-dim">
+                  для экспертов и предпринимателей.
+                </span>
+              </>
+            ) : (
+              <>
+                {" "}
+                <span className="text-fg-dim">
+                  <TypewriterText text={rests[state]} />
+                </span>
+              </>
+            )}
           </h1>
         </div>
 
