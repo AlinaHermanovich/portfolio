@@ -35,6 +35,7 @@ export type Project = {
   tags: string[];
   cta: string;
   video?: string;
+  preview?: string;
 };
 
 export const projects: Project[] = [
@@ -49,6 +50,7 @@ export const projects: Project[] = [
     tags: ["Art Direction", "Webflow", "Motion"],
     cta: "Press play",
     video: "/9150545-hd_1920_1080_24fps.mp4",
+    preview: "/case-1-preview.png",
   },
   {
     slug: "meridian-finance",
