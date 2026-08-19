@@ -74,19 +74,13 @@ export default function Narrator() {
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden pt-24">
         <div className="shell w-full">
-          <h1 className="display t-h1 min-h-[3.3em] max-w-4xl">
+                    <h1 className="display t-h1 min-h-[3.3em] max-w-[900px]">
             <span className="text-fg">{NAME}</span>
             {state === 0 ? (
-              <>
-                <span className="text-fg-dim">
-                  {" "}
-                  — дизайнер и маркетолог
-                </span>
-                <br />
-                <span className="text-fg-dim">
-                  для экспертов и предпринимателей.
-                </span>
-              </>
+              <span className="text-fg-dim">
+                {" "}
+                — дизайнер и маркетолог для экспертов и предпринимателей.
+              </span>
             ) : (
               <>
                 {" "}
