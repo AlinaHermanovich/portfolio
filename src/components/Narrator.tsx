@@ -28,8 +28,8 @@ export default function Narrator() {
   const ref = useRef<HTMLDivElement>(null);
   const rowRef = useRef<HTMLDivElement>(null);
   const [range, setRange] = useState(0);
-  const [offset, setOffset] = useState(0); // rail's rightward rest offset
-  const [state, setState] = useState(0); // 0 hero · 1..N cases
+  const [offset, setOffset] = useState(0);
+  const [state, setState] = useState(0);
 
   const rests = useMemo(
     () => [HERO_REST, ...projects.map((p) => caseRest(p.title))],
@@ -59,8 +59,6 @@ export default function Narrator() {
     setState(s);
   });
 
-  // rail starts slightly right, eases into place through the (tiny) hero beat,
-  // then scrolls left across the cases; finishes exactly at the section end
   const x = useTransform(
     scrollYProgress,
     [0, CASES_START, 1],
@@ -74,7 +72,8 @@ export default function Narrator() {
       className="relative"
       style={{ height: `${TOTAL * 100}vh` }}
     >
-             <div className="shell w-full">
+      <div className="sticky top-0 flex h-screen flex-col overflow-hidden pt-24">
+        <div className="shell w-full">
           <h1 className="display t-h1 min-h-[3.3em] max-w-4xl">
             <span className="text-fg">{NAME}</span>
             {state === 0 ? (
@@ -99,7 +98,6 @@ export default function Narrator() {
           </h1>
         </div>
 
-        {/* case images — no titles, scroll horizontally */}
         <div className="relative mt-6 flex-1">
           <motion.div
             ref={rowRef}
