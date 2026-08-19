@@ -39,16 +39,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    slug: "halcyon-studio",
-    client: "Halcyon Studio",
-    title: "How I gave a sound studio a living, motion-led identity",
-    category: "Brand & Website",
-    year: "2025",
+    {
+    slug: "smartbook",
+    client: "Смартбук",
+    title: "Полное дизайн-сопровождение детской школы финансовой грамотности",
+    category: "Образовательный продукт",
+    year: "2024",
     blurb:
-      "A scroll-driven site where the type breathes and waveforms respond to the cursor, built to make a boutique studio feel unmistakable.",
-    tags: ["Art Direction", "Webflow", "Motion"],
-    cta: "Press play",
+      "Сайт, презентации, учебные материалы и реклама в одном визуальном языке — от педагогов до родителей и набора в лагерь.",
+    tags: ["Сайт", "Презентации", "Упаковка"],
+    cta: "Смотреть кейс",
     video: "/9150545-hd_1920_1080_24fps.mp4",
     preview: "/case-1-preview.png",
   },
@@ -172,15 +172,16 @@ export type CaseDetail = {
 };
 
 export const caseDetails: Record<string, CaseDetail> = {
-  "halcyon-studio": {
+  "Smartbook": {
     summary:
-      "A living, motion-led identity and website for a boutique sound design studio.",
-    liveUrl: "https://halcyon.studio",
-    results: [
-      { value: "+40%", label: "Enquiries" },
-      { value: "1.2s", label: "Load time" },
-      { value: "3", label: "Design awards" },
-      { value: "18k", label: "Monthly visits" },
+      "Полное дизайн-сопровождение детской школы финансовой грамотности: сайт, обучение, реклама.",
+    liveUrl: "#",
+    overview:
+      "Адаптировала сайт под аудиторию родителей и педагогов: усилила смыслы, убрала «детский» визуальный шум, выстроила читаемую структуру и единый стиль. Старый сайт выглядел как развивающий кружок из 2010-х — новый отражает серьёзность образовательной программы.",
+    heroCaption: "Редизайн главной страницы сайта школы",
+    duo: [
+      "Сравнение блоков до и после",
+      "Мобильная версия и ключевые экраны",
     ],
     timeline: "6 weeks, 2025",
     stack: ["Webflow", "GSAP", "Figma", "Lottie"],
@@ -194,35 +195,38 @@ export const caseDetails: Record<string, CaseDetail> = {
       "The work index with scroll-driven reveals.",
     ],
     process: {
-      body: "We started with the sound. Mapping the studio's tone to motion curves and typographic rhythm, then prototyping the key interactions in code early to test how they felt at 60fps rather than guessing on a static canvas.",
+      body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
       captions: [
-        "Motion studies and easing curves.",
-        "Early code prototype of the waveform interaction.",
+        "Структура и слайды КП",
+        "Акценты и визуальная иерархия",
       ],
     },
     outcome: {
-      body: "Launch doubled enquiries in the first month and picked up three design awards. More importantly, it gave a small studio a presence that punches far above its size.",
-      captions: ["Launch metrics, first quarter."],
-    },
-    resultsImage: "The finished site in the wild.",
-    anatomy: {
-      body: "The hardest call was the cursor-reactive waveform. It risked being a gimmick. We kept it because it made the brand's core promise, sound you can feel, literal, and cut everything else that didn't serve that one idea.",
+      body: "Разработала презентации для педагогов и родительских встреч. Для родителей — просто и спокойно, для педагогов — структурно и по делу. Один визуальный язык, разная плотность смысла.",
       captions: [
-        "The decision map for the hero interaction.",
-        "Button states and hover motion.",
-        "The waveform card component.",
+        "Презентация для родительских встреч",
+        "Материалы для педагогов",
+      ],
+    },
+    resultsImage: "Единый стиль обучающих материалов",
+    anatomy: {
+      body: "Перевела рукописные черновики эксперта в дизайн рабочей тетради. Сложные финансовые темы стали понятной игрой с иллюстрациями-подсказками — детям проще учиться, педагогу проще вести занятие.",
+      captions: [
+        "От наброска эксперта к развороту тетради",
+        "Иллюстрации и подсказки в материале",
+        "Готовая тетрадь в контексте занятия",
       ],
     },
     reflection: {
-      body: "Constraint made this one sing. One idea, executed with discipline, beats ten features. I'd protect that focus even harder next time.",
+      body: "Закрыла офлайн и продвижение в том же стиле: ролл-ап для мероприятий, серию креативов для таргета и шаблоны Instagram, которыми школа может пользоваться сама.",
       notes: [
         {
-          title: "Tech",
-          body: "Prototyping the waveform in code early paid off. Building the interaction at 60fps from day one meant no nasty surprises at handoff, and the final GSAP timeline stayed lean.",
+          title: "Ролл-ап и офлайн",
+          body: "Яркий и структурный баннер: и навигация на площадке, и точка узнавания бренда школы.",
         },
         {
-          title: "Collaboration",
-          body: "A tight loop with the studio's founder kept the motion honest. Weekly reviews against real audio, not mockups, meant every decision traced back to how the brand should sound.",
+          title: "Таргет и Instagram",
+          body: "Серия креативов под разные УТП для тестов в рекламе и шаблоны постов, чтобы команда школы могла вести визуал без дизайнера.",
         },
       ],
     },
