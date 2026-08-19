@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: `${site.name}, ${site.role}`,
   description:
     "Portfolio of Nova Reyes, a web & interaction designer crafting immersive, motion-led digital experiences.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
