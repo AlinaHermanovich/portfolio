@@ -9,7 +9,7 @@ import CaseFrame from "./CaseFrame";
 
 const NAME = "Привет, я Алина";
 const HERO_REST =
-  "— дизайнер и маркетолог для экспертов и предпринимателей.";
+  " — дизайнер и\u00A0маркетолог для\u00A0экспертов и\u00A0предпринимателей.";
 
 // scroll weights: tiny hero, then one per case (no in-pin about beat)
 const WEIGHTS = [0.15, ...projects.map(() => 1)];
