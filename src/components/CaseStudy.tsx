@@ -88,6 +88,11 @@ export default function CaseStudy({
   prev: NavLink;
   next: NavLink;
 }) {
+  const navSections = detail.sections.map((s) => ({
+    id: s.id,
+    navLabel: s.navLabel,
+  }));
+
   return (
     <>
       <Nav />
@@ -111,84 +116,32 @@ export default function CaseStudy({
           </div>
         </div>
 
-        <CaseSectionNav />
+        <CaseSectionNav sections={navSections} />
 
-        {/* Сайт */}
-        <Section id="site" title="Редизайн сайта">
-          <p className="max-w-2xl text-fg-dim">{detail.overview}</p>
-        </Section>
-
-        <Reveal>
-          <div className="px-[clamp(1.25rem,4vw,3.5rem)] pb-4">
-            <Figure caption={detail.heroCaption} ratio="aspect-[21/9]" />
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <div className="shell grid gap-6 py-12 sm:grid-cols-2">
-            <Figure caption={detail.duo[0]} ratio="aspect-[4/3]" />
-            <Figure caption={detail.duo[1]} ratio="aspect-[4/3]" />
-          </div>
-        </Reveal>
-
-        {/* КП */}
-        <Section id="proposal" title="Коммерческое предложение">
-          <p className="max-w-2xl text-fg-dim">{detail.process.body}</p>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {detail.process.captions.map((c) => (
-              <Figure key={c} caption={c} ratio="aspect-[4/3]" />
-            ))}
-          </div>
-        </Section>
-
-        {/* Презентации */}
-        <Section id="decks" title="Презентации">
-          <p className="max-w-2xl text-fg-dim">{detail.outcome.body}</p>
-          <div className="mt-10 space-y-6">
-            {detail.outcome.captions.map((c) => (
-              <Figure key={c} caption={c} ratio="aspect-[16/9]" />
-            ))}
-          </div>
-        </Section>
-
-        <Reveal>
-          <div className="px-[clamp(1.25rem,4vw,3.5rem)] py-4">
-            <Figure caption={detail.resultsImage} ratio="aspect-[21/9]" />
-          </div>
-        </Reveal>
-
-        {/* Тетрадь */}
-        <Section id="workbook" title="Рабочая тетрадь">
-          <p className="max-w-2xl text-fg-dim">{detail.anatomy.body}</p>
-          <div className="mt-10 space-y-6">
-            {detail.anatomy.captions[0] && (
-              <Figure
-                caption={detail.anatomy.captions[0]}
-                ratio="aspect-[16/9]"
-              />
-            )}
-            {detail.anatomy.captions.length > 1 && (
-              <div className="grid gap-6 sm:grid-cols-2">
-                {detail.anatomy.captions.slice(1).map((c) => (
-                  <Figure key={c} caption={c} ratio="aspect-[4/3]" />
+        {detail.sections.map((s) => (
+          <Section key={s.id} id={s.id} title={s.title}>
+            <p className="max-w-2xl text-fg-dim">{s.body}</p>
+            {s.captions && s.captions.length > 0 && (
+              <div
+                className={`mt-10 grid gap-6 ${
+                  s.captions.length > 1 ? "sm:grid-cols-2" : ""
+                }`}
+              >
+                {s.captions.map((c) => (
+                  <Figure
+                    key={c}
+                    caption={c}
+                    ratio={
+                      s.captions!.length === 1
+                        ? "aspect-[16/9]"
+                        : "aspect-[4/3]"
+                    }
+                  />
                 ))}
               </div>
             )}
-          </div>
-        </Section>
-
-        {/* Реклама */}
-        <Section id="promo" title="Офлайн, реклама и Instagram">
-          <p className="max-w-2xl text-fg-dim">{detail.reflection.body}</p>
-          <div className="mt-12 grid gap-x-12 gap-y-10 border-t border-line pt-10 sm:grid-cols-2">
-            {detail.reflection.notes.map((n) => (
-              <div key={n.title}>
-                <h3 className="eyebrow text-fg">{n.title}</h3>
-                <p className="mt-4 max-w-md text-fg-dim">{n.body}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
+          </Section>
+        ))}
 
         <nav className="border-t border-line">
           <div className="shell grid grid-cols-2">
