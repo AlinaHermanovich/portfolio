@@ -122,7 +122,7 @@ export default function Hug() {
           )}
         </AnimatePresence>
 
-          <ul className="flex flex-col items-center gap-16 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-12">
+          <ul className="flex flex-col items-center gap-10 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-12">
           {cards.map((card, i) => (
             <motion.li
               key={i}
