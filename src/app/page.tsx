@@ -6,6 +6,7 @@ import Approach from "@/components/Approach";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BgVideo from "@/components/BgVideo";
+import Hug from "@/components/Hug";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Narrator />
         <AboutSection />
         <Approach />
+        <Hug />
       </main>
 
       {/* dark outro — Contact + Footer share one video background */}
