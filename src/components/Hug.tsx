@@ -122,7 +122,7 @@ export default function Hug() {
           )}
         </AnimatePresence>
 
-        <ul className="flex flex-wrap items-center justify-between gap-x-4 gap-y-12">
+          <ul className="flex flex-col items-center gap-16 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-12">
           {cards.map((card, i) => (
             <motion.li
               key={i}
@@ -133,7 +133,7 @@ export default function Hug() {
               onMouseLeave={onHoverEnd}
             >
               <motion.div
-                className="relative size-[min(250px,22vw)] overflow-hidden rounded-3xl bg-black/5"
+                className="relative size-[min(250px,72vw)] overflow-hidden rounded-3xl bg-black/5 md:size-[min(250px,22vw)]"
                 variants={{
                   idle: { rotate: card.rotation },
                   hover: { rotate: -card.rotation },
@@ -152,15 +152,15 @@ export default function Hug() {
                 )}
               </motion.div>
 
-              <motion.div
-                className={`absolute flex size-14 items-center justify-center rounded-full border border-black/5 bg-white shadow-sm ${card.emojiClass}`}
+                <motion.div
+                className={`absolute grid size-14 place-items-center rounded-full border border-black/5 bg-white shadow-sm ${card.emojiClass}`}
                 variants={{
                   idle: { x: 0 },
                   hover: { x: card.hoverX },
                 }}
                 transition={{ type: "spring", stiffness: 80, damping: 20 }}
               >
-                <span className="text-3xl">{card.emoji}</span>
+                <span className="block text-3xl leading-none">{card.emoji}</span>
               </motion.div>
             </motion.li>
           ))}
