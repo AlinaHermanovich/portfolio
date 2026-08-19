@@ -150,232 +150,161 @@ export const experience: Experience[] = [
    --------------------------------------------------------------- */
 export type CaseSection = { body: string; captions: string[] };
 
+export type CaseBlock = {
+  id: string;
+  navLabel: string;
+  title: string;
+  body: string;
+  captions?: string[];
+};
+
 export type CaseDetail = {
   summary: string;
-  liveUrl: string;
-  results: { value: string; label: string }[];
-  timeline: string;
-  stack: string[];
-  responsibilities: string[];
-  collaborators: string[];
-  overview: string;
-  heroCaption: string;
-  duo: [string, string];
-  process: CaseSection;
-  outcome: CaseSection;
-  resultsImage: string;
-  anatomy: CaseSection;
-  reflection: {
-    body: string;
-    notes: { title: string; body: string }[];
-  };
+  sections: CaseBlock[];
 };
 
 export const caseDetails: Record<string, CaseDetail> = {
-    "smartbook": {
+  smartbook: {
     summary:
-      "Полное дизайн-сопровождение детской школы финансовой грамотности: сайт, обучение, реклама.",
-    liveUrl: "#",
-    results: [
-      { value: "—", label: "Сайт" },
-      { value: "—", label: "КП" },
-      { value: "—", label: "Презентации" },
-      { value: "—", label: "Реклама" },
+      "Полное дизайн-сопровождение детской школы финансовой грамотности.",
+    sections: [
+      {
+        id: "site",
+        navLabel: "Сайт",
+        title: "Редизайн сайта",
+        body: "Адаптировала сайт под аудиторию родителей и педагогов: усилила смыслы, убрала «детский» визуальный шум, выстроила читаемую структуру и единый стиль. Старый сайт выглядел как развивающий кружок из 2010-х — новый отражает серьёзность образовательной программы.",
+        captions: [
+          "Редизайн главной страницы сайта школы",
+          "Сравнение блоков до и после",
+          "Мобильная версия и ключевые экраны",
+        ],
+      },
+      {
+        id: "proposal",
+        navLabel: "КП",
+        title: "Коммерческое предложение",
+        body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
+        captions: [
+          "Структура и слайды КП",
+          "Акценты и визуальная иерархия",
+        ],
+      },
+      {
+        id: "decks",
+        navLabel: "Презентации",
+        title: "Презентации",
+        body: "Разработала презентации для педагогов и родительских встреч. Для родителей — просто и спокойно, для педагогов — структурно и по делу. Один визуальный язык, разная плотность смысла.",
+        captions: [
+          "Презентация для родительских встреч",
+          "Материалы для педагогов",
+        ],
+      },
+      {
+        id: "workbook",
+        navLabel: "Тетрадь",
+        title: "Рабочая тетрадь",
+        body: "Перевела рукописные черновики эксперта в дизайн рабочей тетради. Сложные финансовые темы стали понятной игрой с иллюстрациями-подсказками — детям проще учиться, педагогу проще вести занятие.",
+        captions: [
+          "От наброска эксперта к развороту тетради",
+          "Иллюстрации и подсказки в материале",
+          "Готовая тетрадь в контексте занятия",
+        ],
+      },
+      {
+        id: "promo",
+        navLabel: "Реклама",
+        title: "Офлайн, реклама и Instagram",
+        body: "Закрыла офлайн и продвижение в том же стиле: ролл-ап для мероприятий, серию креативов для таргета и шаблоны Instagram, которыми школа может пользоваться сама.",
+        captions: [
+          "Ролл-ап для офлайн-мероприятий",
+          "Креативы для таргета и шаблоны Instagram",
+        ],
+      },
     ],
-    timeline: "2024",
-    stack: ["Figma", "PowerPoint"],
-    responsibilities: ["Дизайн", "Упаковка"],
-    collaborators: ["Алина"],
-    overview:
-      "Адаптировала сайт под аудиторию родителей и педагогов: усилила смыслы, убрала «детский» визуальный шум, выстроила читаемую структуру и единый стиль. Старый сайт выглядел как развивающий кружок из 2010-х — новый отражает серьёзность образовательной программы.",
-    heroCaption: "Редизайн главной страницы сайта школы",
-    duo: [
-      "Сравнение блоков до и после",
-      "Мобильная версия и ключевые экраны",
-    ],
-    process: {
-      body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
-      captions: [
-        "Структура и слайды КП",
-        "Акценты и визуальная иерархия",
-      ],
-    },
-    outcome: {
-      body: "Разработала презентации для педагогов и родительских встреч. Для родителей — просто и спокойно, для педагогов — структурно и по делу. Один визуальный язык, разная плотность смысла.",
-      captions: [
-        "Презентация для родительских встреч",
-        "Материалы для педагогов",
-      ],
-    },
-    resultsImage: "Единый стиль обучающих материалов",
-    anatomy: {
-      body: "Перевела рукописные черновики эксперта в дизайн рабочей тетради. Сложные финансовые темы стали понятной игрой с иллюстрациями-подсказками — детям проще учиться, педагогу проще вести занятие.",
-      captions: [
-        "От наброска эксперта к развороту тетради",
-        "Иллюстрации и подсказки в материале",
-        "Готовая тетрадь в контексте занятия",
-      ],
-    },
-    reflection: {
-      body: "Закрыла офлайн и продвижение в том же стиле: ролл-ап для мероприятий, серию креативов для таргета и шаблоны Instagram, которыми школа может пользоваться сама.",
-      notes: [
-        {
-          title: "Ролл-ап и офлайн",
-          body: "Яркий и структурный баннер: и навигация на площадке, и точка узнавания бренда школы.",
-        },
-        {
-          title: "Таргет и Instagram",
-          body: "Серия креативов под разные УТП для тестов в рекламе и шаблоны постов, чтобы команда школы могла вести визуал без дизайнера.",
-        },
-      ],
-    },
   },
 
-  "meridian-finance": {
+  "ipk-bru": {
     summary:
-      "A rebuilt marketing site for a fintech, designed around one idea: clarity.",
-    liveUrl: "https://meridianfinance.com",
-    results: [
-      { value: "-52%", label: "Load time" },
-      { value: "2x", label: "Demo sign-ups" },
-      { value: "+31%", label: "Conversion" },
-      { value: "4.9", label: "Design score" },
+      "Визуальный стиль и оформление соцсетей для ИПК Белорусско-Российского университета.",
+    sections: [
+      {
+        id: "analysis",
+        navLabel: "Анализ",
+        title: "Анализ конкурентов",
+        body: "Проанализировала аккаунты вузов и ИПК: где сильный контент, но слабая подача, где нет единой системы. Цель — узнаваемый визуал, аккуратные шаблоны и простой формат, с которым команда работает без дизайнера.",
+        captions: ["Подборка конкурентов и выводы"],
+      },
+      {
+        id: "concept",
+        navLabel: "Концепция",
+        title: "Визуальная концепция",
+        body: "По запросу клиента разработала текстовый знак и палитру: строго, современно, читаемо. Подготовила варианты для тёмного и светлого фона — чтобы система работала в ленте, сторис и рекламе.",
+        captions: [
+          "Знак ИПБ БРУ на тёмном и светлом фоне",
+          "Палитра и базовые правила",
+        ],
+      },
+      {
+        id: "icons",
+        navLabel: "Иконки",
+        title: "Знак и иконки",
+        body: "Текстовый знак сделала лаконичным для мобильного считывания. Набор иконок — в одном стиле с концепцией, чтобы рубрики и навигация в соцсетях выглядели цельно.",
+        captions: ["Набор иконок в фирменном стиле"],
+      },
+      {
+        id: "reels",
+        navLabel: "Reels",
+        title: "Обложки для Reels",
+        body: "Продумала сетку и шаблоны обложек так, чтобы ролики смотрелись единой серией. Шаблоны собраны в удобном формате — команда ИПК может вести публикации без постоянного участия дизайнера.",
+        captions: [
+          "Серия обложек Reels",
+          "Шаблон в работе",
+        ],
+      },
+      {
+        id: "stories",
+        navLabel: "Сторис",
+        title: "Сторис «Актуальные»",
+        body: "Подготовила оформление сторис для ключевых рубрик: один стиль, без лишнего, с упором на читаемость и структуру. Актуальные выглядят аккуратно и узнаваемо.",
+        captions: [
+          "Оформление сторис по рубрикам",
+          "Примеры в ленте",
+        ],
+      },
+      {
+        id: "ads",
+        navLabel: "Таргет",
+        title: "Баннеры для таргета",
+        body: "Собрала серии визуальных креативов для проверки гипотез: разные УТП, акценты и аудитории. Форматы готовы к запуску в таргете и согласованы с общей визуальной системой.",
+        captions: [
+          "Креативы для таргета",
+          "Вариации под разные УТП",
+        ],
+      },
     ],
-    timeline: "8 weeks, 2025",
-    stack: ["Framer", "React", "TypeScript", "Figma"],
-    responsibilities: ["UX", "Design system", "Motion"],
-    collaborators: ["Jonas Pike", "Ada Okafor", "Nova Reyes", "Sam Ortiz"],
-    overview:
-      "Meridian's product was clear; their site wasn't. We stripped the marketing site back to essentials, rebuilt the design system, and halved load time so the message landed before anyone had a chance to bounce.",
-    heroCaption: "The redesigned homepage, above the fold.",
-    duo: ["Component library and tokens.", "The interactive pricing calculator."],
-    process: {
-      body: "We audited every page for friction, cut the component count in half, and rebuilt the system around a strict type and spacing scale, so the team could ship consistent pages without a designer in the loop.",
-      captions: ["Friction audit of the old flow.", "The new component system."],
-    },
-    outcome: {
-      body: "Load time dropped by half and demo sign-ups doubled within a quarter. The design system now powers every new page the team ships.",
-      captions: ["Before and after performance."],
-    },
-    resultsImage: "The new homepage, live.",
-    anatomy: {
-      body: "The debate was how much to explain. We chose to say less: one clear value line, one demo CTA, and let the product speak. Removing copy raised conversion more than adding it ever did.",
-      captions: [
-        "The messaging decision.",
-        "Primary button and its states.",
-        "The pricing card component.",
-      ],
-    },
-    reflection: {
-      body: "Clarity is a feature. The bravest edits were deletions, and they moved the numbers most.",
-      notes: [
-        {
-          title: "Tech",
-          body: "Rebuilding on a strict token system in Framer cut the component count in half and made the site measurably faster. Performance was a design decision, not an afterthought.",
-        },
-        {
-          title: "Collaboration",
-          body: "Working directly with the founders to cut copy was uncomfortable and essential. Shared metrics kept those conversations about the user, not opinions.",
-        },
-      ],
-    },
   },
 
   "atlas-editorial": {
-    summary: "An immersive reading experience for a digital magazine.",
-    liveUrl: "https://atlaseditorial.com",
-    results: [
-      { value: "+68%", label: "Read time" },
-      { value: "2.4x", label: "Return visits" },
-      { value: "90+", label: "Lighthouse" },
-      { value: "12k", label: "Subscribers" },
+    summary: "Кейс в работе.",
+    sections: [
+      {
+        id: "overview",
+        navLabel: "Обзор",
+        title: "Обзор",
+        body: "Кейс будет добавлен позже.",
+      },
     ],
-    timeline: "10 weeks, 2024",
-    stack: ["Next.js", "GSAP", "Sanity", "TypeScript"],
-    responsibilities: ["Editorial design", "Motion", "Front-end build"],
-    collaborators: ["Iris Wen", "Cal Roman", "Nova Reyes"],
-    overview:
-      "Atlas wanted long-form to feel like an event again. We built parallax spreads, kinetic pull-quotes, and a custom CMS so editors could art-direct each story without touching a line of code.",
-    heroCaption: "A feature story with scroll-driven spreads.",
-    duo: ["The editorial layout system.", "The custom CMS editor."],
-    process: {
-      body: "We designed the reading rhythm first, pacing image and text like a print spread, then built CMS blocks that let editors compose that rhythm themselves.",
-      captions: ["Reading-rhythm studies.", "The CMS block library."],
-    },
-    outcome: {
-      body: "Average read time rose 68% and return visits more than doubled. Editors now ship art-directed stories in hours, not days.",
-      captions: ["Engagement over the launch quarter."],
-    },
-    resultsImage: "A published feature in context.",
-    anatomy: {
-      body: "We nearly cut parallax for performance. Instead we rebuilt it to be GPU-cheap and reduced-motion aware, keeping the feel without the cost.",
-      captions: [
-        "Performance versus feel.",
-        "Pull-quote button controls.",
-        "The article card component.",
-      ],
-    },
-    reflection: {
-      body: "Give editors real tools and they'll surprise you. The system mattered more than any single layout.",
-      notes: [
-        {
-          title: "Tech",
-          body: "GPU-cheap parallax and a reduced-motion path let us keep the feel without tanking Lighthouse. The custom CMS blocks were the real engineering win.",
-        },
-        {
-          title: "Collaboration",
-          body: "Pairing with the editorial team on the CMS meant we designed for how they actually work, not how we imagined they did.",
-        },
-      ],
-    },
   },
 
   "bloom-skincare": {
-    summary: "A tactile storefront that made products feel touchable.",
-    liveUrl: "https://bloom.co",
-    results: [
-      { value: "+38%", label: "Conversion" },
-      { value: "-24%", label: "Bounce rate" },
-      { value: "3D", label: "Product views" },
-      { value: "22k", label: "Orders" },
+    summary: "Кейс в работе.",
+    sections: [
+      {
+        id: "overview",
+        navLabel: "Обзор",
+        title: "Обзор",
+        body: "Кейс будет добавлен позже.",
+      },
     ],
-    timeline: "7 weeks, 2024",
-    stack: ["Shopify", "Three.js", "React", "GSAP"],
-    responsibilities: ["Interaction", "3D", "Front-end build"],
-    collaborators: ["Lena Ross", "Priya Nair", "Omar Diaz", "Nova Reyes"],
-    overview:
-      "Bloom sells feel, not just formulas. We built a storefront with 3D bottles you can spin, buttery transitions, and a buy flow that stays out of the way, so the product does the selling.",
-    heroCaption: "The product page with a spinnable 3D bottle.",
-    duo: ["3D bottle materials study.", "The streamlined checkout."],
-    process: {
-      body: "We prototyped the 3D interaction first to prove it felt good on a phone, then designed the rest of the store around that centerpiece.",
-      captions: ["The 3D interaction prototype.", "Mobile buy-flow tests."],
-    },
-    outcome: {
-      body: "Conversion rose 38% and bounce fell, with the 3D product view becoming the most-used feature on the whole site.",
-      captions: ["Conversion lift after launch."],
-    },
-    resultsImage: "The storefront on launch day.",
-    anatomy: {
-      body: "3D risked being slow and gimmicky. We capped it to a single hero interaction, lazy-loaded and reduced-motion aware, so it delighted without dragging the page down.",
-      captions: [
-        "Scoping the 3D decision.",
-        "Add-to-cart button states.",
-        "The product card component.",
-      ],
-    },
-    reflection: {
-      body: "Tactility sells. One well-made interaction beat a page full of features.",
-      notes: [
-        {
-          title: "Tech",
-          body: "Lazy-loading the 3D and capping it to one hero moment kept the store fast. Three.js earned its weight only because we scoped it ruthlessly.",
-        },
-        {
-          title: "Collaboration",
-          body: "Close work with the Bloom team on materials and lighting made the bottles feel real. Their product knowledge shaped the 3D more than any spec could.",
-        },
-      ],
-    },
   },
 };
