@@ -172,27 +172,26 @@ export type CaseDetail = {
 };
 
 export const caseDetails: Record<string, CaseDetail> = {
-  "Smartbook": {
+    "smartbook": {
     summary:
       "Полное дизайн-сопровождение детской школы финансовой грамотности: сайт, обучение, реклама.",
     liveUrl: "#",
+    results: [
+      { value: "—", label: "Сайт" },
+      { value: "—", label: "КП" },
+      { value: "—", label: "Презентации" },
+      { value: "—", label: "Реклама" },
+    ],
+    timeline: "2024",
+    stack: ["Figma", "PowerPoint"],
+    responsibilities: ["Дизайн", "Упаковка"],
+    collaborators: ["Алина"],
     overview:
       "Адаптировала сайт под аудиторию родителей и педагогов: усилила смыслы, убрала «детский» визуальный шум, выстроила читаемую структуру и единый стиль. Старый сайт выглядел как развивающий кружок из 2010-х — новый отражает серьёзность образовательной программы.",
     heroCaption: "Редизайн главной страницы сайта школы",
     duo: [
       "Сравнение блоков до и после",
       "Мобильная версия и ключевые экраны",
-    ],
-    timeline: "6 weeks, 2025",
-    stack: ["Webflow", "GSAP", "Figma", "Lottie"],
-    responsibilities: ["Art direction", "Motion design", "Front-end build"],
-    collaborators: ["Mara Vale", "Theo Lin", "Nova Reyes"],
-    overview:
-      "Halcyon needed an identity as crafted as their sound work. The old site was static and generic; we rebuilt it around a single idea: the studio should be heard and felt, not just seen. Type breathes, waveforms react to the cursor, and every transition carries rhythm.",
-    heroCaption: "The homepage hero, where waveforms respond to cursor movement.",
-    duo: [
-      "Type specimen and motion principles.",
-      "The work index with scroll-driven reveals.",
     ],
     process: {
       body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
