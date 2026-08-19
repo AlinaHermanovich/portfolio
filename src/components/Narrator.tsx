@@ -105,8 +105,9 @@ export default function Narrator() {
                 data-cursor-label={p.cta}
                 className="group h-full w-[84vw] shrink-0 sm:w-[76vw]"
               >
-                <CaseFrame
+                                <CaseFrame
                   video={p.video}
+                  preview={p.preview}
                   variant={i}
                   client={p.client}
                   year={p.year}
