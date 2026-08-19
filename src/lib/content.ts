@@ -44,7 +44,7 @@ export const projects: Project[] = [
     client: "Смартбук",
     title: "Полное дизайн-сопровождение детской школы финансовой грамотности",
     category: "Образовательный продукт",
-    year: "2024",
+    year: "2025",
     blurb:
       "Сайт, презентации, учебные материалы и реклама в одном визуальном языке — от педагогов до родителей и набора в лагерь.",
     tags: ["Сайт", "Презентации", "Упаковка"],
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     client: "Bloom Skincare",
     title: "How I made a storefront feel touchable and lifted sales 38%",
     category: "E-commerce",
-    year: "2024",
+    year: "2025",
     blurb:
       "3D bottles, buttery transitions, and a tactile buy flow.",
     tags: ["Shopify", "3D", "Interaction"],
