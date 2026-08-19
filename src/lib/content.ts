@@ -52,16 +52,16 @@ export const projects: Project[] = [
     video: "/9150545-hd_1920_1080_24fps.mp4",
     preview: "/case-1-preview.png",
   },
-  {
-    slug: "meridian-finance",
-    client: "Meridian Finance",
-    title: "How I halved load time and doubled demo sign-ups",
-    category: "Product Site",
-    year: "2025",
+    {
+    slug: "ipk-bru",
+    client: "ИПК Белорусско-Российского университета",
+    title: "Визуальный стиль и оформление соцсетей в единой концепции",
+    category: "Соцсети и реклама",
+    year: "2024",
     blurb:
-      "Rebuilt a fintech marketing site around a single idea: clarity.",
-    tags: ["UX", "Design System", "Framer"],
-    cta: "See the numbers",
+      "От анализа конкурентов до шаблонов Reels и баннеров таргета — система, с которой команда ведёт соцсети без дизайнера.",
+    tags: ["Соцсети", "Фирменный стиль", "Таргет"],
+    cta: "Смотреть кейс",
     video: "/19800595-hd_1920_1080_25fps.mp4",
   },
   {
