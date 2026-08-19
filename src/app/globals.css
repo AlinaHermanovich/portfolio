@@ -129,7 +129,7 @@ html.lenis body {
 /* 1 — Heading (family + weight; sizes via .t-h1 / .t-h2) */
 .display {
   font-family: var(--font-display), sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.025em;
   line-height: 1.05;
 }
