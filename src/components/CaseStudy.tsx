@@ -9,15 +9,6 @@ import CaseSectionNav from "./CaseSectionNav";
 import Reveal from "./Reveal";
 import Footer from "./Footer";
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
 function Figure({
   caption,
   ratio = "aspect-[16/9]",
@@ -101,7 +92,6 @@ export default function CaseStudy({
     <>
       <Nav />
       <main className="pt-28 sm:pt-32">
-        {/* case title — the same "How I…" title from the main page */}
         <header className="shell">
           <p className="eyebrow text-fg-faint">
             {project.client} / {project.category} / {project.year}
@@ -111,80 +101,29 @@ export default function CaseStudy({
           </h1>
         </header>
 
-        {/* full-width video-in-browser cover, ~40vh (same as the home rail) */}
         <div className="mt-10 px-[clamp(1.25rem,4vw,3.5rem)]">
           <div className="h-[40vh] w-full">
-            <CaseFrame video={project.video} color />
+            <CaseFrame
+              video={project.video}
+              preview={project.preview}
+              color
+            />
           </div>
         </div>
 
-        {/* 4 result numbers */}
-        <section className="shell mt-16 grid grid-cols-2 gap-y-10 py-4 sm:mt-24 sm:grid-cols-4 sm:gap-y-0">
-          {detail.results.map((r, i) => (
-            <div
-              key={r.label}
-              className={i % 4 !== 0 ? "sm:border-l sm:border-line sm:pl-8" : ""}
-            >
-              <div className="display t-h1">{r.value}</div>
-              <div className="eyebrow mt-3 text-fg-dim">{r.label}</div>
-            </div>
-          ))}
-        </section>
+        <CaseSectionNav />
 
-        {/* project info */}
-        <section className="shell grid gap-x-12 gap-y-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <p className="eyebrow text-fg-faint">Timeline</p>
-            <p className="mt-3">{detail.timeline}</p>
-          </div>
-          <div>
-            <p className="eyebrow text-fg-faint">Stack</p>
-            <ul className="mt-3 space-y-1">
-              {detail.stack.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="eyebrow text-fg-faint">Responsibilities</p>
-            <ul className="mt-3 space-y-1">
-              {detail.responsibilities.map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="eyebrow text-fg-faint">Collaboration</p>
-            <div className="mt-4 flex items-center">
-              {detail.collaborators.map((c, i) => (
-                <span
-                  key={c}
-                  title={c}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-bg-elev text-[10px] font-medium text-fg-faint ring-2 ring-bg"
-                  style={{ marginLeft: i === 0 ? 0 : "-0.7rem", zIndex: 20 - i }}
-                >
-                  {initials(c)}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <CaseSectionNav liveUrl={detail.liveUrl} />
-
-        {/* Overview */}
-        <Section id="overview" title="Overview">
+        {/* Сайт */}
+        <Section id="site" title="Редизайн сайта">
           <p className="max-w-2xl text-fg-dim">{detail.overview}</p>
         </Section>
 
-        {/* full-width image */}
         <Reveal>
           <div className="px-[clamp(1.25rem,4vw,3.5rem)] pb-4">
             <Figure caption={detail.heroCaption} ratio="aspect-[21/9]" />
           </div>
         </Reveal>
 
-        {/* two images side by side */}
         <Reveal>
           <div className="shell grid gap-6 py-12 sm:grid-cols-2">
             <Figure caption={detail.duo[0]} ratio="aspect-[4/3]" />
@@ -192,8 +131,8 @@ export default function CaseStudy({
           </div>
         </Reveal>
 
-        {/* Process */}
-        <Section id="process" title="Process">
+        {/* КП */}
+        <Section id="proposal" title="Коммерческое предложение">
           <p className="max-w-2xl text-fg-dim">{detail.process.body}</p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {detail.process.captions.map((c) => (
@@ -202,8 +141,8 @@ export default function CaseStudy({
           </div>
         </Section>
 
-        {/* Results */}
-        <Section id="results" title="Results">
+        {/* Презентации */}
+        <Section id="decks" title="Презентации">
           <p className="max-w-2xl text-fg-dim">{detail.outcome.body}</p>
           <div className="mt-10 space-y-6">
             {detail.outcome.captions.map((c) => (
@@ -212,19 +151,21 @@ export default function CaseStudy({
           </div>
         </Section>
 
-        {/* full-width image between Results and Anatomy */}
         <Reveal>
           <div className="px-[clamp(1.25rem,4vw,3.5rem)] py-4">
             <Figure caption={detail.resultsImage} ratio="aspect-[21/9]" />
           </div>
         </Reveal>
 
-        {/* Anatomy of a decision */}
-        <Section id="anatomy" title="Anatomy of a decision">
+        {/* Тетрадь */}
+        <Section id="workbook" title="Рабочая тетрадь">
           <p className="max-w-2xl text-fg-dim">{detail.anatomy.body}</p>
           <div className="mt-10 space-y-6">
             {detail.anatomy.captions[0] && (
-              <Figure caption={detail.anatomy.captions[0]} ratio="aspect-[16/9]" />
+              <Figure
+                caption={detail.anatomy.captions[0]}
+                ratio="aspect-[16/9]"
+              />
             )}
             {detail.anatomy.captions.length > 1 && (
               <div className="grid gap-6 sm:grid-cols-2">
@@ -236,8 +177,8 @@ export default function CaseStudy({
           </div>
         </Section>
 
-        {/* Reflection */}
-        <Section id="reflection" title="Reflection">
+        {/* Реклама */}
+        <Section id="promo" title="Офлайн, реклама и Instagram">
           <p className="max-w-2xl text-fg-dim">{detail.reflection.body}</p>
           <div className="mt-12 grid gap-x-12 gap-y-10 border-t border-line pt-10 sm:grid-cols-2">
             {detail.reflection.notes.map((n) => (
@@ -249,7 +190,6 @@ export default function CaseStudy({
           </div>
         </Section>
 
-        {/* bottom case navigation */}
         <nav className="border-t border-line">
           <div className="shell grid grid-cols-2">
             <Link
@@ -258,7 +198,7 @@ export default function CaseStudy({
             >
               <Arrow dir="left" />
               <span>
-                <span className="eyebrow block text-fg-faint">Previous</span>
+                <span className="eyebrow block text-fg-faint">Назад</span>
                 <span className="display t-h2">{prev.client}</span>
               </span>
             </Link>
@@ -267,7 +207,7 @@ export default function CaseStudy({
               className="group flex items-center justify-end gap-4 py-10 pl-6 text-right"
             >
               <span>
-                <span className="eyebrow block text-fg-faint">Next</span>
+                <span className="eyebrow block text-fg-faint">Далее</span>
                 <span className="display t-h2">{next.client}</span>
               </span>
               <Arrow dir="right" />
