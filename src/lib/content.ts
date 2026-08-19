@@ -29,6 +29,7 @@ export type Project = {
   slug: string;
   client: string;
   title: string;
+  headline?: string;
   category: string;
   year: string;
   blurb: string;
@@ -43,6 +44,8 @@ export const projects: Project[] = [
     slug: "smartbook",
     client: "Смартбук",
     title: "Полное дизайн-сопровождение детской школы финансовой грамотности",
+    headline:
+      ". Упаковала детскую школу финансовой грамотности — от сайта до рекламы и учебных материалов.",
     category: "Образовательный продукт",
     year: "2025",
     blurb:
@@ -56,6 +59,8 @@ export const projects: Project[] = [
     slug: "ipk-bru",
     client: "ИПК Белорусско-Российского университета",
     title: "Визуальный стиль и оформление соцсетей в единой концепции",
+    headline:
+      ". Собрала визуальную систему соцсетей для ИПК: от концепции до шаблонов и таргета.",
     category: "Соцсети и реклама",
     year: "2024",
     blurb:
@@ -68,6 +73,8 @@ export const projects: Project[] = [
     slug: "confucius-bntu",
     client: "Институт Конфуция по науке и технике БНТУ",
     title: "Сайт и презентация: структура, которая не теряет суть",
+    headline:
+      ". Спроектировала сайт и презентацию для Института Конфуция — структура и визуал для вуза и партнёров.",
     category: "Сайт и презентация",
     year: "2026",
     blurb:
