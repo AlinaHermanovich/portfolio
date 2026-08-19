@@ -334,3 +334,15 @@ export const caseDetails: Record<string, CaseDetail> = {
       },
     ],
   },
+  "bloom-skincare": {
+    summary: "Кейс в работе.",
+    sections: [
+      {
+        id: "overview",
+        navLabel: "Обзор",
+        title: "Обзор",
+        body: "Кейс будет добавлен позже.",
+      },
+    ],
+  },
+};
