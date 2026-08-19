@@ -14,32 +14,36 @@ type HugCard = {
 
 const cards: HugCard[] = [
   {
+    src: "/hug/photo-1.jpg",
     alt: "Photo 1",
     rotation: 4.6,
-    emoji: "👨‍💻",
+    emoji: "👩‍💻",
     emojiClass: "top-0 -translate-y-1/2 -right-4",
     hoverX: -226,
   },
   {
+    src: "/hug/photo-2.jpg",
     alt: "Photo 2",
     rotation: -4,
-    emoji: "🏔️",
+    emoji: "🏞",
     emojiClass: "bottom-0 translate-y-1/2 -right-4",
     hoverX: -206,
   },
   {
+    src: "/hug/photo-3.jpg",
     alt: "Photo 3",
     rotation: 3.6,
-    emoji: "🐶",
+    emoji: "🐱",
     emojiClass: "top-0 -translate-y-1/2 left-8",
     hoverX: 126,
   },
   {
+    src: "/hug/photo-4.jpg",
     alt: "Photo 4",
-    rotation: -4,
-    emoji: "🏔️",
+    rotation: -3.2,
+    emoji: "❤️",
     emojiClass: "bottom-0 translate-y-1/2 -right-4",
-    hoverX: -206,
+    hoverX: -180,
   },
 ];
 
