@@ -58,7 +58,7 @@ export default function Hug() {
     timer.current = setInterval(() => {
       if (hoverStartedAt.current === null) return;
       const elapsed = Date.now() - hoverStartedAt.current;
-      if (accumulated.current + elapsed >= 3000) {
+      if (accumulated.current + elapsed >= 1500) {
         setShowSecret(true);
         unlocked.current = true;
         if (timer.current) {
@@ -66,7 +66,7 @@ export default function Hug() {
           timer.current = null;
         }
       }
-    }, 100);
+    }, 50);
   }, []);
 
   const onHoverEnd = useCallback(() => {
@@ -81,85 +81,87 @@ export default function Hug() {
   }, []);
 
   return (
-    <section className="relative bg-bg py-16 sm:py-24">
-      <AnimatePresence>
-        {showSecret && (
-          <motion.div
-            className="absolute left-1/2 top-6 z-50 w-[min(100%,24rem)] -translate-x-1/2 px-4"
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          >
-            <div className="rounded-2xl border border-black/10 bg-bg p-6 text-center shadow-lg">
-              <p className="text-base text-fg">
-                Секретное сообщение: я открыта к новым проектам!
-              </p>
-              <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-                <a
-                  href={TELEGRAM_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full bg-fg px-5 py-2.5 text-sm text-bg transition-opacity hover:opacity-80"
-                >
-                  Написать в Telegram
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setShowSecret(false)}
-                  className="rounded-full px-4 py-2.5 text-sm text-fg-dim transition-colors hover:text-fg"
-                >
-                  Продолжить смотреть
-                </button>
+    <section className="bg-bg py-16 sm:py-24">
+      <div className="shell relative">
+        <AnimatePresence>
+          {showSecret && (
+            <motion.div
+              className="absolute left-1/2 top-0 z-50 w-[min(100%,24rem)] -translate-x-1/2 -translate-y-[calc(100%+12px)] px-4"
+              initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+              transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="rounded-2xl border border-black/10 bg-white p-6 text-center shadow-xl">
+                <p className="text-base text-black">
+                  Секретное сообщение: я открыта к новым проектам!
+                </p>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href={TELEGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full bg-black px-5 py-2.5 text-sm text-white transition-opacity hover:opacity-80"
+                  >
+                    Написать в Telegram
+                  </a>
+                  <button
+                    type="button"
+                    onClick={() => setShowSecret(false)}
+                    className="rounded-full px-4 py-2.5 text-sm text-black/50 transition-colors hover:text-black"
+                  >
+                    Продолжить смотреть
+                  </button>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <ul className="shell flex flex-wrap items-center justify-between gap-x-4 gap-y-12">
-        {cards.map((card, i) => (
-          <motion.li
-            key={i}
-            className="relative"
-            initial="idle"
-            whileHover="hover"
-            onHoverStart={onHoverStart}
-            onHoverEnd={onHoverEnd}
-          >
-            <motion.div
-              className="relative size-[min(250px,22vw)] overflow-hidden rounded-3xl bg-black/5"
-              variants={{
-                idle: { rotate: card.rotation },
-                hover: { rotate: -card.rotation },
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              {card.src ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={card.src}
-                  alt={card.alt}
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              ) : (
-                <div className="absolute inset-0 bg-neutral-200" />
-              )}
             </motion.div>
+          )}
+        </AnimatePresence>
 
-            <motion.div
-              className={`absolute flex size-14 items-center justify-center rounded-full border border-black/5 bg-bg shadow-sm ${card.emojiClass}`}
-              variants={{
-                idle: { x: 0 },
-                hover: { x: card.hoverX },
-              }}
-              transition={{ type: "spring", stiffness: 80, damping: 20 }}
+        <ul className="flex flex-wrap items-center justify-between gap-x-4 gap-y-12">
+          {cards.map((card, i) => (
+            <motion.li
+              key={i}
+              className="relative"
+              initial="idle"
+              whileHover="hover"
+              onMouseEnter={onHoverStart}
+              onMouseLeave={onHoverEnd}
             >
-              <span className="text-3xl">{card.emoji}</span>
-            </motion.div>
-          </motion.li>
-        ))}
-      </ul>
+              <motion.div
+                className="relative size-[min(250px,22vw)] overflow-hidden rounded-3xl bg-black/5"
+                variants={{
+                  idle: { rotate: card.rotation },
+                  hover: { rotate: -card.rotation },
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                {card.src ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={card.src}
+                    alt={card.alt}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-neutral-200" />
+                )}
+              </motion.div>
+
+              <motion.div
+                className={`absolute flex size-14 items-center justify-center rounded-full border border-black/5 bg-white shadow-sm ${card.emojiClass}`}
+                variants={{
+                  idle: { x: 0 },
+                  hover: { x: card.hoverX },
+                }}
+                transition={{ type: "spring", stiffness: 80, damping: 20 }}
+              >
+                <span className="text-3xl">{card.emoji}</span>
+              </motion.div>
+            </motion.li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
