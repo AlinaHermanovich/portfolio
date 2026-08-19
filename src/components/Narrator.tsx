@@ -11,9 +11,8 @@ const NAME = "Привет, я Алина";
 const HERO_REST =
   "— дизайнер и маркетолог для экспертов и предпринимателей.";
 
-// continuation per case: "and this is how I …"
-const caseRest = (title: string) =>
-  `and this is how ${title.replace(/^How\s+/i, "")}`;
+// при скролле кейсов показываем название клиента
+const caseRest = (_title: string, client: string) => client;
 
 // scroll weights: tiny hero, then one per case (no in-pin about beat)
 const WEIGHTS = [0.15, ...projects.map(() => 1)];
@@ -32,7 +31,7 @@ export default function Narrator() {
   const [state, setState] = useState(0);
 
   const rests = useMemo(
-    () => [HERO_REST, ...projects.map((p) => caseRest(p.title))],
+    () => [HERO_REST, ...projects.map((p) => caseRest(p.title, p.client))],
     []
   );
 
