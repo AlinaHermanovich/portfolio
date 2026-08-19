@@ -74,18 +74,6 @@ export const projects: Project[] = [
       "Визуал и структура для университета — уместно для госструктуры и партнёров, понятно студентам и преподавателям.",
     tags: ["Сайт", "Прототип", "Презентация"],
     cta: "Смотреть кейс",
-    video: "/19457509-uhd_3840_2160_30fps.mp4",
-  },
-  {
-    slug: "bloom-skincare",
-    client: "Bloom Skincare",
-    title: "How I made a storefront feel touchable and lifted sales 38%",
-    category: "E-commerce",
-    year: "2025",
-    blurb:
-      "3D bottles, buttery transitions, and a tactile buy flow.",
-    tags: ["Shopify", "3D", "Interaction"],
-    cta: "Get a feel",
     video: "/uhd_30fps.mp4",
   },
 ];
@@ -346,3 +334,18 @@ export const caseDetails: Record<string, CaseDetail> = {
     ],
   },
 };
+/** Скрытые кейсы — не показываются на сайте, можно вернуть позже */
+export const projectsDraft: Project[] = [
+  {
+    slug: "bloom-skincare",
+    client: "Bloom Skincare",
+    title: "How I made a storefront feel touchable and lifted sales 38%",
+    category: "E-commerce",
+    year: "2025",
+    blurb:
+      "3D bottles, buttery transitions, and a tactile buy flow.",
+    tags: ["Shopify", "3D", "Interaction"],
+    cta: "Get a feel",
+    video: "/uhd_30fps.mp4",
+  },
+];
