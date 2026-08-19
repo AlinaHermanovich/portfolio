@@ -17,7 +17,7 @@ const cards: HugCard[] = [
     src: "/hug/photo-1.png",
     alt: "Photo 1",
     rotation: 4.6,
-    emoji: "👩‍💻",
+    emoji: "🎤",
     emojiClass: "top-0 -translate-y-1/2 -right-4",
     hoverX: -226,
   },
