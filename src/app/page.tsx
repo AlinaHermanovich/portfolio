@@ -16,7 +16,6 @@ export default function Home() {
       <main>
         <Narrator />
         <AboutSection />
-        <Approach />
         <Hug />
       </main>
 
