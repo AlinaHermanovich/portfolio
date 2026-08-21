@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import {
   aboutIntro,
-  aboutLead,
   aboutPoints,
   aboutServices,
   stats,
@@ -57,13 +56,6 @@ export default function AboutSection() {
           <span className="text-fg-dim">цифры и суть.</span>
         </motion.h2>
 
-        <motion.p
-          {...reveal}
-          className="mt-8 max-w-2xl text-lg text-fg-dim sm:text-xl"
-        >
-          {aboutLead}
-        </motion.p>
-
         <div
           ref={bandRef}
           className="mt-14 grid grid-cols-2 gap-y-10 py-4 sm:grid-cols-4 sm:gap-y-0"
@@ -90,16 +82,21 @@ export default function AboutSection() {
         </div>
 
         <div className="mt-16 grid gap-x-12 gap-y-12 lg:grid-cols-12">
-          <motion.p
-            {...reveal}
-            className="max-w-md text-fg-dim lg:col-span-5"
-          >
-            {aboutIntro}
-          </motion.p>
+          <motion.div {...reveal} className="lg:col-span-5">
+            <p className="max-w-md text-fg-dim">{aboutIntro}</p>
+            <a
+              href="https://t.me/zovite_alinu"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor
+              className="eyebrow mt-9 inline-flex items-center rounded-full bg-accent px-6 py-3.5 text-accent-ink transition-colors hover:bg-fg-dim"
+            >
+              Написать в Telegram
+            </a>
+          </motion.div>
 
           <motion.div {...reveal} className="lg:col-span-7">
-            <p className="eyebrow text-fg-faint">Что закрываю</p>
-            <ul className="mt-4 space-y-3">
+            <ul className="space-y-3">
               {aboutServices.map((item) => (
                 <li key={item} className="border-b border-line pb-3 text-fg">
                   {item}
@@ -112,9 +109,7 @@ export default function AboutSection() {
         <div className="mt-20 grid gap-x-12 gap-y-12 sm:grid-cols-2">
           {aboutPoints.map((p) => (
             <motion.div key={p.title} {...reveal}>
-              <h3 className="display t-h2 text-[1.35rem] sm:text-[1.5rem]">
-                {p.title}
-              </h3>
+              <h3 className="display text-xl sm:text-2xl">{p.title}</h3>
               <p className="mt-4 max-w-md text-fg-dim">{p.body}</p>
             </motion.div>
           ))}
