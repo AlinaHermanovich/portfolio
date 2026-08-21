@@ -48,7 +48,7 @@ export default function AboutSection() {
       <div className="shell">
           <motion.h2 {...reveal} className="display t-h2 max-w-3xl">
           <span className="text-fg">Коротко обо{"\u00A0"}мне,</span>
-          <span className="text-fg-dim ml-1.5">цифры и{"\u00A0"}суть.</span>
+          <span className="text-fg-dim ml-2">цифры и{"\u00A0"}суть.</span>
         </motion.h2>
 
         <div
