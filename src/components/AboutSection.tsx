@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { experience, site, stats } from "@/lib/content";
+import {
+  aboutIntro,
+  aboutLead,
+  aboutPoints,
+  aboutServices,
+  stats,
+} from "@/lib/content";
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -47,11 +53,17 @@ export default function AboutSection() {
     <section id="about" className="relative py-24 sm:py-36">
       <div className="shell">
         <motion.h2 {...reveal} className="display t-h2 max-w-3xl">
-          <span className="text-fg">The short version,</span>{" "}
-          <span className="text-fg-dim">numbers and all.</span>
+          <span className="text-fg">Коротко обо мне,</span>{" "}
+          <span className="text-fg-dim">цифры и суть.</span>
         </motion.h2>
 
-        {/* numeral achievements — full-width band, count-up, hairline dividers */}
+        <motion.p
+          {...reveal}
+          className="mt-8 max-w-2xl text-lg text-fg-dim sm:text-xl"
+        >
+          {aboutLead}
+        </motion.p>
+
         <div
           ref={bandRef}
           className="mt-14 grid grid-cols-2 gap-y-10 py-4 sm:grid-cols-4 sm:gap-y-0"
@@ -62,7 +74,11 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className={i % 4 !== 0 ? "sm:border-l sm:border-line sm:pl-8" : ""}
             >
               <div className="display t-h1">
@@ -73,55 +89,35 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* short CV */}
         <div className="mt-16 grid gap-x-12 gap-y-12 lg:grid-cols-12">
-          <motion.div {...reveal} className="lg:col-span-5">
-            <p className="max-w-md text-fg-dim">
-              Eight years turning flat pages into motion-led experiences, for
-              seed-stage startups and names you already know. Independent since
-              2022, working from {site.location} with teams worldwide.
-            </p>
+          <motion.p
+            {...reveal}
+            className="max-w-md text-fg-dim lg:col-span-5"
+          >
+            {aboutIntro}
+          </motion.p>
 
-            <a
-              href={site.cvUrl}
-              download
-              data-cursor
-              className="eyebrow mt-9 inline-flex items-center rounded-full bg-accent px-6 py-3.5 text-accent-ink transition-colors hover:bg-fg-dim"
-            >
-              Download full CV
-            </a>
-          </motion.div>
-
-          <div className="lg:col-span-7">
-            <div className="border-t border-line">
-              {experience.map((e) => (
-                <div
-                  key={e.period}
-                  className="flex items-baseline justify-between gap-6 border-b border-line py-4"
-                >
-                  <span className="text-fg">
-                    {e.title}
-                    {e.company && (
-                      <>
-                        <span className="text-fg-faint"> @ </span>
-                        <a
-                          href={e.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="underline decoration-fg-faint underline-offset-2 transition-colors hover:decoration-fg"
-                        >
-                          {e.company}
-                        </a>
-                      </>
-                    )}
-                  </span>
-                  <span className="eyebrow shrink-0 text-fg-faint">
-                    {e.period}
-                  </span>
-                </div>
+          <motion.div {...reveal} className="lg:col-span-7">
+            <p className="eyebrow text-fg-faint">Что закрываю</p>
+            <ul className="mt-4 space-y-3">
+              {aboutServices.map((item) => (
+                <li key={item} className="border-b border-line pb-3 text-fg">
+                  {item}
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </motion.div>
+        </div>
+
+        <div className="mt-20 grid gap-x-12 gap-y-12 sm:grid-cols-2">
+          {aboutPoints.map((p) => (
+            <motion.div key={p.title} {...reveal}>
+              <h3 className="display t-h2 text-[1.35rem] sm:text-[1.5rem]">
+                {p.title}
+              </h3>
+              <p className="mt-4 max-w-md text-fg-dim">{p.body}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
