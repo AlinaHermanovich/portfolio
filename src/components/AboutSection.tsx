@@ -51,9 +51,9 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative py-24 sm:py-36">
       <div className="shell">
-        <motion.h2 {...reveal} className="display t-h2 max-w-3xl">
-          <span className="text-fg">Коротко обо\u00A0мне,</span>{" "}
-          <span className="text-fg-dim">цифры и\u00A0суть.</span>
+          <motion.h2 {...reveal} className="display t-h2 max-w-3xl">
+          <span className="text-fg">Коротко обо{"\u00A0"}мне,</span>{" "}
+          <span className="text-fg-dim">цифры и{"\u00A0"}суть.</span>
         </motion.h2>
 
         <div
