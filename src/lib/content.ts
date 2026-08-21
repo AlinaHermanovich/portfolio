@@ -111,10 +111,10 @@ export const capabilities = [
 ];
 
 export const stats = [
-  { value: "9+", label: "лет в дизайне" },
-  { value: "5", label: "лет в маркетинге" },
+  { value: "9+", label: "лет в\u00A0дизайне" },
+  { value: "5", label: "лет в\u00A0маркетинге" },
   { value: "12+", label: "доп. обучений" },
-  { value: "3", label: "проекта в НКО" },
+  { value: "3", label: "проекта в\u00A0НКО" },
 ];
 
 export const aboutLead =
