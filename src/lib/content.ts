@@ -111,32 +111,41 @@ export const capabilities = [
 ];
 
 export const stats = [
-  { value: "8+", label: "Years designing" },
-  { value: "60+", label: "Projects shipped" },
-  { value: "20+", label: "Studios & brands" },
-  { value: "12", label: "Awards & features" },
+  { value: "9+", label: "лет в дизайне" },
+  { value: "5", label: "лет в маркетинге" },
+  { value: "12+", label: "доп. обучений" },
+  { value: "3", label: "проекта в НКО" },
 ];
 
-export type Experience = {
-  period: string;
-  title: string;
-  company?: string;
-  url?: string;
-};
+export const aboutLead =
+  "Перевожу сложные смыслы на понятный визуальный язык.";
 
-export const experience: Experience[] = [
-  { period: "2022 – Now", title: "Independent Designer & Front-end" },
+export const aboutIntro =
+  "Беру голосовые, заметки и черновики и превращаю в рабочие инструменты: презентации, сайты, материалы и креативы.";
+
+export const aboutServices = [
+  "Сайты и лендинги",
+  "Презентации и КП",
+  "Материалы для обучения и запусков",
+  "Соцсети, баннеры, полиграфия",
+];
+
+export const aboutPoints = [
   {
-    period: "2019 – 2022",
-    title: "Senior Designer",
-    company: "Field Studio",
-    url: "https://field.studio",
+    title: "Сырой материал — нормально",
+    body: "Часто приходят не с брифом, а с голосовыми, заметками и «вот тут ещё файл». Это ок. Из этого как раз и собираю рабочую структуру и визуал.",
   },
   {
-    period: "2016 – 2019",
-    title: "Product Designer",
-    company: "Northbound",
-    url: "https://northbound.co",
+    title: "Не только «красиво»",
+    body: "Красивая картинка, с которой непонятно выступать или продавать, мало кому нужна. Смотрю, кто ваша аудитория и что должно случиться после просмотра — и уже под это собираю подачу.",
+  },
+  {
+    title: "Понимаю, как устроены эксперты и школы",
+    body: "Сама из педагогики и маркетинга: знаю, что такое запуск, модуль, разные аудитории. Не нужно с нуля объяснять контекст.",
+  },
+  {
+    title: "Несколько задач — один контакт",
+    body: "Часто в одном проекте закрываю сразу несколько направлений. Если задача не моя — не буду тянуть на себя: скажу честно и подскажу, к кому лучше обратиться.",
   },
 ];
 
