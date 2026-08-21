@@ -7,7 +7,7 @@ import { aboutIntro, aboutServices, stats } from "@/lib/content";
 const reveal = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-10%" },
+  viewport: { once: true, amount: 0.45, margin: "0px 0px -12% 0px" },
   transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
 };
 
@@ -41,7 +41,11 @@ function Counter({ value, start }: { value: string; start: boolean }) {
 
 export default function AboutSection() {
   const bandRef = useRef<HTMLDivElement>(null);
-  const bandInView = useInView(bandRef, { once: true, margin: "-15%" });
+    const bandInView = useInView(bandRef, {
+    once: true,
+    amount: 0.45,
+    margin: "0px 0px -12% 0px",
+  });
 
   return (
     <section id="about" className="relative py-24 sm:py-36">
@@ -60,7 +64,7 @@ export default function AboutSection() {
               key={s.label}
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, amount: 0.45, margin: "0px 0px -12% 0px" }}
               transition={{
                 duration: 0.6,
                 delay: i * 0.1,
