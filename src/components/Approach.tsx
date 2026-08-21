@@ -12,7 +12,7 @@ export default function Approach() {
             key={p.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={{ once: true, amount: 0.4, margin: "0px 0px -12% 0px" }}
             transition={{
               duration: 0.7,
               delay: (i % 2) * 0.1,
