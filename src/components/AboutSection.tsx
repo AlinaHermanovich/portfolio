@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import {
   aboutIntro,
-  aboutPoints,
   aboutServices,
   stats,
 } from "@/lib/content";
@@ -106,15 +105,4 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        <div className="mt-20 grid gap-x-12 gap-y-12 sm:grid-cols-2">
-          {aboutPoints.map((p) => (
-            <motion.div key={p.title} {...reveal}>
-              <h3 className="display text-xl sm:text-2xl">{p.title}</h3>
-              <p className="mt-4 max-w-md text-fg-dim">{p.body}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+        
