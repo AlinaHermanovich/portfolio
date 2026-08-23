@@ -114,7 +114,7 @@ export const stats = [
   { value: "9+", label: "лет в\u00A0дизайне" },
   { value: "5", label: "лет в\u00A0маркетинге" },
   { value: "12+", label: "доп. обучений" },
-  { value: "3", label: "проекта в\u00A0НКО" },
+  { value: "15+", label: "запусков с\u00A0нуля" },
 ];
 
 export const aboutLead =
