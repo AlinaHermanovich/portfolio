@@ -18,7 +18,7 @@ const pliant = localFont({
 export const metadata: Metadata = {
   title: `${site.name}, ${site.role}`,
   description:
-    "Portfolio of Nova Reyes, a web & interaction designer crafting immersive, motion-led digital experiences.",
+    "Портфолио Алины Германович: сайты, презентации и материалы для экспертов и предпринимателей.",
   icons: {
     icon: "/icon.png",
   },
