@@ -24,7 +24,7 @@ export default function Contact() {
           href={`mailto:${site.email}`}
           className="display t-h1 inline-block transition-opacity hover:opacity-70"
         >
-          Let&apos;s make something.
+          Давайте создадим что-то крутое.
         </a>
 
         <Reveal delay={0.2}>
