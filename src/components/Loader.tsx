@@ -34,7 +34,7 @@ export default function Loader() {
           exit={{ y: "-100%" }}
           transition={{ duration: 0.9, ease: [0.83, 0, 0.17, 1] }}
         >
-          <span className="eyebrow">Nova Reyes, Portfolio ’25</span>
+          <span className="eyebrow">Алина Германович</span>
           <span className="display t-h1 tabular-nums">
             {count}
             <span className="text-accent">%</span>
