@@ -50,6 +50,7 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-2">
+                    {/* CV — вернуть, когда будет одностраничное резюме
           <a
             href={site.cvUrl}
             download
@@ -58,6 +59,7 @@ export default function Nav() {
           >
             Скачать CV
           </a>
+          */}
 
           <Link
             href="/#contact"
