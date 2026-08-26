@@ -44,7 +44,7 @@ export default function Nav() {
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-fg" />
             </span>
             <span className="eyebrow !text-[0.65rem] text-fg-dim">
-              Available now
+              Открыта к проектам
             </span>
           </span>
         </div>
@@ -56,14 +56,14 @@ export default function Nav() {
             data-cursor
             className="eyebrow hidden items-center rounded-full border border-line-strong px-5 py-3 text-fg transition-colors hover:bg-bg-elev sm:inline-flex"
           >
-            Download CV
+            Скачать CV
           </a>
 
           <Link
             href="/#contact"
             className="eyebrow inline-flex items-center rounded-full bg-accent px-5 py-3 text-accent-ink transition-colors hover:bg-fg-dim"
           >
-            Let’s talk
+            Давайте поговорим
           </Link>
         </div>
       </div>
