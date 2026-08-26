@@ -9,7 +9,7 @@ export const site = {
   name: "Алина Германович",
   role: "UI/UX Designer",
   location: "Могилев, Беларусь",
-  email: "hello@novareyes.design",
+  email: "box.lid@mail.ru",
   cvUrl: "/nova-reyes-cv.pdf",
   socials: [
     { label: "Instagram", href: "https://instagram.com" },
