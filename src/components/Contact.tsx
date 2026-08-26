@@ -28,12 +28,20 @@ export default function Contact() {
         </a>
 
         <Reveal delay={0.2}>
-          <div className="mt-14 flex flex-col items-center gap-4">
+                    <div className="mt-14 flex flex-col items-center gap-4">
             <a
               href={`mailto:${site.email}`}
               className="text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
             >
               {site.email}
+            </a>
+            <a
+              href="https://t.me/zovite_alinu"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+            >
+              Канал в Telegram
             </a>
           </div>
         </Reveal>
