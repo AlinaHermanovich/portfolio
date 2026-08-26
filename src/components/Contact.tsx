@@ -36,7 +36,7 @@ export default function Contact() {
               {site.email}
             </a>
             <a
-              href="https://t.me/zovite_designera"
+              href="@zovite_alinu"
               target="_blank"
               rel="noreferrer"
               className="text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
