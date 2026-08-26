@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="shell flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center">
           <span className="eyebrow text-white/50">
-            {new Date().getFullYear()} {site.name}, built with intent
+            {new Date().getFullYear()} {site.name}. Зовите дизайнера
           </span>
         </div>
 
