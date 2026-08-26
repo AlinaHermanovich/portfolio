@@ -39,22 +39,21 @@ export default function CaseFrame({
         </span>
       )}
 
-      {/* browser window — preview image inside */}
-      <div className="absolute inset-x-8 top-12 z-20 -bottom-8 overflow-hidden rounded-t-[8px] bg-bg shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
-        <div className="flex h-9 shrink-0 items-center gap-2 border-b border-line px-4">
-          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
-        </div>
-        {preview && (
-          // eslint-disable-next-line @next/next/no-img-element
+      {preview && (
+        <div className="absolute inset-x-8 top-12 z-20 -bottom-8 overflow-hidden rounded-t-[8px] bg-bg shadow-[0_10px_40px_rgba(0,0,0,0.1)]">
+          <div className="flex h-9 shrink-0 items-center gap-2 border-b border-line px-4">
+            <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+            <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+            <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={preview}
             alt={client ? `${client} preview` : "Case preview"}
             className="h-[calc(100%-2.25rem)] w-full object-cover object-top"
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
