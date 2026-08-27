@@ -54,7 +54,7 @@ export const projects: Project[] = [
     tags: ["Сайт", "Презентации", "Упаковка"],
     cta: "Смотреть кейс",
     video: "/smartbook.mp4",
-    preview: "/case-1-preview.png",
+    // preview: "/case-1-preview.png",
   },
     {
     slug: "ipk-bru",
