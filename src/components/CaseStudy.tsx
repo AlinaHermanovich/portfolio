@@ -108,9 +108,10 @@ export default function CaseStudy({
 
         <div className="mt-10 px-[clamp(1.25rem,4vw,3.5rem)]">
           <div className="h-[40vh] w-full">
-            <CaseFrame
+              <CaseFrame
               video={project.video}
               preview={project.preview}
+              previewMobile={project.previewMobile}
               color
             />
           </div>
