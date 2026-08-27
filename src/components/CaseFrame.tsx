@@ -36,7 +36,7 @@ export default function CaseFrame({
         </span>
       )}
       {year && (
-        <span className="eyebrow absolute right-6 top-4 z-30 text-bg mix-blend-difference">
+        <span className="eyebrow absolute right-6 top-4 z-30 hidden text-bg mix-blend-difference sm:block">
           {year}
         </span>
       )}
