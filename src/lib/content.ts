@@ -84,6 +84,7 @@ export const projects: Project[] = [
     tags: ["Сайт", "Прототип", "Презентация"],
     cta: "Смотреть кейс",
     video: "/uhd_30fps.mp4",
+    preview: "/case-3-preview.png",
   },
 ];
 
