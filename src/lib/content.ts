@@ -38,6 +38,7 @@ export type Project = {
   cta: string;
   video?: string;
   preview?: string;
+  previewMobile?: string;
 };
 
 export const projects: Project[] = [
@@ -55,6 +56,7 @@ export const projects: Project[] = [
     cta: "Смотреть кейс",
     video: "/9150545-hd_1920_1080_24fps.mp4",
     preview: "/case-1-preview.png",
+    previewMobile: "/case-1-preview-mobile.png",
   },
     {
     slug: "ipk-bru",
@@ -85,6 +87,7 @@ export const projects: Project[] = [
     cta: "Смотреть кейс",
     video: "/uhd_30fps.mp4",
     preview: "/case-3-preview.png",
+    previewMobile: "/case-3-preview-mobile.png",
   },
 ];
 
