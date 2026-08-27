@@ -69,6 +69,7 @@ export const projects: Project[] = [
     tags: ["Соцсети", "Фирменный стиль", "Таргет"],
     cta: "Смотреть кейс",
     video: "/19800595-hd_1920_1080_25fps.mp4",
+    preview: "/case-2-preview.png",
   },
     {
     slug: "confucius-bntu",
