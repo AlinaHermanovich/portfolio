@@ -8,6 +8,7 @@ import CaseVisual from "./CaseVisual";
 export default function CaseFrame({
   video,
   preview,
+  previewMobile,
   variant = 0,
   client,
   year,
@@ -15,6 +16,7 @@ export default function CaseFrame({
 }: {
   video?: string;
   preview?: string;
+  previewMobile?: string;
   variant?: number;
   client?: string;
   year?: string;
@@ -46,12 +48,17 @@ export default function CaseFrame({
           <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
         </div>
         {preview && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={preview}
-            alt={client ? `${client} preview` : "Case preview"}
-            className="h-[calc(100%-2.25rem)] w-full object-cover object-top"
-          />
+          <picture>
+            {previewMobile && (
+              <source media="(max-width: 767px)" srcSet={previewMobile} />
+            )}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={preview}
+              alt={client ? `${client} preview` : "Case preview"}
+              className="h-[calc(100%-2.25rem)] w-full object-cover object-top"
+            />
+          </picture>
         )}
       </div>
     </div>
