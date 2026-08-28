@@ -59,21 +59,23 @@ export default function SlideCarousel({
           ))}
         </div>
 
-        <button
+          <button
           type="button"
           onClick={prev}
-          className="eyebrow absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F4F4F4] bg-bg px-3 py-2 text-fg"
+          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg"
           aria-label="Назад"
         >
-          ←
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/arrow-prev.svg" alt="" className="h-4 w-4" />
         </button>
         <button
           type="button"
           onClick={next}
-          className="eyebrow absolute right-0 top-1/2 z-10 translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F4F4F4] bg-bg px-3 py-2 text-fg"
+          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg"
           aria-label="Вперёд"
         >
-          →
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/arrow-next.svg" alt="" className="h-4 w-4" />
         </button>
       </div>
       {caption && (
