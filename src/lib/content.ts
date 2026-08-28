@@ -236,7 +236,6 @@ export const caseDetails: Record<string, CaseDetail> = {
         ],
       },
       {
-       {
         id: "workbook",
         navLabel: "Тетрадь",
         title: "Рабочая тетрадь",
