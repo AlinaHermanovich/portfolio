@@ -134,7 +134,18 @@ export default function CaseStudy({
         {detail.sections.map((s) => (
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
-              {s.carousel && s.images && s.images.length > 0 ? (
+                          {s.carousels && s.carousels.length > 0 ? (
+              <div className="mt-10 flex flex-col gap-10">
+                {s.carousels.map((g) => (
+                  <SlideCarousel
+                    key={g.caption ?? g.images[0]}
+                    images={g.images}
+                    caption={g.caption}
+                    perView={1}
+                  />
+                ))}
+              </div>
+            ) : s.carousel && s.images && s.images.length > 0 ? (
               <SlideCarousel images={s.images} />
             ) : (
               s.captions &&
