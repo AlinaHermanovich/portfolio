@@ -166,6 +166,7 @@ export type CaseBlock = {
   title: string;
   body: string;
   captions?: string[];
+  images?: string[];
 };
 
 export type CaseDetail = {
@@ -186,7 +187,12 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Как было",
           "Как стало",
-          "Мобильная версия",
+          "Так выглядит на телефоне",
+        ],
+        images: [
+          "/smartbook-old.png",
+          "/smartbook-new.png",
+          "/smartbook-mobile.png",
         ],
       },
       {
