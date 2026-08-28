@@ -21,7 +21,7 @@ function Figure({
   return (
     <figure>
       <div
-      className={`w-full overflow-hidden rounded-[4px] border border-line bg-bg-elev ${ratio}`}
+      className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
       >
         {src && (
           // eslint-disable-next-line @next/next/no-img-element
