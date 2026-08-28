@@ -84,12 +84,10 @@ export default function SlideCarousel({
             </div>
           ))}
         </div>
-
-        <button
+           <button
           type="button"
           onClick={prev}
-          className="group absolute left-0 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center text-fg"
-          // className="group absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg text-fg"
+          className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-1/3 items-center justify-center text-fg"
           aria-label="Назад"
         >
           <Arrow dir="left" />
@@ -97,8 +95,7 @@ export default function SlideCarousel({
         <button
           type="button"
           onClick={next}
-          className="group absolute right-0 top-1/2 z-10 flex translate-x-1/2 -translate-y-1/2 items-center justify-center text-fg"
-          // className="group absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg text-fg"
+          className="group absolute inset-y-0 right-0 z-10 flex w-16 translate-x-1/3 items-center justify-center text-fg"
           aria-label="Вперёд"
         >
           <Arrow dir="right" />
