@@ -128,14 +128,18 @@ export default function CaseStudy({
                   s.captions.length > 1 ? "sm:grid-cols-2" : ""
                 }`}
               >
-                {s.captions.map((c) => (
+                  {s.captions.map((c, i) => (
                   <Figure
                     key={c}
                     caption={c}
                     ratio={
-                      s.captions!.length === 1
-                        ? "aspect-[16/9]"
-                        : "aspect-[4/3]"
+                      s.id === "site" && i < 2
+                        ? "h-[581px]"
+                        : s.id === "site" && i === 2
+                          ? "aspect-[9/16]"
+                          : s.captions!.length === 1
+                            ? "aspect-[16/9]"
+                            : "aspect-[4/3]"
                     }
                   />
                 ))}
