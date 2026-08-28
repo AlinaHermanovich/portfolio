@@ -135,7 +135,8 @@ export default function CaseStudy({
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
               {s.carousel && s.images && s.images.length > 0 ? (
-              <SlideCarousel images={s.images} caption={s.captions?.[0]} />
+               <SlideCarousel images={s.images} />
+              {/* caption={s.captions?.[0]} */}
             ) : (
               s.captions &&
               s.captions.length > 0 && (
