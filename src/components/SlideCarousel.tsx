@@ -39,7 +39,7 @@ export default function SlideCarousel({
           {visible.map((src, i) => (
             <div
               key={`${src}-${i}`}
-              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev"
+              className="aspect-video overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev"
               onTouchStart={(e) => setTouch(e.touches[0].clientX)}
               onTouchEnd={(e) => {
                 if (touch === null) return;
