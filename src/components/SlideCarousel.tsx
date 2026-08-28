@@ -87,7 +87,7 @@ export default function SlideCarousel({
            <button
           type="button"
           onClick={prev}
-          className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-2/3 items-center justify-center text-fg"
+          className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-1/2 items-center justify-center text-fg"
           aria-label="Назад"
         >
           <Arrow dir="left" />
@@ -95,7 +95,7 @@ export default function SlideCarousel({
         <button
           type="button"
           onClick={next}
-          className="group absolute inset-y-0 right-0 z-10 flex w-16 translate-x-2/3 items-center justify-center text-fg"
+          className="group absolute inset-y-0 right-0 z-10 flex w-16 translate-x-1/2 items-center justify-center text-fg"
           aria-label="Вперёд"
         >
           <Arrow dir="right" />
