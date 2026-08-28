@@ -8,6 +8,7 @@ import CaseFrame from "./CaseFrame";
 import CaseSectionNav from "./CaseSectionNav";
 import Reveal from "./Reveal";
 import Footer from "./Footer";
+import SlideCarousel from "./SlideCarousel";
 
 function Figure({
   caption,
@@ -133,7 +134,11 @@ export default function CaseStudy({
         {detail.sections.map((s) => (
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
-            {s.captions && s.captions.length > 0 && (
+              {s.carousel && s.images && s.images.length > 0 ? (
+              <SlideCarousel images={s.images} caption={s.captions?.[0]} />
+            ) : (
+              s.captions &&
+              s.captions.length > 0 && (
               <div
                 className={`mt-10 grid gap-6 ${
                   s.captions.length > 1 ? "sm:grid-cols-2" : ""
@@ -154,6 +159,7 @@ export default function CaseStudy({
                   />
                 ))}
               </div>
+              )
             )}
           </Section>
         ))}
