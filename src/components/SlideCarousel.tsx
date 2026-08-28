@@ -2,6 +2,32 @@
 
 import { useEffect, useState } from "react";
 
+function Arrow({ dir }: { dir: "left" | "right" }) {
+  const d =
+    dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6";
+  return (
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill="none"
+      className={`shrink-0 transition-transform duration-300 ${
+        dir === "right"
+          ? "group-hover:translate-x-1.5"
+          : "group-hover:-translate-x-1.5"
+      }`}
+    >
+      <path
+        d={d}
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function SlideCarousel({
   images,
   caption,
@@ -59,23 +85,21 @@ export default function SlideCarousel({
           ))}
         </div>
 
-          <button
+        <button
           type="button"
           onClick={prev}
-          className="absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg"
+          className="group absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg text-fg"
           aria-label="Назад"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/arrow-prev.svg" alt="" className="h-4 w-4" />
+          <Arrow dir="left" />
         </button>
         <button
           type="button"
           onClick={next}
-          className="absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg"
+          className="group absolute right-0 top-1/2 z-10 flex h-10 w-10 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#F4F4F4] bg-bg text-fg"
           aria-label="Вперёд"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/arrow-next.svg" alt="" className="h-4 w-4" />
+          <Arrow dir="right" />
         </button>
       </div>
       {caption && (
