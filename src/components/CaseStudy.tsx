@@ -12,15 +12,26 @@ import Footer from "./Footer";
 function Figure({
   caption,
   ratio = "aspect-[16/9]",
+  src,
 }: {
   caption: string;
   ratio?: string;
+  src?: string;
 }) {
   return (
     <figure>
       <div
         className={`w-full overflow-hidden rounded-[4px] bg-bg-elev ${ratio}`}
-      />
+      >
+        {src && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={caption}
+            className="h-full w-full object-cover object-top"
+          />
+        )}
+      </div>
       <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
     </figure>
   );
@@ -108,7 +119,7 @@ export default function CaseStudy({
 
         <div className="mt-10 px-[clamp(1.25rem,4vw,3.5rem)]">
           <div className="h-[40vh] w-full">
-              <CaseFrame
+            <CaseFrame
               video={project.video}
               preview={project.preview}
               previewMobile={project.previewMobile}
@@ -128,10 +139,11 @@ export default function CaseStudy({
                   s.captions.length > 1 ? "sm:grid-cols-2" : ""
                 }`}
               >
-                  {s.captions.map((c, i) => (
+                {s.captions.map((c, i) => (
                   <Figure
                     key={c}
                     caption={c}
+                    src={s.images?.[i]}
                     ratio={
                       s.id === "site" && i < 2
                         ? "h-[581px]"
