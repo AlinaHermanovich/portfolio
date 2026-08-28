@@ -16,11 +16,20 @@ const pliant = localFont({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name}, ${site.role}`,
+  title: `${site.name} — ${site.role}`,
   description:
-    "Портфолио Алины Германович: сайты, презентации и материалы для экспертов и предпринимателей.",
+    "Дизайн для бизнеса и экспертов: сайты, презентации и материалы. Зовите дизайнера.",
   icons: {
     icon: "/icon.png",
+  },
+  openGraph: {
+    title: `${site.name} — ${site.role}`,
+    description:
+      "Дизайн для бизнеса и экспертов: сайты, презентации и материалы. Зовите дизайнера.",
+    url: "https://zovite-designera.vercel.app/",
+    siteName: "Зовите дизайнера",
+    locale: "ru_RU",
+    type: "website",
   },
 };
 
