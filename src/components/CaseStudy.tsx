@@ -145,8 +145,10 @@ export default function CaseStudy({
                   />
                 ))}
               </div>
-            ) : s.carousel && s.images && s.images.length > 0 ? (
-              <SlideCarousel images={s.images} />
+               ) : s.carousel && s.images && s.images.length > 0 ? (
+              <div className="mt-10">
+                <SlideCarousel images={s.images} />
+              </div>
             ) : (
               s.captions &&
               s.captions.length > 0 && (
