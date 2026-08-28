@@ -31,21 +31,27 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 export default function SlideCarousel({
   images,
   caption,
+  perView = 2,
 }: {
   images: string[];
   caption?: string;
+  perView?: 1 | 2;
 }) {
   const [index, setIndex] = useState(0);
   const [pair, setPair] = useState(false);
   const [touch, setTouch] = useState<number | null>(null);
 
-  useEffect(() => {
+    useEffect(() => {
+    if (perView === 1) {
+      setPair(false);
+      return;
+    }
     const mq = window.matchMedia("(min-width: 640px)");
     const sync = () => setPair(mq.matches);
     sync();
     mq.addEventListener("change", sync);
     return () => mq.removeEventListener("change", sync);
-  }, []);
+  }, [perView]);
 
   if (images.length === 0) return null;
 
