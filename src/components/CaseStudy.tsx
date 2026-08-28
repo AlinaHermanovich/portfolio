@@ -135,11 +135,9 @@ export default function CaseStudy({
                     ratio={
                       s.id === "site" && i < 2
                         ? "h-[581px]"
-                        : s.id === "site" && i === 2
-                          ? "aspect-[9/16]"
-                          : s.captions!.length === 1
-                            ? "aspect-[16/9]"
-                            : "aspect-[4/3]"
+                        : s.captions!.length === 1
+                          ? "aspect-[16/9]"
+                          : "aspect-[4/3]"
                     }
                   />
                 ))}
