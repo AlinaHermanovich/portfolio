@@ -7,7 +7,7 @@
 
 export const site = {
   name: "Алина Германович",
-  role: "UI/UX Designer",
+  role: "UI/UX Designer, маркетолог",
   location: "Могилев, Беларусь",
   email: "box.lid@mail.ru",
   cvUrl: "/nova-reyes-cv.pdf",
