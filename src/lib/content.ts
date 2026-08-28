@@ -168,6 +168,7 @@ export type CaseBlock = {
   captions?: string[];
   images?: string[];
   carousel?: boolean;
+  carousels?: { images: string[]; caption?: string }[];
 };
 
 export type CaseDetail = {
@@ -210,14 +211,28 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/smartbook-kp-4.png",
         ],
       },
-      {
+            {
         id: "decks",
         navLabel: "Презентации",
         title: "Презентации",
         body: "Разработала презентации для педагогов и родительских встреч. Для родителей — просто и спокойно, для педагогов — структурно и по делу. Один визуальный язык, разная плотность смысла.",
-        captions: [
-          "Презентация для родительских встреч",
-          "Материалы для педагогов",
+        carousels: [
+          {
+            caption: "Презентация для родительских встреч",
+            images: [
+              "/smartbook-parents-1.png",
+              "/smartbook-parents-2.png",
+              "/smartbook-parents-3.png",
+            ],
+          },
+          {
+            caption: "Материалы для педагогов",
+            images: [
+              "/smartbook-teachers-1.png",
+              "/smartbook-teachers-2.png",
+              "/smartbook-teachers-3.png",
+            ],
+          },
         ],
       },
       {
