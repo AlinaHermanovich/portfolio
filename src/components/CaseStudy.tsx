@@ -135,7 +135,7 @@ export default function CaseStudy({
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
                           {s.carousels && s.carousels.length > 0 ? (
-              <div className="mt-10 flex flex-col gap-10">
+              <div className="mt-10 flex flex-col gap-[44px]">
                 {s.carousels.map((g) => (
                   <SlideCarousel
                     key={g.caption ?? g.images[0]}
