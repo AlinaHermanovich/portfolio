@@ -65,7 +65,7 @@ export default function SlideCarousel({
     : [images[index]];
 
   return (
-    <figure className="mt-10">
+    <figure>
       <div className="relative">
         <div className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}>
           {visible.map((src, i) => (
