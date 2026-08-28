@@ -167,6 +167,7 @@ export type CaseBlock = {
   body: string;
   captions?: string[];
   images?: string[];
+  carousel?: boolean;
 };
 
 export type CaseDetail = {
@@ -195,14 +196,18 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/smartbook-mobile.png",
         ],
       },
-      {
+            {
         id: "proposal",
         navLabel: "КП",
         title: "Коммерческое предложение",
         body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
-        captions: [
-          "Структура и слайды КП",
-          "Акценты и визуальная иерархия",
+        captions: ["Коммерческое предложение"],
+        carousel: true,
+        images: [
+          "/smartbook-kp-1.png",
+          "/smartbook-kp-2.png",
+          "/smartbook-kp-3.png",
+          "/smartbook-kp-4.png",
         ],
       },
       {
