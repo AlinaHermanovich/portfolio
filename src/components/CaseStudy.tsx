@@ -136,43 +136,48 @@ export default function CaseStudy({
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
                           {s.carousels && s.carousels.length > 0 ? (
               <div className="mt-10 flex flex-col gap-[44px]">
+                            {s.carousels && s.carousels.length > 0 ? (
+              <div className="mt-10 flex flex-col gap-[44px]">
                 {s.carousels.map((g) => (
-                <div className="mt-10">
                   <SlideCarousel
+                    key={g.caption ?? g.images[0]}
+                    images={g.images}
+                    caption={g.caption}
+                    perView={1}
+                  />
+                ))}
+              </div>
+            ) : s.carousel && s.images && s.images.length > 0 ? (
+              <div className="mt-10">
+                <SlideCarousel
                   images={s.images ?? []}
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
                 />
               </div>
-                ))}
-              </div>
-               ) : s.carousel && s.images && s.images.length > 0 ? (
-              <div className="mt-10">
-                <SlideCarousel images={s.images} />
-              </div>
             ) : (
               s.captions &&
               s.captions.length > 0 && (
-              <div
-                className={`mt-10 grid gap-6 ${
-                  s.captions.length > 1 ? "sm:grid-cols-2" : ""
-                }`}
-              >
-                {s.captions.map((c, i) => (
-                  <Figure
-                    key={c}
-                    caption={c}
-                    src={s.images?.[i]}
-                    ratio={
-                      s.id === "site" && i < 2
-                        ? "h-[581px]"
-                        : s.captions!.length === 1
-                          ? "aspect-[16/9]"
-                          : "aspect-[4/3]"
-                    }
-                  />
-                ))}
-              </div>
+                <div
+                  className={`mt-10 grid gap-6 ${
+                    s.captions.length > 1 ? "sm:grid-cols-2" : ""
+                  }`}
+                >
+                  {s.captions.map((c, i) => (
+                    <Figure
+                      key={c}
+                      caption={c}
+                      src={s.images?.[i]}
+                      ratio={
+                        s.id === "site" && i < 2
+                          ? "h-[581px]"
+                          : s.captions!.length === 1
+                            ? "aspect-[16/9]"
+                            : "aspect-[4/3]"
+                      }
+                    />
+                  ))}
+                </div>
               )
             )}
           </Section>
