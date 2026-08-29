@@ -333,14 +333,20 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/ipk-reels-2.png",
         ],
       },
-      {
+       {
         id: "stories",
         navLabel: "Сторис",
         title: "Сторис «Актуальные»",
         body: "Подготовила оформление сторис для ключевых рубрик: один стиль, без лишнего, с упором на читаемость и структуру. Актуальные выглядят аккуратно и узнаваемо.",
+        carousel: true,
+        carouselPerView: 1,
         captions: [
           "Оформление сторис по рубрикам",
           "Примеры в ленте",
+        ],
+        images: [
+          "/ipk-stories-1.png",
+          "/ipk-stories-2.png",
         ],
       },
       {
