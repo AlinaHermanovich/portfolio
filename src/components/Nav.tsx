@@ -61,12 +61,12 @@ export default function Nav() {
           </a>
           */}
 
-          <Link
-            href="/#contact"
-            className="eyebrow inline-flex items-center rounded-full bg-accent px-5 py-3 text-accent-ink transition-colors hover:bg-fg-dim"
-          >
-            Давайте поговорим
-          </Link>
+            <Link
+          href="/#contact"
+          className="eyebrow inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-accent px-3 py-2 text-[11px] tracking-[0.12em] text-accent-ink transition-colors hover:bg-fg-dim sm:px-5 sm:py-3 sm:text-[inherit]"
+        >
+          Давайте поговорим
+        </Link>
         </div>
       </div>
     </motion.header>
