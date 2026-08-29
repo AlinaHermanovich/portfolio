@@ -103,12 +103,13 @@ export default function CaseStudy({
   prev: NavLink;
   next: NavLink;
 }) {
-  const navSections = detail.sections.map((s) => ({
-      const shortName = (client: string) =>
-    client.includes("ИПК") ? "ИПК БРУ" : client;
+    const navSections = detail.sections.map((s) => ({
     id: s.id,
     navLabel: s.navLabel,
   }));
+
+  const shortName = (client: string) =>
+    client.includes("ИПК") ? "ИПК БРУ" : client;
 
   return (
     <>
