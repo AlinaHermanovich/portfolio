@@ -173,7 +173,7 @@ export type CaseBlock = {
 
 export type CaseDetail = {
   summary: string;
-  sections: CaseBlock[];
+  carouselPerView?: 1 | 2;
 };
 
 export const caseDetails: Record<string, CaseDetail> = {
