@@ -31,17 +31,19 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 export default function SlideCarousel({
   images,
   caption,
+  captions,
   perView = 2,
 }: {
   images: string[];
   caption?: string;
+  captions?: string[];
   perView?: 1 | 2;
 }) {
   const [index, setIndex] = useState(0);
   const [pair, setPair] = useState(false);
   const [touch, setTouch] = useState<number | null>(null);
 
-    useEffect(() => {
+  useEffect(() => {
     if (perView === 1) {
       setPair(false);
       return;
@@ -64,6 +66,8 @@ export default function SlideCarousel({
     ? [images[index], images[(index + 1) % images.length]]
     : [images[index]];
 
+  const label = captions?.[index] ?? caption;
+
   return (
     <figure>
       <div className="relative">
@@ -84,13 +88,13 @@ export default function SlideCarousel({
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={src}
-                alt={caption ?? "Слайд"}
+                alt={label ?? "Слайд"}
                 className="h-full w-full object-cover object-top"
               />
             </div>
           ))}
         </div>
-           <button
+        <button
           type="button"
           onClick={prev}
           className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-1/2 items-center justify-center text-fg"
@@ -107,8 +111,8 @@ export default function SlideCarousel({
           <Arrow dir="right" />
         </button>
       </div>
-      {caption && (
-        <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
+      {label && (
+        <figcaption className="eyebrow mt-3 text-fg-faint">{label}</figcaption>
       )}
     </figure>
   );
