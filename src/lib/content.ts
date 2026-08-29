@@ -168,12 +168,13 @@ export type CaseBlock = {
   captions?: string[];
   images?: string[];
   carousel?: boolean;
+  carouselPerView?: 1 | 2;
   carousels?: { images: string[]; caption?: string }[];
 };
 
 export type CaseDetail = {
   summary: string;
-  carouselPerView?: 1 | 2;
+  sections: CaseBlock[];
 };
 
 export const caseDetails: Record<string, CaseDetail> = {
