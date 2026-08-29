@@ -138,8 +138,8 @@ export default function CaseStudy({
               <div className="mt-10 flex flex-col gap-[44px]">
                 {s.carousels.map((g) => (
                 <div className="mt-10">
-                <SlideCarousel
-                  images={s.images}
+                  <SlideCarousel
+                  images={s.images ?? []}
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
                 />
