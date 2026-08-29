@@ -104,6 +104,8 @@ export default function CaseStudy({
   next: NavLink;
 }) {
   const navSections = detail.sections.map((s) => ({
+      const shortName = (client: string) =>
+    client.includes("ИПК") ? "ИПК БРУ" : client;
     id: s.id,
     navLabel: s.navLabel,
   }));
@@ -193,7 +195,7 @@ export default function CaseStudy({
               <Arrow dir="left" />
               <span>
                 <span className="eyebrow block text-fg-faint">Назад</span>
-                <span className="display t-h2">{prev.client}</span>
+                 <span className="display t-h2">{shortName(prev.client)}</span>
               </span>
             </Link>
             <Link
@@ -202,7 +204,7 @@ export default function CaseStudy({
             >
               <span>
                 <span className="eyebrow block text-fg-faint">Далее</span>
-                <span className="display t-h2">{next.client}</span>
+                <span className="display t-h2">{shortName(next.client)}</span>
               </span>
               <Arrow dir="right" />
             </Link>
