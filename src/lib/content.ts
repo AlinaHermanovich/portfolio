@@ -349,7 +349,7 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/ipk-stories-2.png",
         ],
       },
-      {
+            {
         id: "ads",
         navLabel: "Таргет",
         title: "Баннеры для таргета",
@@ -357,6 +357,14 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Креативы для таргета",
           "Вариации под разные УТП",
+          "",
+          "",
+        ],
+        images: [
+          "/ipk-ads-1.png",
+          "/ipk-ads-2.png",
+          "/ipk-ads-3.png",
+          "/ipk-ads-4.png",
         ],
       },
     ],
