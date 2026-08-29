@@ -394,12 +394,13 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/bntu-concept-4.png",
         ],
       },
-      {
+            {
         id: "structure",
         navLabel: "Структура",
         title: "Структура сайта",
         body: "Собрала схему сайта под задачи вуза: отдельные сценарии для студентов, преподавателей и партнёров. Структура держит смысл — пользователь быстро находит своё, без лишних уровней меню.",
-        captions: ["Карта сайта и основные разделы"],
+        captions: ["Карта сайта"],
+        images: ["/bntu-structure.png"],
       },
       {
         id: "prototype",
