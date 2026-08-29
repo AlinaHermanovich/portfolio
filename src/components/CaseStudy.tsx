@@ -22,7 +22,7 @@ function Figure({
   return (
     <figure>
       <div
-      className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
+        className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
       >
         {src && (
           // eslint-disable-next-line @next/next/no-img-element
@@ -33,7 +33,9 @@ function Figure({
           />
         )}
       </div>
-      <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
+      {caption ? (
+        <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
+      ) : null}
     </figure>
   );
 }
@@ -63,7 +65,8 @@ function Section({
 }
 
 function Arrow({ dir }: { dir: "left" | "right" }) {
-  const d = dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6";
+  const d =
+    dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6";
   return (
     <svg
       width="30"
@@ -134,9 +137,7 @@ export default function CaseStudy({
         {detail.sections.map((s) => (
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">{s.body}</p>
-                          {s.carousels && s.carousels.length > 0 ? (
-              <div className="mt-10 flex flex-col gap-[44px]">
-                            {s.carousels && s.carousels.length > 0 ? (
+            {s.carousels && s.carousels.length > 0 ? (
               <div className="mt-10 flex flex-col gap-[44px]">
                 {s.carousels.map((g) => (
                   <SlideCarousel
@@ -165,7 +166,7 @@ export default function CaseStudy({
                 >
                   {s.captions.map((c, i) => (
                     <Figure
-                      key={c}
+                      key={c || `figure-${i}`}
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
