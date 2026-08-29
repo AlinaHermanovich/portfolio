@@ -402,12 +402,13 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: ["Карта сайта"],
         images: ["/bntu-structure.png"],
       },
-      {
+        {
         id: "prototype",
         navLabel: "Прототип",
         title: "Прототип",
         body: "Сделала кликабельный прототип для согласования логики до финальной отрисовки. На этом этапе проверили переходы, приоритеты блоков и наполнение ключевых страниц.",
         captions: ["Прототип основных экранов"],
+        images: ["/bntu-prototype.png"],
       },
       {
         id: "design",
