@@ -43,7 +43,7 @@ const cards: HugCard[] = [
     rotation: -3.2,
     emoji: "❤️",
     emojiClass: "bottom-0 translate-y-1/2 -right-4",
-    hoverX: -180,
+    hoverX: -226,
   },
 ];
 
@@ -138,7 +138,10 @@ export default function Hug() {
               animate={active === i ? "hover" : "idle"}
               whileHover="hover"
               onMouseEnter={onHoverStart}
-              onMouseLeave={onHoverEnd}
+              onMouseLeave={() => {
+                onHoverEnd();
+                setActive(null);
+              }}
               onClick={() => {
                 setActive(i);
                 taps.current += 1;
