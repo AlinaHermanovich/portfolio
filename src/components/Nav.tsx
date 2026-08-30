@@ -38,12 +38,12 @@ export default function Nav() {
             </span>
           </Link>
 
-          <span className="hidden items-center gap-1.5 sm:inline-flex">
-            <span className="relative flex h-1.5 w-1.5">
+             <span className="hidden items-center gap-1.5 sm:inline-flex">
+            <span className="relative top-[0.5px] flex h-1.5 w-1.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-fg opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-fg" />
             </span>
-            <span className="eyebrow !text-[0.65rem] text-fg-dim">
+            <span className="eyebrow !tracking-[0.12em] text-fg-dim">
               Открыта к проектам
             </span>
           </span>
