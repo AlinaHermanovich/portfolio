@@ -22,7 +22,7 @@ export default function Home() {
 
       {/* dark outro — Contact + Footer share one video background */}
       <div className="relative overflow-hidden">
-        <BgVideo src="/footer-2.mp4" />
+        <BgVideo src="/footer-5.mp4" />
         <div className="absolute inset-0 bg-black/65" />
         <div className="relative z-10">
           <Contact />
