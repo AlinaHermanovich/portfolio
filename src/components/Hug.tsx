@@ -70,7 +70,7 @@ export default function Hug() {
     timer.current = setInterval(() => {
       if (hoverStartedAt.current === null) return;
       const elapsed = Date.now() - hoverStartedAt.current;
-      if (accumulated.current + elapsed >= 1500) {
+      if (accumulated.current + elapsed >= 3500) {
         openSecret();
         if (timer.current) {
           clearInterval(timer.current);
