@@ -47,14 +47,22 @@ const cards: HugCard[] = [
   },
 ];
 
-const TELEGRAM_URL = "https://t.me/your_username";
+const TELEGRAM_URL = "https://t.me/zovite_alinu";
 
 export default function Hug() {
   const [showSecret, setShowSecret] = useState(false);
+  const [active, setActive] = useState<number | null>(null);
   const accumulated = useRef(0);
   const hoverStartedAt = useRef<number | null>(null);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const unlocked = useRef(false);
+  const taps = useRef(0);
+
+  const openSecret = useCallback(() => {
+    if (unlocked.current) return;
+    unlocked.current = true;
+    setShowSecret(true);
+  }, []);
 
   const onHoverStart = useCallback(() => {
     if (unlocked.current) return;
@@ -63,15 +71,14 @@ export default function Hug() {
       if (hoverStartedAt.current === null) return;
       const elapsed = Date.now() - hoverStartedAt.current;
       if (accumulated.current + elapsed >= 1500) {
-        setShowSecret(true);
-        unlocked.current = true;
+        openSecret();
         if (timer.current) {
           clearInterval(timer.current);
           timer.current = null;
         }
       }
     }, 50);
-  }, []);
+  }, [openSecret]);
 
   const onHoverEnd = useCallback(() => {
     if (hoverStartedAt.current !== null) {
@@ -90,7 +97,7 @@ export default function Hug() {
         <AnimatePresence>
           {showSecret && (
             <motion.div
-              className="absolute left-1/2 top-0 z-50 w-[min(100%,24rem)] -translate-x-1/2 -translate-y-[calc(100%+12px)] px-4"
+              className="fixed inset-x-4 top-[22%] z-50 mx-auto w-[min(100%,24rem)] md:absolute md:left-1/2 md:top-0 md:mx-0 md:-translate-x-1/2 md:-translate-y-[calc(100%+12px)]"
               initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: 16, filter: "blur(8px)" }}
@@ -122,15 +129,21 @@ export default function Hug() {
           )}
         </AnimatePresence>
 
-          <ul className="flex flex-col items-center gap-10 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-12">
+        <ul className="flex flex-col items-center gap-10 md:flex-row md:flex-wrap md:items-center md:justify-between md:gap-x-4 md:gap-y-12">
           {cards.map((card, i) => (
             <motion.li
               key={i}
-              className="relative"
+              className="relative cursor-pointer touch-manipulation"
               initial="idle"
+              animate={active === i ? "hover" : "idle"}
               whileHover="hover"
               onMouseEnter={onHoverStart}
               onMouseLeave={onHoverEnd}
+              onClick={() => {
+                setActive(i);
+                taps.current += 1;
+                if (taps.current >= 3) openSecret();
+              }}
             >
               <motion.div
                 className="relative size-[min(250px,72vw)] overflow-hidden rounded-3xl bg-black/5 md:size-[min(250px,22vw)]"
@@ -152,7 +165,7 @@ export default function Hug() {
                 )}
               </motion.div>
 
-                <motion.div
+              <motion.div
                 className={`absolute grid size-14 place-items-center rounded-full border border-black/5 bg-white shadow-sm ${card.emojiClass}`}
                 variants={{
                   idle: { x: 0 },
