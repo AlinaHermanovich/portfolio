@@ -21,7 +21,7 @@ export default function Contact() {
       window.prompt("Скопируйте почту", site.email);
     }
     setCopied(true);
-    window.setTimeout(() => setCopied(false), 2000);
+    window.setTimeout(() => setCopied(false), 5000);
   };
 
   return (
@@ -48,7 +48,7 @@ export default function Contact() {
               {site.email}
               <span
                 aria-hidden
-                className="ml-1 inline-block size-4 bg-current"
+                className="ml-2 inline-block size-4 bg-current"
                 style={{
                   WebkitMask: `url(${copied ? "/check-check.svg" : "/copy.svg"}) center / contain no-repeat`,
                   mask: `url(${copied ? "/check-check.svg" : "/copy.svg"}) center / contain no-repeat`,
