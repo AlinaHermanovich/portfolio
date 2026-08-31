@@ -20,7 +20,7 @@ export default function TypewriterText({
   text: string;
   className?: string;
 }) {
-  const [display, setDisplay] = useState("");
+    const [display, setDisplay] = useState("");
   const displayRef = useRef("");
   const target = useRef("");
 
@@ -45,7 +45,7 @@ export default function TypewriterText({
     let timer: ReturnType<typeof setTimeout>;
 
     const DEL = 6; // ms per deleted char
-    const TYPE = 14; // ms per typed char
+    const TYPE = 32; // ms per typed char
 
     const del = () => {
       if (len > prefix) {
