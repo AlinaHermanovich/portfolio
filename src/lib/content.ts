@@ -205,11 +205,15 @@ export const caseDetails: Record<string, CaseDetail> = {
         body: "Полностью переработала коммерческое предложение: текст, воронку и акценты. Презентация отвечает на вопросы родителя ещё до созвона и продаёт идею школы, а не просто перечисляет услуги.",
         captions: ["Коммерческое предложение"],
         carousel: true,
-        images: [
+         images: [
           "/smartbook-kp-1.png",
           "/smartbook-kp-2.png",
           "/smartbook-kp-3.png",
           "/smartbook-kp-4.png",
+          "/smartbook-kp-5.png",
+          "/smartbook-kp-6.png",
+          "/smartbook-kp-7.png",
+          "/smartbook-kp-8.png",
         ],
       },
             {
