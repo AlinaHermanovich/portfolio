@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { site } from "@/lib/content";
+import { useEffect, useState } from "react";
+import ContactModal from "./ContactModal";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -49,24 +52,18 @@ export default function Nav() {
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
-                    {/* CV — вернуть, когда будет одностраничное резюме
-          <a
-            href={site.cvUrl}
-            download
-            data-cursor
-            className="eyebrow hidden items-center rounded-full border border-line-strong px-5 py-3 text-fg transition-colors hover:bg-bg-elev sm:inline-flex"
+                <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="eyebrow inline-flex items-center whitespace-nowrap rounded-full bg-accent px-5 py-3 text-accent-ink transition-colors hover:bg-fg-dim max-[400px]:px-3 max-[400px]:py-2 max-[400px]:text-[10px]"
           >
-            Скачать CV
-          </a>
-          */}
-
-                    <Link
-          href="/#contact"
-          className="eyebrow inline-flex items-center whitespace-nowrap rounded-full bg-accent px-5 py-3 text-accent-ink transition-colors hover:bg-fg-dim max-[400px]:px-3 max-[400px]:py-2 max-[400px]:text-[10px]"
-        >
-          Давайте поговорим
-        </Link>
+            Давайте поговорим
+          </button>
+          <ContactModal
+            open={contactOpen}
+            onClose={() => setContactOpen(false)}
+          />
         </div>
       </div>
     </motion.header>
