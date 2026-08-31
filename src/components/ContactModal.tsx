@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 
+const EMAIL = "box.lid@mail.ru";
+
 const LINKS = [
-  { label: "Письмо на почту", href: "mailto:box.lid@mail.ru" },
   { label: "Написать в Telegram", href: "https://t.me/zovite_alinu" },
   { label: "WhatsApp", href: "https://wa.me/375291022956" },
   { label: "Viber", href: "viber://chat?number=%2B375291022956" },
@@ -43,6 +44,8 @@ export default function ContactModal({
   open: boolean;
   onClose: () => void;
 }) {
+  const [copied, setCopied] = useState(false);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -56,13 +59,27 @@ export default function ContactModal({
     };
   }, [open, onClose]);
 
+  useEffect(() => {
+    if (!open) setCopied(false);
+  }, [open]);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+    } catch {
+      window.prompt("Скопируйте почту", EMAIL);
+    }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
+  };
+
   if (typeof document === "undefined") return null;
 
   return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[220] flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-[220] flex items-center justify-center bg-black/25 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -86,11 +103,31 @@ export default function ContactModal({
             </h2>
 
             <ul className="flex flex-col gap-2">
+              <li>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-[17px] leading-[26px] text-black/60 transition-colors hover:text-black"
+                >
+                  <span>{EMAIL}</span>
+                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={copied ? "/check.svg" : "/copy.svg"}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="size-4"
+                    />
+                  </span>
+                </button>
+              </li>
+
               {LINKS.map((item) => (
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    target={item.href.startsWith("mailto") ? undefined : "_blank"}
+                    target="_blank"
                     rel="noreferrer"
                     className="group flex min-h-8 items-center justify-between gap-3 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
                   >
@@ -113,15 +150,22 @@ export default function ContactModal({
                 </li>
               ))}
 
-                <li>
+              <li>
                 <button
                   type="button"
                   onClick={onClose}
                   className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
                 >
                   Попозже напишу
-                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center text-[22px] leading-none text-black/50 group-hover:visible max-md:hidden">
-                    ×
+                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/cross.svg"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="size-4"
+                    />
                   </span>
                 </button>
               </li>
