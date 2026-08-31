@@ -46,16 +46,14 @@ export default function Contact() {
               className="group inline-flex items-center text-white/60 transition-colors hover:text-white"
             >
               {site.email}
-                 <span className="ml-1 inline-flex size-4 items-center justify-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={copied ? "/check-check.svg" : "/copy.svg"}
-                  alt=""
-                  width={16}
-                  height={16}
-                  className="size-4 brightness-0 invert"
-                />
-              </span>
+              <span
+                aria-hidden
+                className="ml-1 inline-block size-4 bg-current"
+                style={{
+                  WebkitMask: `url(${copied ? "/check-check.svg" : "/copy.svg"}) center / contain no-repeat`,
+                  mask: `url(${copied ? "/check-check.svg" : "/copy.svg"}) center / contain no-repeat`,
+                }}
+              />
             </button>
             <a
               href="https://t.me/zovite_alinu"
