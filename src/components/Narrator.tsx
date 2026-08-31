@@ -38,23 +38,24 @@ function CaseBlock({
   project: (typeof projects)[number];
   index: number;
 }) {
-  const [inView, setInView] = useState(false);
+  const [play, setPlay] = useState(0);
   const line = p.headline ?? p.title;
 
   useEffect(() => {
     if (i !== 0) return;
-    const t = setTimeout(() => setInView(true), 800);
+    const t = setTimeout(() => setPlay(1), 900);
     return () => clearTimeout(t);
   }, [i]);
 
   return (
     <motion.article
       className="shell"
-      onViewportEnter={() => setInView(true)}
-      viewport={{ once: true, amount: 0.3 }}
+      onViewportEnter={() => setPlay((n) => n + 1)}
+      onViewportLeave={() => setPlay(0)}
+      viewport={{ amount: 0.35 }}
     >
       <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg-dim">
-        {inView ? <TypewriterText text={line} /> : "\u00A0"}
+        {play > 0 ? <TypewriterText key={play} text={line} /> : "\u00A0"}
       </h2>
 
       <Link
@@ -63,7 +64,7 @@ function CaseBlock({
         className="group block h-[70vh] min-h-[420px] w-full"
       >
         <CaseFrame
-          video={inView ? p.video : undefined}
+          video={play > 0 ? p.video : undefined}
           preview={p.preview}
           previewMobile={p.previewMobile}
           variant={i}
