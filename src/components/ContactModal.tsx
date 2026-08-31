@@ -85,7 +85,7 @@ export default function ContactModal({
       window.prompt("Скопируйте почту", EMAIL);
     }
     setCopied(true);
-    window.setTimeout(() => setCopied(false), 2000);
+    window.setTimeout(() => setCopied(false), 5000);
   };
 
   if (typeof document === "undefined") return null;
