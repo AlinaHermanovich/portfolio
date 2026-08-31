@@ -54,7 +54,7 @@ function CaseBlock({
       onViewportLeave={() => setPlay(0)}
       viewport={{ amount: 0.35 }}
     >
-      <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg-dim">
+        <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg">
         {play > 0 ? <TypewriterText key={play} text={line} /> : "\u00A0"}
       </h2>
 
