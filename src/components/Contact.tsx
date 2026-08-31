@@ -46,10 +46,10 @@ export default function Contact() {
               className="group inline-flex items-center text-white/60 transition-colors hover:text-white"
             >
               {site.email}
-              <span className="ml-1 inline-flex size-4 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
+                 <span className="ml-1 inline-flex size-4 items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={copied ? "/check.svg" : "/copy.svg"}
+                  src={copied ? "/check-check.svg" : "/copy.svg"}
                   alt=""
                   width={16}
                   height={16}
