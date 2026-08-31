@@ -214,6 +214,8 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/smartbook-kp-6.png",
           "/smartbook-kp-7.png",
           "/smartbook-kp-8.png",
+          "/smartbook-kp-9.png",
+          "/smartbook-kp-10.png",
         ],
       },
             {
