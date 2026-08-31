@@ -132,7 +132,7 @@ export default function ContactModal({
                     className="group flex min-h-8 items-center justify-between gap-3 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
                   >
                     <span>{item.label}</span>
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100 max-md:hidden">
+                       <span className="flex h-6 w-6 shrink-0 items-center justify-center">
                       {item.avatar ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
