@@ -335,8 +335,8 @@ export const caseDetails: Record<string, CaseDetail> = {
           "Шаблон в Canva",
         ],
         images: [
-          "/ipk-reels-2.png",
           "/ipk-reels-1.png",
+          "/ipk-reels-2.png",
         ],
       },
        {
