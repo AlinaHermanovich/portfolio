@@ -94,7 +94,7 @@ export default function AboutSection() {
             </a>
           </motion.div>
 
-          <motion.div {...reveal} className="lg:col-span-7">
+           <motion.div {...reveal} className="lg:col-start-7 lg:col-span-6">
             <ul className="space-y-3">
               {aboutServices.map((item) => (
                 <li key={item} className="border-b border-line pb-3 text-fg">
