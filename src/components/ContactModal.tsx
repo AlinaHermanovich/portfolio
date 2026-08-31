@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 
 const LINKS = [
@@ -18,8 +19,8 @@ const LINKS = [
 function Arrow() {
   return (
     <svg
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       className="shrink-0"
@@ -27,7 +28,7 @@ function Arrow() {
       <path
         d="M5 12h14M13 6l6 6-6 6"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -55,11 +56,13 @@ export default function ContactModal({
     };
   }, [open, onClose]);
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[180] flex items-center justify-center bg-black/50 p-4"
+          className="fixed inset-0 z-[220] flex items-center justify-center bg-black/50 p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -75,7 +78,10 @@ export default function ContactModal({
             exit={{ opacity: 0, y: 12 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 id="contact-title" className="mb-3 text-[22px] leading-6 text-fg">
+            <h2
+              id="contact-title"
+              className="mb-3 text-[22px] leading-6 text-fg"
+            >
               Напишите мне 💬
             </h2>
 
@@ -86,10 +92,10 @@ export default function ContactModal({
                     href={item.href}
                     target={item.href.startsWith("mailto") ? undefined : "_blank"}
                     rel="noreferrer"
-                    className="group flex h-7 items-center justify-between gap-2 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
+                    className="group flex min-h-8 items-center justify-between gap-3 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
                   >
                     <span>{item.label}</span>
-                    <span className="hidden w-6 shrink-0 items-center justify-end group-hover:flex max-md:hidden">
+                    <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
                       {item.avatar ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -111,10 +117,10 @@ export default function ContactModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex h-7 w-full items-center justify-between gap-2 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
+                  className="flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
                 >
                   Попозже напишу
-                  <span className="grid size-4 place-items-center text-black/50">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center text-[22px] leading-none text-black/50">
                     ×
                   </span>
                 </button>
@@ -123,6 +129,7 @@ export default function ContactModal({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
