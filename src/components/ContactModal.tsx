@@ -115,12 +115,13 @@ export default function ContactModal({
 
               <li>
                 <button
+                  <button
                   type="button"
                   onClick={onClose}
-                  className="flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
+                  className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
                 >
                   Попозже напишу
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center text-[22px] leading-none text-black/50">
+                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center text-[22px] leading-none text-black/50 group-hover:visible max-md:hidden">
                     ×
                   </span>
                 </button>
