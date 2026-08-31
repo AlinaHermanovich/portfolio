@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { site } from "@/lib/content";
-import { useEffect, useState } from "react";
 import ContactModal from "./ContactModal";
 
 export default function Nav() {
@@ -41,8 +40,8 @@ export default function Nav() {
             </span>
           </Link>
 
-             <span className="hidden items-center gap-1.5 sm:inline-flex">
-               <span className="relative flex h-1.5 w-1.5 shrink-0 -translate-y-[1px]">
+          <span className="hidden items-center gap-1.5 sm:inline-flex">
+            <span className="relative flex h-1.5 w-1.5 shrink-0 -translate-y-[1px]">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-fg opacity-70" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-fg" />
             </span>
@@ -52,7 +51,7 @@ export default function Nav() {
           </span>
         </div>
 
-                <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setContactOpen(true)}
