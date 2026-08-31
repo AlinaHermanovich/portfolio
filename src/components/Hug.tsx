@@ -145,7 +145,7 @@ export default function Hug() {
               onClick={() => {
                 setActive(i);
                 taps.current += 1;
-                if (taps.current >= 3) openSecret();
+                if (taps.current >= 5) openSecret();
               }}
             >
               <motion.div
