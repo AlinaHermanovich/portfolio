@@ -43,7 +43,7 @@ function CaseBlock({
 
   useEffect(() => {
     if (i !== 0) return;
-    const t = setTimeout(() => setPlay(1), 900);
+    const t = setTimeout(() => setPlay(1), 2800);
     return () => clearTimeout(t);
   }, [i]);
 
