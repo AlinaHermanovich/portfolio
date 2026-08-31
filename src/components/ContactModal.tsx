@@ -37,6 +37,21 @@ function Arrow() {
   );
 }
 
+function TintIcon({ src, size = 16 }: { src: string; size?: number }) {
+  return (
+    <span
+      aria-hidden
+      className="inline-block bg-current"
+      style={{
+        width: size,
+        height: size,
+        WebkitMask: `url(${src}) center / contain no-repeat`,
+        mask: `url(${src}) center / contain no-repeat`,
+      }}
+    />
+  );
+}
+
 export default function ContactModal({
   open,
   onClose,
@@ -110,14 +125,9 @@ export default function ContactModal({
                   className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-[17px] leading-[26px] text-black/60 transition-colors hover:text-black"
                 >
                   <span>{EMAIL}</span>
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center">
+                    <TintIcon
                       src={copied ? "/check-check.svg" : "/copy.svg"}
-                      alt=""
-                      width={16}
-                      height={16}
-                      className="size-4"
                     />
                   </span>
                 </button>
@@ -132,7 +142,7 @@ export default function ContactModal({
                     className="group flex min-h-8 items-center justify-between gap-3 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
                   >
                     <span>{item.label}</span>
-                       <span className="flex h-6 w-6 shrink-0 items-center justify-center">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100 max-md:hidden">
                       {item.avatar ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -158,14 +168,7 @@ export default function ContactModal({
                 >
                   Попозже напишу
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100 max-md:hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/cross.svg"
-                      alt=""
-                      width={16}
-                      height={16}
-                      className="size-4"
-                    />
+                    <TintIcon src="/cross.svg" />
                   </span>
                 </button>
               </li>
