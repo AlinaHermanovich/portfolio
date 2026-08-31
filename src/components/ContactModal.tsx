@@ -113,9 +113,8 @@ export default function ContactModal({
                 </li>
               ))}
 
-              <li>
+                <li>
                 <button
-                  <button
                   type="button"
                   onClick={onClose}
                   className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
