@@ -39,22 +39,29 @@ function CaseBlock({
   index: number;
 }) {
   const [play, setPlay] = useState(0);
+  const ready = useRef(i !== 0);
   const line = p.headline ?? p.title;
 
   useEffect(() => {
     if (i !== 0) return;
-    const t = setTimeout(() => setPlay(1), 2800);
+    const t = setTimeout(() => {
+      ready.current = true;
+      setPlay(1);
+    }, 3400);
     return () => clearTimeout(t);
   }, [i]);
 
   return (
     <motion.article
       className="shell"
-      onViewportEnter={() => setPlay((n) => n + 1)}
+      onViewportEnter={() => {
+        if (!ready.current) return;
+        setPlay((n) => n + 1);
+      }}
       onViewportLeave={() => setPlay(0)}
       viewport={{ amount: 0.35 }}
     >
-        <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg">
+      <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg">
         {play > 0 ? <TypewriterText key={play} text={line} /> : "\u00A0"}
       </h2>
 
@@ -64,7 +71,7 @@ function CaseBlock({
         className="group block h-[70vh] min-h-[420px] w-full"
       >
         <CaseFrame
-          video={play > 0 ? p.video : undefined}
+          video={play > 0 || i === 0 ? p.video : undefined}
           preview={p.preview}
           previewMobile={p.previewMobile}
           variant={i}
