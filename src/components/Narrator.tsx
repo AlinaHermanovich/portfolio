@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { projects } from "@/lib/content";
@@ -41,14 +41,20 @@ function CaseBlock({
   const [inView, setInView] = useState(false);
   const line = p.headline ?? p.title;
 
+  useEffect(() => {
+    if (i !== 0) return;
+    const t = setTimeout(() => setInView(true), 800);
+    return () => clearTimeout(t);
+  }, [i]);
+
   return (
     <motion.article
       className="shell"
       onViewportEnter={() => setInView(true)}
-      viewport={{ once: true, amount: 0.35 }}
+      viewport={{ once: true, amount: 0.3 }}
     >
       <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg-dim">
-        {inView ? <TypewriterText text={line} /> : null}
+        {inView ? <TypewriterText text={line} /> : "\u00A0"}
       </h2>
 
       <Link
@@ -57,7 +63,7 @@ function CaseBlock({
         className="group block h-[70vh] min-h-[420px] w-full"
       >
         <CaseFrame
-          video={p.video}
+          video={inView ? p.video : undefined}
           preview={p.preview}
           previewMobile={p.previewMobile}
           variant={i}
