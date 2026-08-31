@@ -1,123 +1,71 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
+import { motion } from "motion/react";
 import { projects } from "@/lib/content";
 import TypewriterText from "./TypewriterText";
 import CaseFrame from "./CaseFrame";
 
 const NAME = "Привет, я Алина";
-const HERO_REST =
-  " — дизайнер и\u00A0маркетолог для\u00A0экспертов и\u00A0предпринимателей.";
-
-// scroll weights: tiny hero, then one per case (no in-pin about beat)
-const WEIGHTS = [0.15, ...projects.map(() => 1)];
-const TOTAL = WEIGHTS.reduce((a, b) => a + b, 0);
-const BOUNDS = WEIGHTS.reduce<number[]>(
-  (acc, w) => [...acc, acc[acc.length - 1] + w / TOTAL],
-  [0]
-);
-const CASES_START = BOUNDS[1]; // end of hero
 
 export default function Narrator() {
-  const ref = useRef<HTMLDivElement>(null);
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [range, setRange] = useState(0);
-  const [offset, setOffset] = useState(0);
-  const [state, setState] = useState(0);
-
-  const rests = useMemo(
-    () => [HERO_REST, ...projects.map((p) => p.headline ?? p.title)],
-    []
-  );
-
-  useEffect(() => {
-    const measure = () => {
-      const row = rowRef.current;
-      if (!row) return;
-      setRange(Math.max(0, row.scrollWidth - window.innerWidth));
-      setOffset(window.innerWidth * 0.14);
-    };
-    measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"],
-  });
-
-  useMotionValueEvent(scrollYProgress, "change", (v) => {
-    let s = 0;
-    for (let i = 0; i < WEIGHTS.length; i++) if (v >= BOUNDS[i]) s = i;
-    setState(s);
-  });
-
-  const x = useTransform(
-    scrollYProgress,
-    [0, CASES_START, 1],
-    [offset, 0, -range]
-  );
-
   return (
-    <section
-      id="top"
-      ref={ref}
-      className="relative"
-      style={{ height: `${TOTAL * 100}vh` }}
-    >
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden pt-24">
-        <div className="shell w-full">
-               <h1 className="display t-h1 min-h-[3.3em] max-w-[900px]">
-              <span className="text-fg">
-              {NAME}
-              {state !== 0 ? "." : ""}
-            </span>
-            {state === 0 ? (
-              <span className="text-fg-dim">
-                {" "}
-                — дизайнер и маркетолог для экспертов и предпринимателей.
-              </span>
-            ) : (
-              <>
-                {" "}
-                <span className="text-fg-dim">
-                  <TypewriterText text={rests[state]} />
-                </span>
-              </>
-            )}
-          </h1>
-        </div>
+    <section id="top" className="relative pt-28 pb-8 sm:pt-32">
+      <div className="shell">
+        <h1 className="display t-h1 max-w-[900px]">
+          <span className="text-fg">{NAME}</span>
+          <span className="text-fg-dim">
+            {" "}
+            — дизайнер и маркетолог для экспертов и предпринимателей.
+          </span>
+        </h1>
+      </div>
 
-        <div className="relative mt-6 flex-1">
-          <motion.div
-            ref={rowRef}
-            style={{ x }}
-            className="flex h-full gap-6 pl-[clamp(1.25rem,4vw,3.5rem)] pr-[12vw]"
-          >
-            {projects.map((p, i) => (
-              <Link
-                key={p.client}
-                href={`/work/${p.slug}`}
-                data-cursor-label={p.cta}
-                className="group h-full w-[84vw] shrink-0 sm:w-[76vw]"
-              >
-                  <CaseFrame
-                  video={p.video}
-                  preview={p.preview}
-                  previewMobile={p.previewMobile}
-                  variant={i}
-                  client={p.client}
-                  year={p.year}
-                  color
-                />
-              </Link>
-            ))}
-          </motion.div>
-        </div>
+      <div id="work" className="mt-16 flex flex-col gap-24 sm:mt-24 sm:gap-32">
+        {projects.map((p, i) => (
+          <CaseBlock key={p.slug} project={p} index={i} />
+        ))}
       </div>
     </section>
+  );
+}
+
+function CaseBlock({
+  project: p,
+  index: i,
+}: {
+  project: (typeof projects)[number];
+  index: number;
+}) {
+  const [inView, setInView] = useState(false);
+  const line = p.headline ?? p.title;
+
+  return (
+    <motion.article
+      className="shell"
+      onViewportEnter={() => setInView(true)}
+      viewport={{ once: true, amount: 0.35 }}
+    >
+      <h2 className="display t-h2 mb-6 min-h-[2.4em] max-w-[900px] text-fg-dim">
+        {inView ? <TypewriterText text={line} /> : null}
+      </h2>
+
+      <Link
+        href={`/work/${p.slug}`}
+        data-cursor-label={p.cta}
+        className="group block h-[70vh] min-h-[420px] w-full"
+      >
+        <CaseFrame
+          video={p.video}
+          preview={p.preview}
+          previewMobile={p.previewMobile}
+          variant={i}
+          client={p.client}
+          year={p.year}
+          color
+        />
+      </Link>
+    </motion.article>
   );
 }
