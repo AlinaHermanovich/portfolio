@@ -20,9 +20,9 @@ export default function TypewriterText({
   text: string;
   className?: string;
 }) {
-  const [display, setDisplay] = useState(text);
-  const displayRef = useRef(text);
-  const target = useRef(text);
+  const [display, setDisplay] = useState("");
+  const displayRef = useRef("");
+  const target = useRef("");
 
   const set = (s: string) => {
     displayRef.current = s;
