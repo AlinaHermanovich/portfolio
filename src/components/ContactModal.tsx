@@ -110,10 +110,10 @@ export default function ContactModal({
                   className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-[17px] leading-[26px] text-black/60 transition-colors hover:text-black"
                 >
                   <span>{EMAIL}</span>
-                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={copied ? "/check.svg" : "/copy.svg"}
+                      src={copied ? "/check-check.svg" : "/copy.svg"}
                       alt=""
                       width={16}
                       height={16}
@@ -132,7 +132,7 @@ export default function ContactModal({
                     className="group flex min-h-8 items-center justify-between gap-3 text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black"
                   >
                     <span>{item.label}</span>
-                    <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100 max-md:hidden">
                       {item.avatar ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -157,7 +157,7 @@ export default function ContactModal({
                   className="group flex min-h-8 w-full items-center justify-between gap-3 text-left text-sm leading-5 text-black/50 transition-colors hover:text-black"
                 >
                   Попозже напишу
-                  <span className="invisible flex h-6 w-6 shrink-0 items-center justify-center group-hover:visible max-md:hidden">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center opacity-0 transition-opacity group-hover:opacity-100 max-md:hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/cross.svg"
