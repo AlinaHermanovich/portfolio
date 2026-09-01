@@ -78,7 +78,7 @@ function CaseBlock({
           client={p.client}
           year={p.year}
           color
-        />
+               />
       </Link>
       <Link
         href={`/work/${p.slug}`}
