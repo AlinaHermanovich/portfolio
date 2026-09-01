@@ -90,7 +90,7 @@ export default function AboutSection() {
               onClick={() => setContactOpen(true)}
               className="eyebrow mt-9 inline-flex items-center rounded-full bg-accent px-6 py-3.5 text-accent-ink transition-colors hover:bg-fg-dim"
             >
-              Напишите мне
+              Обсудить проект
             </button>
           </motion.div>
 
