@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { aboutIntro, aboutServices, stats } from "@/lib/content";
+import ContactModal from "./ContactModal";
 
 const reveal = {
   initial: { opacity: 0, y: 24 },
@@ -46,6 +47,7 @@ export default function AboutSection() {
     amount: 0.45,
     margin: "0px 0px -12% 0px",
   });
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <section id="about" className="relative py-24 sm:py-36">
@@ -83,15 +85,13 @@ export default function AboutSection() {
         <div className="mt-16 grid grid-cols-1 gap-y-12 sm:grid-cols-4">
           <motion.div {...reveal} className="sm:col-span-2 sm:pr-8">
             <p className="max-w-md text-fg-dim">{aboutIntro}</p>
-            <a
-              href="https://t.me/zovite_alinu"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
               className="eyebrow mt-9 inline-flex items-center rounded-full bg-accent px-6 py-3.5 text-accent-ink transition-colors hover:bg-fg-dim"
             >
-              Написать в Telegram
-            </a>
+              Напишите мне
+            </button>
           </motion.div>
 
           <motion.div {...reveal} className="sm:col-span-2">
@@ -105,6 +105,8 @@ export default function AboutSection() {
           </motion.div>
         </div>
       </div>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </section>
   );
 }
