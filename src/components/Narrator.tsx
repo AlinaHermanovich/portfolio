@@ -65,13 +65,13 @@ function CaseBlock({
         {play > 0 ? <TypewriterText key={play} text={line} /> : "\u00A0"}
       </h2>
 
-      <Link
+           <Link
         href={`/work/${p.slug}`}
         data-cursor-label={p.cta}
         className="group block h-[70vh] min-h-[420px] w-full"
       >
         <CaseFrame
-          video={play > 0 || i === 0 ? p.video : undefined}
+          video={inView ? p.video : undefined}
           preview={p.preview}
           previewMobile={p.previewMobile}
           variant={i}
@@ -79,6 +79,27 @@ function CaseBlock({
           year={p.year}
           color
         />
+      </Link>
+      <Link
+        href={`/work/${p.slug}`}
+        className="group mt-3 flex items-center justify-between text-[17px] leading-[26px] text-black/60 underline decoration-black/25 underline-offset-2 transition-colors hover:text-black hover:decoration-black md:hidden"
+      >
+        <span>{p.cta}</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="shrink-0"
+        >
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </Link>
     </motion.article>
   );
