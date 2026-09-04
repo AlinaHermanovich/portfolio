@@ -1,8 +1,5 @@
 /* ============================================================================
-   👋 THIS IS THE FILE YOU EDIT MOST — your name, projects, and text live here.
-   Only change the words INSIDE the "quotes". Keep the quotes, commas and { }.
-   Your project videos are set on the `video:` lines below (files live in public/).
-   New here? Read README.md first.  |  Новичок? Сначала прочитай README.md.
+   THIS IS THE FILE YOU EDIT MOST — your name, projects, and text live here.
    =========================================================================== */
 
 export const site = {
@@ -59,17 +56,17 @@ export const projects: Project[] = [
     previewMobile: "/case-1-preview-mobile.png",
   },
   {
-    slug: "klimat365",
-    client: "Климат365",
-    title: "Интернет-магазин климатической техники: каталог и внутренние страницы",
+    slug: "prometei",
+    client: "Прометей",
+    title: "Сайт строительной компании: услуги, объекты и заявка",
     headline:
-      "Спроектировала магазин климата: каталог, карточки и\u00A0путь к\u00A0заявке.",
-    category: "Интернет-магазин",
+      "Спроектировала сайт строительной компании: услуги, объекты и\u00A0путь к\u00A0заявке.",
+    category: "Производство",
     year: "студия",
     blurb:
-      "Утверждённый макет витрины: главная, каталог, карточка товара и мобилка. Живой сайт после запуска изменили.",
-    tags: ["Каталог", "UX", "Мобилка"],
-    cta: "Смотреть магазин",
+      "Структура, прототип, мудборд и дизайн сайта строительной компании в Горках. Проект студии АльтерВеб.",
+    tags: ["Сайт", "Прототип", "Мобилка"],
+    cta: "Смотреть сайт",
     video: "/19800595-hd_1920_1080_25fps.mp4",
     preview: "/case-2-preview.png",
   },
@@ -115,19 +112,19 @@ export const approachLead = {
 export const capabilities = [
   {
     title: "Interaction design",
-    body: "Motion is a material, not a decoration. I define how a site moves, responds, and feels: transitions, scroll choreography, and micro-interactions that behave with intent across the whole journey and inside the product. Static is never the default.",
+    body: "Motion is a material, not a decoration.",
   },
   {
     title: "Art direction",
-    body: "Design that communicates without words. However complex your product or market may be, my job is to express the personality of your brand on screen in a way that is distinctive, confident, and impossible to ignore.",
+    body: "Design that communicates without words.",
   },
   {
     title: "Design systems",
-    body: "What should the experience feel like, now and as you grow? I set the visual and interaction principles early, free from jargon and bloated component libraries, so every future decision has a clear compass.",
+    body: "Visual and interaction principles early.",
   },
   {
     title: "Front-end build",
-    body: "Design and code are one craft, not a handoff. I build pixel-faithful, accessible, and fast front-ends in React, Framer, and Webflow, so what gets designed is exactly what ships, down to the last transition.",
+    body: "Design and code are one craft.",
   },
 ];
 
@@ -170,9 +167,6 @@ export const aboutPoints = [
   },
 ];
 
-/* ---------------------------------------------------------------
-   Case-study (inner page) content — shared structure per case
-   --------------------------------------------------------------- */
 export type CaseSection = { body: string; captions: string[] };
 
 export type CaseBlock = {
@@ -230,33 +224,45 @@ export const caseDetails: Record<string, CaseDetail> = {
     ],
   },
 
-  klimat365: {
+  prometei: {
     summary:
-      "Интернет-магазин климатической техники. Дизайн и проектирование — мои, проект студии АльтерВеб.",
+      "Сайт строительной компании «Прометей». Дизайн и проектирование — мои, проект студии АльтерВеб.",
     sections: [
       {
         id: "role",
         navLabel: "Роль",
         title: "Роль",
-        body: "Структура, текстовый прототип, вайрфрейм, мудборд, дизайн. Проект студии АльтерВеб. Показываю утверждённый макет: после запуска живой сайт изменили.",
+        body: "Структура, текстовый прототип, вайрфрейм, мудборд, дизайн. Проект студии АльтерВеб. Показываю утверждённый макет: живой сайт после запуска мог уехать от него.",
+      },
+      {
+        id: "task",
+        navLabel: "Задача",
+        title: "Задача",
+        body: "У компании несколько аудиторий на одном сайте: заказчик стройки, покупатель квартиры, партнёр. Нужно было развести сценарии, а не свалить всё в одно полотно «о компании».",
+      },
+      {
+        id: "structure",
+        navLabel: "Структура",
+        title: "Структура и прототип",
+        body: "Сначала схема сайта и текстовый прототип: услуги, о компании, награды, жильё, контакты. Потом вайрфрейм и мудборд — и только после этого экраны.",
       },
       {
         id: "site",
-        navLabel: "Витрина",
-        title: "Витрина и каталог",
-        body: "Нужно было не «красивую главную про кондиционеры», а магазин: категории, фильтры, карточка, заявка на подбор и монтаж. Собрала все внутренние страницы, а не только обложку.",
+        navLabel: "Сайт",
+        title: "Финальный дизайн",
+        body: "Главная держит услуги и вход к заявке. Внутренние — компания, награды, продажа квартир. Цифры и регалии не кричат из каждого экрана: их можно найти, когда они нужны.",
+      },
+      {
+        id: "realty",
+        navLabel: "Жильё",
+        title: "Квартиры и заявка",
+        body: "Отдельный сценарий для человека, который ищет квартиру в Горках: адрес, метраж, следующий шаг. Не смешивать это с бизнес-услугами компании — разные вопросы, разные экраны.",
       },
       {
         id: "mobile",
         navLabel: "Мобилка",
         title: "Мобильная версия",
-        body: "Каталог климата часто открывают с телефона, чтобы быстро написать или позвонить. Мобилку собирала отдельно: крупные цены, короткие характеристики, заявка под рукой.",
-      },
-      {
-        id: "mirclime",
-        navLabel: "MirClime",
-        title: "Та же ниша, другой запуск",
-        body: "Для другого климат-магазина, MirClime, сделала логотип и главную. Это не второй большой кейс, а кадр в той же теме: знак и витрина. Живой сайт позже ушёл к другому заказчику и поменял лого.",
+        body: "Номер и заявка должны быть под рукой. Мобилку собирала отдельно: короткие блоки, читаемые заголовки, без широких полотен с десктопа.",
       },
     ],
   },
@@ -330,8 +336,17 @@ export const caseDetails: Record<string, CaseDetail> = {
   },
 };
 
-/** Образовательная сторона сайта — не показываем на этой ветке */
 export const projectsDraft: Project[] = [
+  {
+    slug: "klimat365",
+    client: "Климат365",
+    title: "Интернет-магазин климатической техники",
+    category: "Интернет-магазин",
+    year: "студия",
+    blurb: "Каталог и внутренние страницы. На полку.",
+    tags: ["Каталог", "UX", "Мобилка"],
+    cta: "Смотреть магазин",
+  },
   {
     slug: "smartbook",
     client: "Смартбук",
