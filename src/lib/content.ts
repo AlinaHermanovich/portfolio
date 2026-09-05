@@ -68,7 +68,7 @@ export const projects: Project[] = [
     tags: ["Сайт", "Прототип", "Мобилка"],
     cta: "Смотреть сайт",
     video: "/19800595-hd_1920_1080_25fps.mp4",
-    preview: "/case-2-preview.png",
+    preview: "/prometei-home-1.png",
   },
   {
     slug: "4u",
