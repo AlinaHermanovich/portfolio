@@ -157,6 +157,7 @@ export default function CaseStudy({
                   images={s.images ?? []}
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
+                  ratio={s.id === "site" ? "aspect-[1160/566]" : "aspect-video"}
                 />
               </div>
             ) : (
