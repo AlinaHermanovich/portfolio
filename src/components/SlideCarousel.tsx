@@ -33,11 +33,13 @@ export default function SlideCarousel({
   caption,
   captions,
   perView = 2,
+  ratio = "aspect-video",
 }: {
   images: string[];
   caption?: string;
   captions?: string[];
   perView?: 1 | 2;
+  ratio?: string;
 }) {
   const [index, setIndex] = useState(0);
   const [pair, setPair] = useState(false);
@@ -75,7 +77,7 @@ export default function SlideCarousel({
           {visible.map((src, i) => (
             <div
               key={`${src}-${i}`}
-              className="aspect-[1160/566] overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev"
+              ${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev
               onTouchStart={(e) => setTouch(e.touches[0].clientX)}
               onTouchEnd={(e) => {
                 if (touch === null) return;
