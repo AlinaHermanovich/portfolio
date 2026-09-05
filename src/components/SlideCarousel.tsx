@@ -75,9 +75,9 @@ export default function SlideCarousel({
       <div className="relative">
         <div className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}>
           {visible.map((src, i) => (
-            <div
+              <div
               key={`${src}-${i}`}
-              ${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev
+              className={`${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev`}
               onTouchStart={(e) => setTouch(e.touches[0].clientX)}
               onTouchEnd={(e) => {
                 if (touch === null) return;
