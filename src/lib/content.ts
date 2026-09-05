@@ -224,7 +224,7 @@ export const caseDetails: Record<string, CaseDetail> = {
     ],
   },
 
-    prometei: {
+      prometei: {
     summary:
       "Сайт строительной компании «Прометей»: услуги, квартиры и сотрудничество на разных маршрутах.",
     sections: [
@@ -236,7 +236,7 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Неактуальный логотип и буклет — всё, что было на старте. Сайта не было.",
         ],
-        images: ["/prometei-old-logo.jpg"],
+        images: ["/prometei-old-logo.png"],
       },
       {
         id: "style",
@@ -244,9 +244,11 @@ export const caseDetails: Record<string, CaseDetail> = {
         title: "Стилистика сайта",
         body: "Цветовую базу вытянули из исходников компании: синий стал основой, красный — акцентом. Окружили всё чистым белым фоном, чтобы дизайн не напоминал дешёвую распродажу, а транслировал уверенность и статус.",
         captions: [
-          "Мудборд. Цвет сняли с вывески, не придумали с нуля.",
+          "Стилистику утвердили с первой итерации — точное попадание в характер бизнеса.",
         ],
-        images: ["/prometei-mood.png"],
+        images: ["/prometei-concept-1.png", "/prometei-concept-2.png"],
+        carousel: true,
+        carouselPerView: 1,
       },
       {
         id: "map",
@@ -264,7 +266,7 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Черно-белый прототип. Сначала логика, потом цвет.",
         ],
-        images: ["/prometei-wire.png"],
+        images: ["/prometei-prototype.png"],
       },
       {
         id: "site",
@@ -272,9 +274,17 @@ export const caseDetails: Record<string, CaseDetail> = {
         title: "Сайт",
         body: "Главная отвечает на простой вопрос: кто вы и куда идти дальше. Отсюда человек уходит в услуги, в объекты или оставляет заявку. Внутри — о компании, проекты, награды, новости, контакты.",
         captions: [
-          "Утверждённый дизайн главной и внутренних страниц.",
+          "Утверждённый дизайн главной и внутренних страниц. Текст шаблонный.",
         ],
-        images: ["/prometei-home.png"],
+        images: [
+          "/prometei-home-1.png",
+          "/prometei-home-2.png",
+          "/prometei-home-3.png",
+          "/prometei-home-4.png",
+          "/prometei-home-5.png",
+        ],
+        carousel: true,
+        carouselPerView: 1,
       },
     ],
   },
