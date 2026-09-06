@@ -166,16 +166,6 @@ export default function CaseStudy({
                 )
               )}
             </p>
-             {s.href && (
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center rounded-full bg-accent px-5 py-3 text-accent-ink"
-              >
-                {s.linkLabel ?? "Открыть сайт"}
-              </a>
-            )}
             {s.carousels && s.carousels.length > 0 ? (
               <div className="mt-10 flex flex-col gap-[44px]">
                 {s.carousels.map((g) => (
