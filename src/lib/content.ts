@@ -12,8 +12,8 @@ export const site = {
     { label: "Канал", href: "https://t.me/zovite_designera" },
     { label: "Telegram", href: "https://t.me/zovite_alinu" },
     { label: "WhatsApp", href: "https://wa.me/375291022956" },
-    { label: "Viber", href: "viber://chat?number=%2B375291022956" },
-  ],carouselPerView
+     { label: "Viber", href: "viber://chat?number=%2B375291022956" },
+  ],
 };
 
 export const nav = [
