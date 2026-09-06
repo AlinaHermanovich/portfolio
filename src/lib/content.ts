@@ -13,7 +13,7 @@ export const site = {
     { label: "Telegram", href: "https://t.me/zovite_alinu" },
     { label: "WhatsApp", href: "https://wa.me/375291022956" },
     { label: "Viber", href: "viber://chat?number=%2B375291022956" },
-  ],
+  ],carouselPerView
 };
 
 export const nav = [
@@ -177,6 +177,8 @@ export type CaseBlock = {
   images?: string[];
   carousel?: boolean;
   carouselPerView?: 1 | 2;
+  href?: string;
+  linkLabel?: string;
   carousels?: { images: string[]; caption?: string }[];
 };
 
@@ -351,7 +353,9 @@ export const caseDetails: Record<string, CaseDetail> = {
         id: "site",
         navLabel: "Сайт",
         title: "Сайт: визуальный контроль (арт-дирекшн)",
-        body: "Разработку вела команда со стороны клиента. Моей задачей было выступить «переводчиком» между бизнесом и дизайном: бережно направить подрядчиков по визуальной части. Задали строгую типографику, внедрили фирменные цветовые акценты и сделали ставку на живые репортажные кадры. Живой сайт: https://vcc.by/",       
+        body: "Разработку вела команда со стороны клиента. Моей задачей было выступить «переводчиком» между бизнесом и дизайном: бережно направить подрядчиков по визуальной части. Задали строгую типографику, внедрили фирменные цветовые акценты и сделали ставку на живые репортажные кадры. Живой сайт: https://vcc.by/", 
+        href: "https://vcc.by/",
+        linkLabel: "Открыть сайт",
         captions: ["Макеты команды разработки. Визуальная концепция — за мной."],
         images: ["/vcc-site-1.png", "/vcc-site-2.png", "/vcc-site-3.png"],
         carousel: true,
