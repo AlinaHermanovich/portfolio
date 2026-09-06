@@ -149,7 +149,23 @@ export default function CaseStudy({
 
         {detail.sections.map((s) => (
           <Section key={s.id} id={s.id} title={s.title}>
-            <p className="max-w-2xl text-fg-dim">{s.body}</p>
+              <p className="max-w-2xl text-fg-dim">
+              {s.body.split(/(https?:\/\/[^\s]+|vcc\.by)/g).map((part, i) =>
+                part.startsWith("http") || part === "vcc.by" ? (
+                  <a
+                    key={i}
+                    href={part.startsWith("http") ? part : "https://vcc.by/"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-4"
+                  >
+                    {part}
+                  </a>
+                ) : (
+                  part
+                )
+              )}
+            </p>
              {s.href && (
               <a
                 href={s.href}
