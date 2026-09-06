@@ -24,14 +24,24 @@ function Figure({
       <div
         className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
       >
-        {src && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={src}
-            alt={caption}
-            className="h-full w-full object-cover object-top"
-          />
-        )}
+           {src &&
+          (src.endsWith(".mp4") ? (
+            <video
+              src={src}
+              className="h-full w-full object-cover object-top"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={src}
+              alt={caption}
+              className="h-full w-full object-cover object-top"
+            />
+          ))}
       </div>
       {caption ? (
         <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
