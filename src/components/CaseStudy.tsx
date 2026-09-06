@@ -191,7 +191,7 @@ export default function CaseStudy({
               s.captions.length > 0 && (
                    <div
                   className={`mt-10 grid gap-6 ${
-                    s.id === "logo"
+                      s.id === "logo" || s.captions.length > 1 ? "sm:grid-cols-2" : ""
                       ? "sm:grid-cols-2"
                       : s.captions.length > 1
                         ? "sm:grid-cols-2"
