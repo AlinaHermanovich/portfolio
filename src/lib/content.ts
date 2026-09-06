@@ -347,7 +347,7 @@ export const caseDetails: Record<string, CaseDetail> = {
           "Анимация",
           "Статичный знак",
         ],
-        images: ["/vcc-logo.mp4", "/vcc-logo.png"],
+        images: ["/vcc-logo.mp4"],
       },
        {
         id: "site",
