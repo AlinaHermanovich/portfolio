@@ -202,11 +202,13 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        s.id === "site" && i < 2
-                          ? "h-[581px]"
-                          : s.captions!.length === 1
-                            ? "aspect-[16/9]"
-                            : "aspect-[4/3]"
+                        s.id === "logo"
+                          ? "aspect-[4/3]"
+                          : s.id === "site" && i < 2
+                            ? "h-[581px]"
+                            : s.captions!.length === 1
+                              ? "aspect-[16/9]"
+                              : "aspect-[4/3]"
                       }
                     />
                   ))}
