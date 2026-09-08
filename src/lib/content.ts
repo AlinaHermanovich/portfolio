@@ -440,6 +440,8 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/vcc-event-1.png",
         ],
       },
+    ],
+  },
 };
 
 export const projectsDraft: Project[] = [
