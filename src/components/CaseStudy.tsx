@@ -202,7 +202,7 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        s.id === "print" && (i === 0 || i === 2)
+                        s.id === "print" && i < 2
                           ? "h-[515px]"
                           : s.id === "print" && i === 3
                             ? "aspect-[9/16] max-h-[420px] mx-auto"
