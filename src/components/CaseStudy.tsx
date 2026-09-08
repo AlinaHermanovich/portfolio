@@ -24,7 +24,7 @@ function Figure({
       <div
         className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
       >
-           {src &&
+        {src &&
           (src.endsWith(".mp4") ? (
             <video
               src={src}
@@ -113,7 +113,7 @@ export default function CaseStudy({
   prev: NavLink;
   next: NavLink;
 }) {
-    const navSections = detail.sections.map((s) => ({
+  const navSections = detail.sections.map((s) => ({
     id: s.id,
     navLabel: s.navLabel,
   }));
@@ -149,7 +149,7 @@ export default function CaseStudy({
 
         {detail.sections.map((s) => (
           <Section key={s.id} id={s.id} title={s.title}>
-              <p className="max-w-2xl text-fg-dim">
+            <p className="max-w-2xl text-fg-dim">
               {s.body.split(/(https?:\/\/[^\s]+|vcc\.by)/g).map((part, i) =>
                 part.startsWith("http") || part === "vcc.by" ? (
                   <a
@@ -183,26 +183,14 @@ export default function CaseStudy({
                   images={s.images ?? []}
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
-                 ratio={
-                        s.id === "print" && (i === 0 || i === 2)
-                          ? "h-[515px]"
-                           s.id === "print" && (i === 0 || i === 2)
-                            ? "aspect-[9/16] max-h-[420px] mx-auto"
-                            : s.id === "logo"
-                              ? "aspect-[4/3]"
-                              : s.id === "site" && i < 2
-                                ? "h-[581px]"
-                                : s.captions!.length === 1
-                                  ? "aspect-[16/9]"
-                                  : "aspect-[4/3]"
-                      }
+                  ratio={s.id === "site" ? "aspect-[1160/566]" : "aspect-video"}
                 />
               </div>
             ) : (
               s.captions &&
               s.captions.length > 0 && (
-                   <div
-                     className={`mt-10 grid gap-6 ${
+                <div
+                  className={`mt-10 grid gap-6 ${
                     s.id === "logo" || (s.captions && s.captions.length > 1)
                       ? "sm:grid-cols-2"
                       : ""
@@ -214,13 +202,17 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        s.id === "logo"
-                          ? "aspect-[4/3]"
-                          s.id === "print" && (i === 0 || i === 2)
+                        s.id === "print" && (i === 0 || i === 2)
                           ? "h-[515px]"
-                            : s.captions!.length === 1
-                              ? "aspect-[16/9]"
-                              : "aspect-[4/3]"
+                          : s.id === "print" && i === 3
+                            ? "aspect-[9/16] max-h-[420px] mx-auto"
+                            : s.id === "logo"
+                              ? "aspect-[4/3]"
+                              : s.id === "site" && i < 2
+                                ? "h-[581px]"
+                                : s.captions!.length === 1
+                                  ? "aspect-[16/9]"
+                                  : "aspect-[4/3]"
                       }
                     />
                   ))}
@@ -239,7 +231,7 @@ export default function CaseStudy({
               <Arrow dir="left" />
               <span>
                 <span className="eyebrow block text-fg-faint">Назад</span>
-                 <span className="display t-h2">{shortName(prev.client)}</span>
+                <span className="display t-h2">{shortName(prev.client)}</span>
               </span>
             </Link>
             <Link
