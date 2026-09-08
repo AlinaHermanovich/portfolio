@@ -186,7 +186,7 @@ export default function CaseStudy({
                  ratio={
                         s.id === "print" && (i === 0 || i === 2)
                           ? "h-[515px]"
-                          : s.id === "print" && i >= 2
+                           s.id === "print" && (i === 0 || i === 2)
                             ? "aspect-[9/16] max-h-[420px] mx-auto"
                             : s.id === "logo"
                               ? "aspect-[4/3]"
