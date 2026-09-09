@@ -19,6 +19,7 @@ function Figure({
   ratio?: string;
   src?: string;
 }) {
+  const fluid = ratio.includes("h-auto");
   return (
     <figure>
       <div
@@ -28,7 +29,7 @@ function Figure({
           (src.endsWith(".mp4") ? (
             <video
               src={src}
-              className="h-full w-full object-cover object-top"
+              className={fluid ? "w-full h-auto" : "h-full w-full object-cover object-top"}
               autoPlay
               muted
               loop
@@ -39,7 +40,7 @@ function Figure({
             <img
               src={src}
               alt={caption}
-              className="h-full w-full object-cover object-top"
+              className={fluid ? "w-full h-auto" : "h-full w-full object-cover object-top"}
             />
           ))}
       </div>
@@ -183,7 +184,13 @@ export default function CaseStudy({
                   images={s.images ?? []}
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
-                  ratio={s.id === "site" ? "aspect-[1160/566]" : "aspect-video"}
+                  ratio={
+                    project.slug === "vcc" && s.id === "site"
+                      ? "h-[820px]"
+                      : s.id === "site"
+                        ? "aspect-[1160/566]"
+                        : "aspect-video"
+                  }
                 />
               </div>
             ) : (
@@ -191,7 +198,8 @@ export default function CaseStudy({
               s.captions.length > 0 && (
                 <div
                   className={`mt-10 grid gap-6 ${
-                    s.id === "logo" || (s.captions && s.captions.length > 1)
+                    s.id !== "offline" &&
+                    (s.id === "logo" || (s.captions && s.captions.length > 1))
                       ? "sm:grid-cols-2"
                       : ""
                   }`}
@@ -202,17 +210,19 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        s.id === "print" && i < 2
-                          ? "h-[515px]"
-                          : s.id === "print"
-                            ? "aspect-[4/3]"
-                            : s.id === "logo"
+                        s.id === "offline"
+                          ? "h-auto"
+                          : s.id === "print" && i < 2
+                            ? "h-[515px]"
+                            : s.id === "print"
                               ? "aspect-[4/3]"
-                              : s.id === "site" && i < 2
-                                ? "h-[581px]"
-                                : s.captions!.length === 1
-                                  ? "aspect-[16/9]"
-                                  : "aspect-[4/3]"
+                              : s.id === "logo"
+                                ? "aspect-[4/3]"
+                                : s.id === "site" && i < 2
+                                  ? "h-[581px]"
+                                  : s.captions!.length === 1
+                                    ? "aspect-[16/9]"
+                                    : "aspect-[4/3]"
                       }
                     />
                   ))}
