@@ -39,7 +39,7 @@ function Figure({
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={src}
-              alt={caption}
+              alt={caption || "Кадр"}
               className={fluid ? "w-full h-auto" : "h-full w-full object-cover object-top"}
             />
           ))}
@@ -150,7 +150,9 @@ export default function CaseStudy({
 
         <CaseSectionNav sections={navSections} />
 
-        {detail.sections.map((s) => (
+        {detail.sections.map((s) => {
+          const figures = s.images && s.images.length > 0 ? s.images : [];
+          return (
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">
               {s.body.split(/(https?:\/\/[^\s]+|vcc\.by)/g).map((part, i) =>
@@ -196,24 +198,21 @@ export default function CaseStudy({
                 />
               </div>
             ) : (
-              s.captions &&
-              s.captions.length > 0 && (
+              figures.length > 0 && (
                 <div
                   className={`mt-10 grid gap-6 ${
                     s.id === "photos"
                       ? "sm:grid-cols-3"
-                      : !STACK.has(s.id) &&
-                          (s.id === "logo" ||
-                            (s.captions && s.captions.length > 1))
+                      : !STACK.has(s.id) && figures.length > 1
                         ? "sm:grid-cols-2"
                         : ""
                   }`}
                 >
-                  {s.captions.map((c, i) => (
+                  {figures.map((src, i) => (
                     <Figure
-                      key={c || `figure-${i}`}
-                      caption={c}
-                      src={s.images?.[i]}
+                      key={src}
+                      caption={s.captions?.[i] ?? ""}
+                      src={src}
                       ratio={
                         s.id === "photos"
                           ? "aspect-[375/563]"
@@ -227,7 +226,7 @@ export default function CaseStudy({
                                   ? "aspect-[4/3]"
                                   : s.id === "site" && i < 2
                                     ? "h-[581px]"
-                                    : s.captions!.length === 1
+                                    : figures.length === 1
                                       ? "aspect-[16/9]"
                                       : "aspect-[4/3]"
                       }
@@ -237,7 +236,8 @@ export default function CaseStudy({
               )
             )}
           </Section>
-        ))}
+          );
+        })}
 
         <nav className="border-t border-line">
           <div className="shell grid grid-cols-2">
