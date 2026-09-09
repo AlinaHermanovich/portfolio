@@ -200,10 +200,13 @@ export default function CaseStudy({
               s.captions.length > 0 && (
                 <div
                   className={`mt-10 grid gap-6 ${
-                    !STACK.has(s.id) &&
-                    (s.id === "logo" || (s.captions && s.captions.length > 1))
-                      ? "sm:grid-cols-2"
-                      : ""
+                    s.id === "photos"
+                      ? "sm:grid-cols-3"
+                      : !STACK.has(s.id) &&
+                          (s.id === "logo" ||
+                            (s.captions && s.captions.length > 1))
+                        ? "sm:grid-cols-2"
+                        : ""
                   }`}
                 >
                   {s.captions.map((c, i) => (
@@ -212,19 +215,21 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        STACK.has(s.id)
-                          ? "h-auto"
-                          : s.id === "print" && i < 2
-                            ? "h-[515px]"
-                            : s.id === "print"
-                              ? "aspect-[4/3]"
-                              : s.id === "logo"
+                        s.id === "photos"
+                          ? "aspect-[375/563]"
+                          : STACK.has(s.id)
+                            ? "h-auto"
+                            : s.id === "print" && i < 2
+                              ? "h-[515px]"
+                              : s.id === "print"
                                 ? "aspect-[4/3]"
-                                : s.id === "site" && i < 2
-                                  ? "h-[581px]"
-                                  : s.captions!.length === 1
-                                    ? "aspect-[16/9]"
-                                    : "aspect-[4/3]"
+                                : s.id === "logo"
+                                  ? "aspect-[4/3]"
+                                  : s.id === "site" && i < 2
+                                    ? "h-[581px]"
+                                    : s.captions!.length === 1
+                                      ? "aspect-[16/9]"
+                                      : "aspect-[4/3]"
                       }
                     />
                   ))}
