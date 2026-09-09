@@ -428,12 +428,11 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/vcc-print-badges.mp4",
         ],
       },
-      {
+        {
         id: "photos",
         navLabel: "В зале",
         title: "Первая питч-сессия",
         body: "Тот же баннер на экране во время выступления. Бейджи на общих кадрах почти не читаются — их лучше смотреть в макетах выше. Фото из открытых публикаций клуба.",
-        ],
         images: [
           "/vcc-event-1.png",
           "/vcc-event-2.png",
