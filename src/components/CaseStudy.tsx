@@ -186,7 +186,7 @@ export default function CaseStudy({
                   perView={s.carouselPerView ?? 2}
                   ratio={
                     project.slug === "vcc" && s.id === "site"
-                      ? "h-[820px]"
+                      ? "aspect-[1160/820]"
                       : s.id === "site"
                         ? "aspect-[1160/566]"
                         : "aspect-video"
