@@ -364,7 +364,6 @@ export const caseDetails: Record<string, CaseDetail> = {
       },
       {
         id: "instagram",
-        navLabel: "Instagram",
          title: "Соцсети",
         navLabel: "Соцсети",
         body: "Собрала визуальную систему для соцсетей. Логика единая: тёмный фон, крупная типографика и зелёные маркеры. Аккаунт выглядит как строгий деловой журнал.",
