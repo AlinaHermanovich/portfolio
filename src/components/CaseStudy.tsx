@@ -103,6 +103,8 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 
 type NavLink = { slug: string; client: string };
 
+const STACK = new Set(["offline", "social", "instagram", "ig"]);
+
 export default function CaseStudy({
   project,
   detail,
@@ -198,7 +200,7 @@ export default function CaseStudy({
               s.captions.length > 0 && (
                 <div
                   className={`mt-10 grid gap-6 ${
-                    s.id !== "offline" &&
+                    !STACK.has(s.id) &&
                     (s.id === "logo" || (s.captions && s.captions.length > 1))
                       ? "sm:grid-cols-2"
                       : ""
@@ -210,7 +212,7 @@ export default function CaseStudy({
                       caption={c}
                       src={s.images?.[i]}
                       ratio={
-                        s.id === "offline"
+                        STACK.has(s.id)
                           ? "h-auto"
                           : s.id === "print" && i < 2
                             ? "h-[515px]"
