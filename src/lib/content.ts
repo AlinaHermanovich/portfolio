@@ -100,3 +100,70 @@ export const projects: Project[] = [
     preview: "/case-2-preview.png",
   },
 ];
+
+export const approachLead = {
+  solid:
+    "I build websites that move. From first idea to shipped code. An innate drive to make work that feels alive.",
+  dim: "Sharp. Considered. Unforgettable.",
+};
+
+export const capabilities = [
+  {
+    title: "Interaction design",
+    body: "Motion is a material, not a decoration.",
+  },
+  {
+    title: "Art direction",
+    body: "Design that communicates without words.",
+  },
+  {
+    title: "Design systems",
+    body: "Visual and interaction principles early.",
+  },
+  {
+    title: "Front-end build",
+    body: "Design and code are one craft.",
+  },
+];
+
+export const stats = [
+  { value: "9+", label: "лет в\u00A0дизайне" },
+  { value: "5", label: "лет в\u00A0маркетинге" },
+  { value: "12+", label: "доп. обучений" },
+  { value: "15+", label: "запусков с\u00A0нуля" },
+];
+
+export const aboutLead =
+  "Перевожу сложные смыслы на понятный визуальный язык.";
+
+export const aboutIntro =
+  "Забираю на себя всё визуальное оформление. Создаю структуру и\u00A0дизайн, которые помогают бизнесу продавать и\u00A0не путать клиента.";
+
+export const aboutServices = [
+  "Сайты, каталоги, кабинеты",
+  "Карты, навигация, полиграфия",
+  "Фирменный стиль и\u00A0носители событий",
+  "Презентации, КП, реклама",
+];
+
+export const aboutPoints = [
+  {
+    title: "Сначала смысл, потом картинка",
+    body: "Структура, текстовый прототип, вайрфрейм, мудборд — и только потом макет. Так сайт и каталог не рассыпаются на красивые, но бесполезные экраны.",
+  },
+  {
+    title: "Дизайн, который продаёт",
+    body: "Картинка ради картинки бизнесу не\u00A0нужна. Я\u00A0собираю логичную графику, которая ведёт к\u00A0заявке: каталог, роли, носители, реклама.",
+  },
+  {
+    title: "Говорим на одном языке",
+    body: "Шесть лет замом по\u00A0маркетингу в\u00A0ТЦ. Знаю, как согласовывают макет с\u00A0подрядчиком, арендатором и\u00A0собственником. Контекст цеха и\u00A0площадки объяснять с\u00A0нуля не\u00A0нужно.",
+  },
+  {
+    title: "Работа в команде",
+    body: "Дизайн редко существует в\u00A0вакууме. Если нужны вёрстка, таргет или\u00A0печать, порекомендую контакты или легко сработаюсь с\u00A0вашим подрядчиком.",
+  },
+];
+
+export type { CaseSection, CaseBlock, CaseDetail } from "./cases";
+export { caseDetails, projectsDraft } from "./cases";
