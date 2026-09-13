@@ -18,7 +18,6 @@ export default function Home() {
          <Narrator />
         <ConceptsStrip />
         <AboutSection />
-        <AboutSection />
         <Approach />
         <Hug />
       </main>
