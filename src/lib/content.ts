@@ -52,8 +52,8 @@ export const projects: Project[] = [
     tags: ["Сайт", "Навигация", "Реклама"],
     cta: "Смотреть кейс",
     video: "/9150545-hd_1920_1080_24fps.mp4",
-    preview: "/atrium-site-1.png",
-    previewMobile: "/atrium-site-1.png",
+    preview: "/atrium-preview.png",
+    previewMobile: "/atrium-preview-mobile.png",
   },
     {
     slug: "prometei",
