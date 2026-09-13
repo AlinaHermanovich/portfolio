@@ -1,6 +1,7 @@
 import Loader from "@/components/Loader";
 import Nav from "@/components/Nav";
 import Narrator from "@/components/Narrator";
+import ConceptsStrip from "@/components/ConceptsStrip";
 import AboutSection from "@/components/AboutSection";
 import Approach from "@/components/Approach";
 import Contact from "@/components/Contact";
@@ -14,7 +15,9 @@ export default function Home() {
       <Loader />
       <Nav />
       <main>
-        <Narrator />
+         <Narrator />
+        <ConceptsStrip />
+        <AboutSection />
         <AboutSection />
         <Approach />
         <Hug />
