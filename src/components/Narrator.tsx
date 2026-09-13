@@ -23,7 +23,9 @@ export default function Narrator() {
       </div>
 
       <div id="work" className="mt-16 flex flex-col gap-24 sm:mt-24 sm:gap-32">
-        {projects.map((p, i) => (
+           {projects
+          .filter((p) => p.slug !== "4u")
+          .map((p, i) => (
           <CaseBlock key={p.slug} project={p} index={i} />
         ))}
       </div>
