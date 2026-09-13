@@ -97,7 +97,8 @@ export const projects: Project[] = [
     tags: ["Логотип", "Носители", "Ивент"],
     cta: "Смотреть оформление",
     video: "/9150545-hd_1920_1080_24fps.mp4",
-    preview: "/case-2-preview.png",
+    preview: "/vcc-preview.png",
+    previewMobile: "/vcc-preview-mobile.png",
   },
 ];
 
