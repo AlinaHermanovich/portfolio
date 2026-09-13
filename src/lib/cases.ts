@@ -135,7 +135,7 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Лента площадки",
           "Таргет Black Friday",
-          "Ролики Чёрной пятницы,
+          "Ролики Чёрной пятницы",
         ],
         images: [
           "/atrium-feed.png",
