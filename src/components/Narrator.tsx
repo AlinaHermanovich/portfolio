@@ -17,7 +17,7 @@ export default function Narrator() {
           <span className="text-fg">{NAME}</span>
           <span className="text-fg-dim">
             {" "}
-            — дизайнер и маркетолог для производств, торговли и площадок.
+            — дизайнер и маркетолог для компаний и предпринимателей.
           </span>
         </h1>
       </div>
