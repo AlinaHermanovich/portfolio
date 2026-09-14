@@ -23,6 +23,58 @@ export default function ConceptsStrip() {
     else if (power > 70) prev();
   };
 
+  const pager = (
+    <div className="flex items-center gap-12">
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Назад"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 6l-6 6 6 6"
+              stroke="currentColor"
+              strokeWidth="1.33"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Дальше"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 6l6 6-6 6"
+              stroke="currentColor"
+              strokeWidth="1.33"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <div className="flex items-center gap-2">
+        {slides.map((_, n) => (
+          <button
+            key={n}
+            type="button"
+            aria-label={`Go to slide ${n + 1}`}
+            onClick={() => setI(n)}
+            className={`h-[6px] w-8 cursor-pointer rounded-full ${
+              n === i ? "bg-[#0A0A0A]" : "bg-[#F5F5F5] hover:bg-[#D4D4D4]"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <section
       id="concepts"
@@ -57,71 +109,15 @@ export default function ConceptsStrip() {
       </button>
 
       <div className="shell">
-        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
-          <div className="flex flex-col lg:order-1">
-            <div className="min-h-[148px] lg:min-h-[200px]">
-              <h2 className="display t-h2 mb-5 max-w-[520px] text-fg">
-                {s.title}
-              </h2>
-              <p className="max-w-[460px] text-[17px] leading-7 text-fg-dim">
-                {s.body}
-              </p>
-            </div>
-
-            <div className="mt-8 flex items-center gap-12 lg:mt-auto">
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={prev}
-                  aria-label="Назад"
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M15 6l-6 6 6 6"
-                      stroke="currentColor"
-                      strokeWidth="1.33"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  onClick={next}
-                  aria-label="Дальше"
-                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
-                >
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M9 6l6 6-6 6"
-                      stroke="currentColor"
-                      strokeWidth="1.33"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div className="flex items-center gap-2">
-                {slides.map((_, n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    aria-label={`Go to slide ${n + 1}`}
-                    onClick={() => setI(n)}
-                    className={`h-[6px] w-8 cursor-pointer rounded-full ${
-                      n === i
-                        ? "bg-[#0A0A0A]"
-                        : "bg-[#F5F5F5] hover:bg-[#D4D4D4]"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+        <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[1fr_auto] lg:items-stretch lg:gap-x-16 lg:gap-y-0">
+          <div className="space-y-6 lg:space-y-10">
+            <h2 className="display t-h2 max-w-[520px] text-fg">{s.title}</h2>
+            <p className="max-w-[460px] text-[17px] leading-7 text-fg-dim">
+              {s.body}
+            </p>
           </div>
 
-          <div className="relative order-first overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev lg:order-2">
+          <div className="relative overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev lg:col-start-2 lg:row-span-2">
             <motion.div
               className="flex"
               drag="x"
@@ -143,6 +139,10 @@ export default function ConceptsStrip() {
                 </div>
               ))}
             </motion.div>
+          </div>
+
+          <div className="lg:col-start-1 lg:row-start-2 lg:mt-auto lg:pt-10">
+            {pager}
           </div>
         </div>
       </div>
