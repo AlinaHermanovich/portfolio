@@ -51,3 +51,37 @@ export default function ConceptsStrip() {
               className="flex h-10 w-10 items-center justify-center rounded-full border border-black/15 text-fg hover:bg-fg hover:text-bg"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <div className="ml-2 flex gap-1.5">
+              {slides.map((_, n) => (
+                <span
+                  key={n}
+                  className={`h-1 rounded-full ${
+                    n === i ? "w-6 bg-fg" : "w-3 bg-black/20"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={s.image}
+            alt={s.title}
+            className="aspect-[16/9] w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
