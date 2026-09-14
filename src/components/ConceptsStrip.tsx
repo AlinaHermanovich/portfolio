@@ -32,15 +32,15 @@ export default function ConceptsStrip() {
   };
 
   return (
-      <section
+    <section
       id="concepts"
       data-cursor-grab
-      className="relative overflow-x-clip pt-[320px] pb-[220px]"
+      className="relative overflow-x-clip py-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
     >
       <button
         type="button"
         onClick={prev}
-        className="absolute top-[320px] bottom-[220px] left-0 z-10 w-[51px] cursor-grab overflow-hidden active:cursor-grabbing"
+        className="absolute top-[320px] bottom-[220px] left-0 z-10 hidden w-[51px] overflow-hidden lg:block"
         aria-label="Предыдущий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -53,7 +53,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={next}
-        className="absolute top-[320px] bottom-[220px] right-0 z-10 w-[51px] cursor-grab overflow-hidden active:cursor-grabbing"
+        className="absolute top-[320px] bottom-[220px] right-0 z-10 hidden w-[51px] overflow-hidden lg:block"
         aria-label="Следующий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -65,10 +65,12 @@ export default function ConceptsStrip() {
       </button>
 
       <div className="shell">
-        <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
-          <div className="flex flex-col justify-between">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
+          <div className="flex flex-col justify-between lg:order-1">
             <div>
-              <h2 className="display t-h2 mb-5 max-w-[520px] text-fg">{s.title}</h2>
+              <h2 className="display t-h2 mb-5 max-w-[520px] text-fg">
+                {s.title}
+              </h2>
               <p className="max-w-[460px] text-[17px] leading-7 text-fg-dim">
                 {s.body}
               </p>
@@ -126,9 +128,10 @@ export default function ConceptsStrip() {
               </div>
             </div>
           </div>
-            <div
+
+          <div
             data-cursor-grab
-            className="relative w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev"
+            className="relative order-first w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev lg:order-2"
             onPointerDown={(e) => onDown(e.clientX)}
             onPointerUp={(e) => onUp(e.clientX)}
             onPointerCancel={() => {
