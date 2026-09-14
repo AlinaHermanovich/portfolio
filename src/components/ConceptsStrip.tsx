@@ -122,9 +122,9 @@ export default function ConceptsStrip() {
               </div>
             </div>
           </div>
-
-          <div
-            className="relative w-full cursor-grab overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev active:cursor-grabbing"
+            <div
+            data-cursor-grab
+            className="relative w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev"
             onPointerDown={(e) => onDown(e.clientX)}
             onPointerUp={(e) => onUp(e.clientX)}
             onPointerCancel={() => {
