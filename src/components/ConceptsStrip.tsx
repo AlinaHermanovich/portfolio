@@ -63,16 +63,16 @@ export default function ConceptsStrip() {
         />
       </button>
 
-       <div ref={emblaRef} data-cursor-grab className="relative z-30 overflow-hidden">
+        <div ref={emblaRef} data-cursor-grab className="relative z-30 overflow-hidden pointer-events-none">
         <div className="flex">
           {slides.map((slide) => (
             <div
               key={slide.title}
-              className="min-w-0 shrink-0 grow-0 basis-full"
+            className="min-w-0 shrink-0 grow-0 basis-full pointer-events-none"
             >
               <div className="shell">
                 <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16">
-                  <div className="lg:self-start">
+                   <div className="pointer-events-auto lg:self-start">
                     <h2 className="display t-h2 line-clamp-2 max-w-[520px] text-fg">
                       {slide.title}
                     </h2>
@@ -80,7 +80,7 @@ export default function ConceptsStrip() {
                       {slide.body}
                     </p>
                   </div>
-                  <div className="overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
+                    <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={slide.image}
