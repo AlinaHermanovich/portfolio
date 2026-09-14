@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { concepts } from "@/lib/content";
+import Reveal from "./Reveal";
 
 export default function ConceptsStrip() {
   const slides = concepts.slides;
@@ -32,10 +33,11 @@ export default function ConceptsStrip() {
   const next = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <section
+      <section
       id="concepts"
       className="relative overflow-x-clip pt-28 pb-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
     >
+      <Reveal>
       <button
         type="button"
         onClick={prev}
@@ -149,6 +151,7 @@ export default function ConceptsStrip() {
           </div>
         </div>
       </div>
+     </Reveal>
     </section>
   );
 }
