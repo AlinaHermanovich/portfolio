@@ -34,7 +34,6 @@ export default function ConceptsStrip() {
   return (
     <section
       id="concepts"
-      data-cursor-grab
       className="relative overflow-x-clip pt-28 pb-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
     >
       <button
@@ -64,7 +63,7 @@ export default function ConceptsStrip() {
         />
       </button>
 
-       <div ref={emblaRef} className="relative z-30 overflow-hidden">
+       <div ref={emblaRef} data-cursor-grab className="relative z-30 overflow-hidden">
         <div className="flex">
           {slides.map((slide) => (
             <div
