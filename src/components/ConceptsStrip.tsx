@@ -18,7 +18,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={prev}
-        className="absolute top-[220px] bottom-[220px] left-0 z-10 w-[51px] overflow-hidden"
+        className="absolute top-[320px] bottom-[220px] left-0 z-10 w-[51px] overflow-hidden"
         aria-label="Предыдущий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -31,7 +31,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={next}
-        className="absolute top-[220px] bottom-[220px] right-0 z-10 w-[51px] overflow-hidden"
+        className="absolute top-[320px] bottom-[220px] right-0 z-10 w-[51px] overflow-hidden"
         aria-label="Следующий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
