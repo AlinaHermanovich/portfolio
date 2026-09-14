@@ -1,34 +1,26 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { concepts } from "@/lib/content";
 
 export default function ConceptsStrip() {
   const slides = concepts.slides;
   const [i, setI] = useState(0);
-  const [dir, setDir] = useState(1);
-  const startX = useRef<number | null>(null);
   const s = slides[i];
   const prevSlide = slides[(i - 1 + slides.length) % slides.length];
   const nextSlide = slides[(i + 1) % slides.length];
 
-  const go = (next: number, d: number) => {
-    setDir(d);
-    setI(next);
-  };
-  const prev = () => go(i === 0 ? slides.length - 1 : i - 1, -1);
-  const next = () => go(i === slides.length - 1 ? 0 : i + 1, 1);
+  const prev = () => setI((n) => (n === 0 ? slides.length - 1 : n - 1));
+  const next = () => setI((n) => (n === slides.length - 1 ? 0 : n + 1));
 
-  const onDown = (x: number) => {
-    startX.current = x;
-  };
-  const onUp = (x: number) => {
-    if (startX.current === null) return;
-    const dx = x - startX.current;
-    startX.current = null;
-    if (dx > 50) prev();
-    if (dx < -50) next();
+  const onDragEnd = (
+    _: unknown,
+    info: { offset: { x: number }; velocity: { x: number } },
+  ) => {
+    const power = info.offset.x + info.velocity.x * 0.25;
+    if (power < -70) next();
+    else if (power > 70) prev();
   };
 
   return (
@@ -66,8 +58,8 @@ export default function ConceptsStrip() {
 
       <div className="shell">
         <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
-          <div className="flex flex-col justify-between lg:order-1">
-            <div>
+          <div className="flex flex-col lg:order-1">
+            <div className="min-h-[148px] lg:min-h-[200px]">
               <h2 className="display t-h2 mb-5 max-w-[520px] text-fg">
                 {s.title}
               </h2>
@@ -76,7 +68,7 @@ export default function ConceptsStrip() {
               </p>
             </div>
 
-            <div className="mt-10 flex items-center gap-12 lg:mt-0">
+            <div className="mt-8 flex items-center gap-12 lg:mt-auto">
               <div className="flex items-center gap-3">
                 <button
                   type="button"
@@ -117,7 +109,7 @@ export default function ConceptsStrip() {
                     key={n}
                     type="button"
                     aria-label={`Go to slide ${n + 1}`}
-                    onClick={() => go(n, n > i ? 1 : -1)}
+                    onClick={() => setI(n)}
                     className={`h-[6px] w-8 cursor-pointer rounded-full ${
                       n === i
                         ? "bg-[#0A0A0A]"
@@ -129,29 +121,28 @@ export default function ConceptsStrip() {
             </div>
           </div>
 
-          <div
-            data-cursor-grab
-            className="relative order-first w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev lg:order-2"
-            onPointerDown={(e) => onDown(e.clientX)}
-            onPointerUp={(e) => onUp(e.clientX)}
-            onPointerCancel={() => {
-              startX.current = null;
-            }}
-          >
-            <AnimatePresence initial={false} custom={dir} mode="popLayout">
-              <motion.img
-                key={i}
-                src={s.image}
-                alt={s.title}
-                draggable={false}
-                custom={dir}
-                initial={{ x: dir * 48, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: dir * -48, opacity: 0 }}
-                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="aspect-[16/9] w-full select-none object-cover"
-              />
-            </AnimatePresence>
+          <div className="relative order-first overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev lg:order-2">
+            <motion.div
+              className="flex"
+              drag="x"
+              dragElastic={0.18}
+              dragMomentum
+              onDragEnd={onDragEnd}
+              animate={{ x: `calc(-${i} * 100%)` }}
+              transition={{ type: "spring", stiffness: 260, damping: 32 }}
+            >
+              {slides.map((slide) => (
+                <div key={slide.title} className="w-full shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    draggable={false}
+                    className="aspect-[16/9] w-full select-none object-cover"
+                  />
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
