@@ -35,7 +35,7 @@ export default function ConceptsStrip() {
     <section
       id="concepts"
       data-cursor-grab
-      className="relative overflow-x-clip py-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
+      className="relative overflow-x-clip pt-28 pb-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
     >
       <button
         type="button"
@@ -64,7 +64,7 @@ export default function ConceptsStrip() {
         />
       </button>
 
-      <div ref={emblaRef} className="relative z-20 overflow-hidden">
+       <div ref={emblaRef} className="relative z-30 overflow-hidden">
         <div className="flex">
           {slides.map((slide) => (
             <div
@@ -77,7 +77,7 @@ export default function ConceptsStrip() {
                     <h2 className="display t-h2 line-clamp-2 max-w-[520px] text-fg">
                       {slide.title}
                     </h2>
-                    <p className="mt-11 line-clamp-4 min-h-[6.2rem] max-w-[460px] text-[17px] leading-7 text-fg-dim">
+                      <p className="mt-6 line-clamp-4 min-h-[6.2rem] max-w-[460px] text-[17px] leading-7 text-fg-dim lg:mt-11">
                       {slide.body}
                     </p>
                   </div>
@@ -97,7 +97,7 @@ export default function ConceptsStrip() {
         </div>
       </div>
 
-      <div className="shell relative z-40 mt-8 lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
+        <div className="shell relative z-10 mt-8 lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
         <div className="lg:max-w-[calc((100%-4rem)/2.15)]">
           <div className="flex items-center gap-12">
             <div className="flex items-center gap-3">
