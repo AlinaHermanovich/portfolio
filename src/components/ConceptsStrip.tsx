@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { concepts } from "@/lib/content";
-import Reveal from "./Reveal";
+import { motion } from "motion/react";
 
 export default function ConceptsStrip() {
   const slides = concepts.slides;
@@ -37,7 +37,12 @@ export default function ConceptsStrip() {
       id="concepts"
       className="relative overflow-x-clip pt-28 pb-16 sm:py-24 lg:pt-[320px] lg:pb-[220px]"
     >
-      <Reveal>
+         <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25, margin: "0px 0px -12% 0px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
       <button
         type="button"
         onClick={prev}
@@ -151,7 +156,7 @@ export default function ConceptsStrip() {
           </div>
         </div>
       </div>
-     </Reveal>
+      </motion.div>
     </section>
   );
 }
