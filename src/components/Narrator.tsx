@@ -70,7 +70,7 @@ function CaseBlock({
       <Link
         href={`/work/${p.slug}`}
         data-cursor-label={p.cta}
-        className="group block h-[70vh] min-h-[420px] w-full"
+        className="group block h-[52vh] min-h-[315px] w-full md:h-[70vh] md:min-h-[420px]"
       >
         <CaseFrame
           video={play > 0 || i === 0 ? p.video : undefined}
