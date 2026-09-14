@@ -31,58 +31,6 @@ export default function ConceptsStrip() {
   const prev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const next = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  const pager = (
-    <div className="flex items-center gap-12">
-      <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={prev}
-          aria-label="Назад"
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M15 6l-6 6 6 6"
-              stroke="currentColor"
-              strokeWidth="1.33"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <button
-          type="button"
-          onClick={next}
-          aria-label="Дальше"
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M9 6l6 6-6 6"
-              stroke="currentColor"
-              strokeWidth="1.33"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-      </div>
-      <div className="flex items-center gap-2">
-        {slides.map((_, n) => (
-          <button
-            key={n}
-            type="button"
-            aria-label={`Go to slide ${n + 1}`}
-            onClick={() => emblaApi?.scrollTo(n)}
-            className={`h-[6px] w-8 cursor-pointer rounded-full ${
-              n === i ? "bg-[#0A0A0A]" : "bg-[#F5F5F5] hover:bg-[#D4D4D4]"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
   return (
     <section
       id="concepts"
@@ -92,7 +40,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={prev}
-        className="absolute top-[320px] bottom-[220px] left-0 z-10 hidden w-[51px] overflow-hidden lg:block"
+        className="absolute top-[320px] bottom-[220px] left-0 z-30 hidden w-[51px] overflow-hidden lg:block"
         aria-label="Предыдущий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -105,7 +53,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={next}
-        className="absolute top-[320px] bottom-[220px] right-0 z-10 hidden w-[51px] overflow-hidden lg:block"
+        className="absolute top-[320px] bottom-[220px] right-0 z-30 hidden w-[51px] overflow-hidden lg:block"
         aria-label="Следующий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -116,7 +64,7 @@ export default function ConceptsStrip() {
         />
       </button>
 
-        <div className="relative z-10 shell mt-8 lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
+      <div ref={emblaRef} className="relative z-20 overflow-hidden">
         <div className="flex">
           {slides.map((slide) => (
             <div
@@ -125,7 +73,7 @@ export default function ConceptsStrip() {
             >
               <div className="shell">
                 <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16">
-                   <div className="lg:self-start">
+                  <div className="lg:self-start">
                     <h2 className="display t-h2 line-clamp-2 min-h-[2.3em] max-w-[520px] text-fg">
                       {slide.title}
                     </h2>
@@ -149,9 +97,57 @@ export default function ConceptsStrip() {
         </div>
       </div>
 
-      <div className="shell mt-8 lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
+      <div className="shell relative z-10 mt-8 lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
         <div className="lg:pointer-events-auto lg:max-w-[calc((100%-4rem)/2.15)]">
-          {pager}
+          <div className="flex items-center gap-12">
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Назад"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M15 6l-6 6 6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.33"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Дальше"
+                className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M9 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="1.33"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="flex items-center gap-2">
+              {slides.map((_, n) => (
+                <button
+                  key={n}
+                  type="button"
+                  aria-label={`Go to slide ${n + 1}`}
+                  onClick={() => emblaApi?.scrollTo(n)}
+                  className={`h-[6px] w-8 cursor-pointer rounded-full ${
+                    n === i ? "bg-[#0A0A0A]" : "bg-[#F5F5F5] hover:bg-[#D4D4D4]"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
