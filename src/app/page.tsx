@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Narrator from "@/components/Narrator";
 import AboutSection from "@/components/AboutSection";
 import Approach from "@/components/Approach";
+import ConceptsCarousel from "@/components/ConceptsCarousel";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BgVideo from "@/components/BgVideo";
@@ -17,6 +18,7 @@ export default function Home() {
         <Narrator />
         <AboutSection />
         <Approach />
+        <ConceptsCarousel />
         <Hug />
       </main>
 
