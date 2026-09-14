@@ -116,7 +116,7 @@ export default function ConceptsStrip() {
         />
       </button>
 
-      <div ref={emblaRef} className="overflow-hidden">
+        <div className="relative z-10 shell mt-8 lg:pointer-events-none lg:absolute lg:inset-x-0 lg:bottom-[220px] lg:mt-0">
         <div className="flex">
           {slides.map((slide) => (
             <div
@@ -125,7 +125,7 @@ export default function ConceptsStrip() {
             >
               <div className="shell">
                 <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16">
-                  <div>
+                   <div className="lg:self-start">
                     <h2 className="display t-h2 line-clamp-2 min-h-[2.3em] max-w-[520px] text-fg">
                       {slide.title}
                     </h2>
