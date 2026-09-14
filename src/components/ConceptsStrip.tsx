@@ -14,7 +14,7 @@ export default function ConceptsStrip() {
   const next = () => setI((n) => (n === slides.length - 1 ? 0 : n + 1));
 
   return (
-    <section id="concepts" className="relative overflow-x-clip py-[220px]">
+       <section id="concepts" className="relative overflow-x-clip pt-[320px] pb-[220px]">
       <button
         type="button"
         onClick={prev}
