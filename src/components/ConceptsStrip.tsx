@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { concepts } from "@/lib/content";
 
@@ -8,6 +8,7 @@ export default function ConceptsStrip() {
   const slides = concepts.slides;
   const [i, setI] = useState(0);
   const [dir, setDir] = useState(1);
+  const startX = useRef<number | null>(null);
   const s = slides[i];
   const prevSlide = slides[(i - 1 + slides.length) % slides.length];
   const nextSlide = slides[(i + 1) % slides.length];
@@ -18,6 +19,17 @@ export default function ConceptsStrip() {
   };
   const prev = () => go(i === 0 ? slides.length - 1 : i - 1, -1);
   const next = () => go(i === slides.length - 1 ? 0 : i + 1, 1);
+
+  const onDown = (x: number) => {
+    startX.current = x;
+  };
+  const onUp = (x: number) => {
+    if (startX.current === null) return;
+    const dx = x - startX.current;
+    startX.current = null;
+    if (dx > 50) prev();
+    if (dx < -50) next();
+  };
 
   return (
     <section id="concepts" className="relative overflow-x-clip pt-[320px] pb-[220px]">
@@ -109,18 +121,26 @@ export default function ConceptsStrip() {
             </div>
           </div>
 
-          <div className="relative w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
+          <div
+            className="relative w-full cursor-grab overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev active:cursor-grabbing"
+            onPointerDown={(e) => onDown(e.clientX)}
+            onPointerUp={(e) => onUp(e.clientX)}
+            onPointerCancel={() => {
+              startX.current = null;
+            }}
+          >
             <AnimatePresence initial={false} custom={dir} mode="popLayout">
               <motion.img
                 key={i}
                 src={s.image}
                 alt={s.title}
+                draggable={false}
                 custom={dir}
                 initial={{ x: dir * 48, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: dir * -48, opacity: 0 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="aspect-[16/9] w-full object-cover"
+                className="aspect-[16/9] w-full select-none object-cover"
               />
             </AnimatePresence>
           </div>
