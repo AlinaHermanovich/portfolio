@@ -36,7 +36,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={prev}
-        className="absolute top-[320px] bottom-[220px] left-0 z-10 w-[51px] overflow-hidden"
+        className="absolute top-[320px] bottom-[220px] left-0 z-10 w-[51px] cursor-grab overflow-hidden active:cursor-grabbing"
         aria-label="Предыдущий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,7 +49,7 @@ export default function ConceptsStrip() {
       <button
         type="button"
         onClick={next}
-        className="absolute top-[320px] bottom-[220px] right-0 z-10 w-[51px] overflow-hidden"
+        className="absolute top-[320px] bottom-[220px] right-0 z-10 w-[51px] cursor-grab overflow-hidden active:cursor-grabbing"
         aria-label="Следующий"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -76,7 +76,7 @@ export default function ConceptsStrip() {
                   type="button"
                   onClick={prev}
                   aria-label="Назад"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717]"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path
@@ -92,7 +92,7 @@ export default function ConceptsStrip() {
                   type="button"
                   onClick={next}
                   aria-label="Дальше"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717]"
+                  className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#F5F5F5] text-[#171717] hover:bg-[#E8E8E8]"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path
@@ -112,8 +112,10 @@ export default function ConceptsStrip() {
                     type="button"
                     aria-label={`Go to slide ${n + 1}`}
                     onClick={() => go(n, n > i ? 1 : -1)}
-                    className={`h-[6px] w-8 rounded-full ${
-                      n === i ? "bg-[#0A0A0A]" : "bg-[#F5F5F5]"
+                    className={`h-[6px] w-8 cursor-pointer rounded-full ${
+                      n === i
+                        ? "bg-[#0A0A0A]"
+                        : "bg-[#F5F5F5] hover:bg-[#D4D4D4]"
                     }`}
                   />
                 ))}
