@@ -32,7 +32,11 @@ export default function ConceptsStrip() {
   };
 
   return (
-    <section id="concepts" className="relative overflow-x-clip pt-[320px] pb-[220px]">
+      <section
+      id="concepts"
+      data-cursor-grab
+      className="relative overflow-x-clip pt-[320px] pb-[220px]"
+    >
       <button
         type="button"
         onClick={prev}
