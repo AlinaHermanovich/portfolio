@@ -8,8 +8,17 @@ import { motion } from "motion/react";
 export default function ConceptsStrip() {
   const slides = concepts.slides;
   const [i, setI] = useState(0);
+  const [yt, setYt] = useState<string | null>(null);
   const prevSlide = slides[(i - 1 + slides.length) % slides.length];
   const nextSlide = slides[(i + 1) % slides.length];
+    useEffect(() => {
+    if (!yt) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setYt(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [yt]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -87,15 +96,39 @@ export default function ConceptsStrip() {
                       {slide.body}
                     </p>
                   </div>
-                    <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      draggable={false}
-                      className="aspect-[16/9] w-full select-none object-cover"
-                    />
-                  </div>
+                                        <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
+                      {slide.youtube ? (
+                        <button
+                          type="button"
+                          onClick={() => setYt(slide.youtube!)}
+                          className="relative block w-full"
+                          aria-label={`Смотреть ${slide.title}`}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={slide.image}
+                            alt={slide.title}
+                            draggable={false}
+                            className="aspect-[16/9] w-full select-none object-cover"
+                          />
+                          <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-[#0A0A0A]">
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      ) : (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src={slide.image}
+                          alt={slide.title}
+                          draggable={false}
+                          className="aspect-[16/9] w-full select-none object-cover"
+                        />
+                      )}
+                    </div>
                 </div>
               </div>
             </div>
@@ -156,6 +189,33 @@ export default function ConceptsStrip() {
           </div>
         </div>
       </div>
+                 {yt && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setYt(null)}
+        >
+          <button
+            type="button"
+            aria-label="Закрыть"
+            onClick={() => setYt(null)}
+            className="absolute right-5 top-5 text-white"
+          >
+            ✕
+          </button>
+          <div
+            className="aspect-video w-full max-w-[1100px]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <iframe
+              title="Видео"
+              src={`https://www.youtube.com/embed/${yt}?autoplay=1&rel=0`}
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              className="h-full w-full"
+            />
+          </div>
+        </div>
+      )}
       </motion.div>
     </section>
   );
