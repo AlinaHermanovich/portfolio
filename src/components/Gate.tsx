@@ -27,6 +27,14 @@ const doors = [
   },
 ];
 
+const contacts = [
+  { label: site.email, href: `mailto:${site.email}` },
+  { label: "t.me/zovite_alinu", href: "https://t.me/zovite_alinu" },
+  { label: "t.me/zovite_designera", href: "https://t.me/zovite_designera" },
+  { label: "WhatsApp", href: "https://wa.me/375291022956" },
+  { label: "Viber", href: "viber://chat?number=%2B375291022956" },
+];
+
 export default function Gate() {
   const [hover, setHover] = useState<"edu" | "biz" | null>(null);
   const preview = doors.find((d) => d.id === hover)?.preview;
@@ -45,7 +53,7 @@ export default function Gate() {
             <div>
               <div className="text-[17px] leading-6">{site.name}</div>
               <div className="text-[15px] leading-5 text-black/45">
-                Дизайн для экспертов и{ }предпринимателей
+                Дизайн для экспертов и\u00A0предпринимателей
               </div>
             </div>
           </div>
@@ -98,25 +106,13 @@ export default function Gate() {
           </p>
 
           <ul className="mt-12 flex flex-col gap-1 text-[20px] leading-[1.45] sm:mt-0 sm:text-[22px]">
-            {site.socials.map((s) => (
-              <li key={s.label}>
-                <a
-                  href={s.href}
-                  className="underline-offset-[5px] hover:underline"
-                >
-                  {s.label === "Канал" ? "t.me/zovite_designera" : s.href.replace(/^https?:\/\//, "").replace("wa.me/", "WhatsApp ").replace("viber://chat?number=%2B", "Viber +")}
+            {contacts.map((c) => (
+              <li key={c.href}>
+                <a href={c.href} className="underline-offset-[5px] hover:underline">
+                  {c.label}
                 </a>
               </li>
             ))}
-            <li>
-              <button
-                type="button"
-                className="underline-offset-[5px] hover:underline"
-                onClick={() => navigator.clipboard.writeText(site.email)}
-              >
-                {site.email}
-              </button>
-            </li>
           </ul>
 
           {preview && (
