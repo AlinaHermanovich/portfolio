@@ -1,13 +1,22 @@
 import { site } from "@/lib/content";
 
+const GATE_URL =
+  "https://zovite-designera-git-b2b-kemaldogan444139-7314s-projects.vercel.app/";
+
 export default function Footer() {
   return (
     <footer className="py-10 text-bg">
       <div className="shell flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
           <span className="eyebrow text-white/50">
             {new Date().getFullYear()} {site.name}. Зовите дизайнера
           </span>
+          <a
+            href={GATE_URL}
+            className="eyebrow text-white/50 transition-colors hover:text-white"
+          >
+            Другие работы
+          </a>
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
