@@ -175,10 +175,11 @@ export const concepts = {
        image: "/act-preview.png",
       youtube: "sSszvPIyVeM",
     },
-    {
-      title: "Belemsa",
-      body: "Макеты сайта производственной компании. Сотрудничество не состоялось — экраны остались как разбор ниши. Смотрела, как собрать каталог и заявку без крика и лишних блоков.",
-      image: "/belemsa-preview.png",
+       {
+      title: "DataWeave",
+      body: "Учебный интерфейс на Framer: как данные выглядят на экране и как страница отвечает на скролл. Не заказ клиента — разбор продукта и анимации. Смотреть макет: dataweave.framer.website",
+      image: "/dataweave-preview.png",
+      href: "https://dataweave.framer.website/",
     },
     {
       title: "Porsche",
