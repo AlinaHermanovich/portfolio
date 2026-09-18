@@ -34,7 +34,7 @@ export default function Nav() {
         }`}
       >
         <div className="flex items-center gap-3">
-          <Link href="/" data-wave className="group flex items-center">
+          <Link href="/biz" data-wave className="group flex items-center">
             <span className="eyebrow !tracking-[0.12em] text-fg">
               {site.name}
             </span>
