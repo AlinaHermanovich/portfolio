@@ -59,7 +59,7 @@ export default function Contact() {
               href="https://t.me/zovite_alinu"
               target="_blank"
               rel="noreferrer"
-              className="text-white/60 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+              className="text-white/60 transition-colors hover:text-white"
             >
               Написать в Telegram
             </a>
