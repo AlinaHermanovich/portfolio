@@ -29,10 +29,10 @@ const doors = [
 
 const contacts = [
   { label: site.email, href: `mailto:${site.email}` },
-  { label: "t.me/zovite_alinu", href: "https://t.me/zovite_alinu" },
-  { label: "t.me/zovite_designera", href: "https://t.me/zovite_designera" },
-  { label: "WhatsApp", href: "https://wa.me/375291022956" },
-  { label: "Viber", href: "viber://chat?number=%2B375291022956" },
+  { label: "telegram", href: "https://t.me/zovite_alinu" },
+  { label: "viber", href: "viber://chat?number=%2B375291022956" },
+  { label: "whatsapp", href: "https://wa.me/375291022956" },
+  { label: "канал", href: "https://t.me/zovite_designera" },
 ];
 
 export default function Gate() {
@@ -40,39 +40,34 @@ export default function Gate() {
   const preview = doors.find((d) => d.id === hover)?.preview;
 
   return (
-    <main className="min-h-dvh bg-white text-[#171717]">
-      <div className="mx-auto grid min-h-dvh max-w-[1440px] lg:grid-cols-2">
-        <section className="flex flex-col justify-between px-6 py-10 sm:px-12 lg:px-16 lg:py-14">
-          <div className="flex items-center gap-4">
+    <main className="min-h-dvh bg-[#0a0a0a] text-white">
+      <div className="grid min-h-dvh lg:grid-cols-2">
+        <section className="flex flex-col justify-between px-8 py-10 sm:px-12 lg:px-[72px] lg:py-14">
+          <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/avatar.png"
               alt=""
-              className="h-14 w-14 rounded-full object-cover"
+              className="h-12 w-12 rounded-full object-cover"
             />
-            <div>
-              <div className="text-[17px] leading-6">{site.name}</div>
-              <div className="text-[15px] leading-5 text-black/45">
-                Дизайн для экспертов и\u00A0предпринимателей
-              </div>
+            <div className="mt-5 text-[15px] leading-5">{site.name}</div>
+            <div className="mt-1 max-w-[240px] text-[14px] leading-5 text-white/45">
+              Визуальная упаковка для экспертов
+              <br />
+              и предпринимателей.
             </div>
           </div>
 
-          <nav className="mt-16 flex flex-col gap-10 lg:mt-0" aria-label="Портфолио">
+          <nav className="mt-20 flex flex-col gap-8 lg:mt-0" aria-label="Портфолио">
             {doors.map((d) => {
               const inner = (
                 <>
-                  <div className="text-[22px] leading-7 sm:text-[24px]">{d.title}</div>
-                  <div className="mt-1.5 text-[16px] leading-6 text-black/45">
-                    {d.lead}
-                  </div>
-                  <div className="mt-2 text-[15px] leading-6 text-black/45">
-                    {d.cta}
-                  </div>
+                  <div className="text-[16px] leading-6">{d.title}</div>
+                  <div className="text-[14px] leading-5 text-white/45">{d.lead}</div>
+                  <div className="text-[14px] leading-5 text-white/45">{d.cta}</div>
                 </>
               );
-              const cls =
-                "block max-w-[420px] text-left transition-opacity hover:opacity-70";
+              const cls = "block max-w-[280px] text-left";
               return d.external ? (
                 <a
                   key={d.id}
@@ -98,17 +93,18 @@ export default function Gate() {
           </nav>
         </section>
 
-        <section className="relative flex flex-col justify-between px-6 py-10 sm:px-12 lg:px-16 lg:py-14">
-          <p className="max-w-[520px] text-[20px] leading-[1.45] sm:text-[22px]">
-            Делаю визуальную упаковку для двух типов заказчиков:
-            образование и эксперты — и компании в стройке,
-            производстве, торговле. Сайт, презентации, соцсети.
+        <section className="relative flex flex-col justify-between border-white/10 px-8 py-10 sm:px-12 lg:border-l lg:px-[72px] lg:py-14">
+          <p className="max-w-[520px] text-[22px] leading-[1.35]">
+            Делаю визуальную упаковку для двух типов
+            заказчиков: образование и эксперты —
+            и компании в стройке, производстве, торговле.
+            Сайт, презентации, соцсети.
           </p>
 
-          <ul className="mt-12 flex flex-col gap-1 text-[20px] leading-[1.45] sm:mt-0 sm:text-[22px]">
+          <ul className="mt-16 flex flex-col text-[22px] leading-[1.45] lg:mt-0">
             {contacts.map((c) => (
               <li key={c.href}>
-                <a href={c.href} className="underline-offset-[5px] hover:underline">
+                <a href={c.href} className="hover:underline hover:underline-offset-[5px]">
                   {c.label}
                 </a>
               </li>
@@ -116,7 +112,7 @@ export default function Gate() {
           </ul>
 
           {preview && (
-            <div className="pointer-events-none absolute inset-0 hidden overflow-hidden bg-white lg:block">
+            <div className="pointer-events-none absolute inset-0 hidden overflow-hidden bg-[#0a0a0a] lg:block">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={preview}
