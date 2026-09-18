@@ -89,12 +89,29 @@ export default function ConceptsStrip() {
               <div className="shell">
                 <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-start lg:gap-16">
                    <div className="pointer-events-auto lg:self-start">
-                    <h2 className="display t-h2 line-clamp-2 max-w-[520px] text-fg">
+                    <h2 className="display t-h2 max-w-[520px] text-fg">
                       {slide.title}
                     </h2>
-                      <p className="mt-6 line-clamp-4 min-h-[6.2rem] max-w-[460px] text-[17px] leading-7 text-fg-dim lg:mt-11">
+                      <p className="mt-6 max-w-[460px] text-[17px] leading-7 text-fg-dim lg:mt-11">
                       {slide.body}
                     </p>
+                    {"note" in slide && slide.note ? (
+                      <p className="mt-3 max-w-[460px] text-[13px] leading-5 text-black/35">
+                        {slide.note}
+                      </p>
+                    ) : null}
+                    {"href" in slide && slide.href ? (
+                      <a
+                        href={slide.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-3 inline-block text-[17px] leading-7 text-fg-dim underline decoration-black/25 underline-offset-4 transition-colors hover:text-fg hover:decoration-black"
+                      >
+                        {"linkLabel" in slide && slide.linkLabel
+                          ? slide.linkLabel
+                          : "Смотреть макет"}
+                      </a>
+                    ) : null}
                   </div>
                                         <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
                       {slide.youtube ? (
