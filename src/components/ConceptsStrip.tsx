@@ -216,7 +216,7 @@ export default function ConceptsStrip() {
 
                                         <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
 
-                      {slide.youtube ? (
+                      {"youtube" in slide && slide.youtube ? (
 
                         <button
 
