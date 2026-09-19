@@ -164,8 +164,9 @@ export const concepts = {
       image: "/edu-extra-rosta.jpg",
       youtube: "",
       href: "https://resources.by/contest",
-      linkLabel: "Сайт конкурса",
-      note: "Инстаграм: instagram.com/praktikarosta.bsg",
+      linkLabel: "Сайт",
+      href2: "https://www.instagram.com/praktikarosta.bsg",
+      linkLabel2: "Инстаграм",
     },
     {
       title: "«Всё дело в папе». Визуал и соцсети для проекта UNFPA",
