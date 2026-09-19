@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { caseDetails, projects, site } from "@/lib/content";
 import CaseStudy from "@/components/CaseStudy";
 
+const visible = projects.filter((p) => p.slug !== "4u");
+
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -29,9 +31,10 @@ export default async function Page({
   const detail = caseDetails[slug];
   if (!project || !detail) notFound();
 
-  const idx = projects.findIndex((p) => p.slug === slug);
-  const prev = projects[(idx - 1 + projects.length) % projects.length];
-  const next = projects[(idx + 1) % projects.length];
+  const ring = visible.includes(project) ? visible : projects;
+  const idx = ring.findIndex((p) => p.slug === slug);
+  const prev = ring[(idx - 1 + ring.length) % ring.length];
+  const next = ring[(idx + 1) % ring.length];
 
   return (
     <CaseStudy
