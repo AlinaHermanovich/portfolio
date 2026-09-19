@@ -36,9 +36,15 @@
     .preview-grid { height:100%; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:16px; }
     .shot { border-radius:6px; min-height:0; }
     .shot.wide { grid-column:1 / -1; }
-    .edu .a { background:linear-gradient(160deg,#ead7c3,#c9a48a 40%,#8f6d55); }
-    .edu .b { background:linear-gradient(180deg,#f4efe8,#d8c4ae); }
-    .edu .c { background:linear-gradient(135deg,#d7e4d3,#9bb59a 50%,#5f7a5e); }
+    .edu .a,
+.edu .b,
+.edu .c {
+  background-size: cover;
+  background-position: center;
+}
+.edu .a { background-image: url("/gate-edu-1.png"); }
+.edu .b { background-image: url("/gate-edu-2.png"); }
+.edu .c { background-image: url("/gate-edu-3.png"); }
     .biz .a { background:linear-gradient(160deg,#2c3138,#15181c 55%,#6b727a); }
     .biz .b { background:linear-gradient(180deg,#3a3f36,#1c1e1a); }
     .biz .c { background:linear-gradient(135deg,#2a3340,#0f141a 60%,#6e7c8a); }
@@ -92,8 +98,8 @@
       </div>
       <div class="preview edu" id="preview-edu">
         <div class="preview-grid">
-          <div class="shot edu a wide"><div class="shot-label">Школа / курс</div></div>
-          <div class="shot edu b"><div class="shot-label">Презентации</div></div>
+          <div class="shot edu a wide"><div class="shot-label">Сайты</div></div>
+         <div class="shot edu b"><div class="shot-label">Материалы</div></div>
           <div class="shot edu c"><div class="shot-label">Соцсети</div></div>
         </div>
       </div>
