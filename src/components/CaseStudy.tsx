@@ -189,7 +189,7 @@ export default function CaseStudy({
                   captions={s.captions}
                   perView={s.carouselPerView ?? 2}
                   ratio={
-                    project.slug === "vcc" && s.id === "site"
+                    (project.slug === "vcc" || project.slug === "atrium") && s.id === "site"
                       ? "aspect-[1160/820]"
                       : s.id === "site"
                         ? "aspect-[1160/566]"
