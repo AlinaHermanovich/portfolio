@@ -45,9 +45,18 @@
 .edu .a { background-image: url("/gate-edu-1.png"); }
 .edu .b { background-image: url("/gate-edu-2.png"); }
 .edu .c { background-image: url("/gate-edu-3.png"); }
-    .biz .a { background-image: url("/gate-biz-1.png"); }
-   .biz .b { background-image: url("/gate-biz-2.png"); }
-    .biz .c { background-image: url("/gate-biz-3.png"); }
+    .biz .a {
+  background-image: url("/gate-biz-1.png");
+  background-position: center 75%;
+}
+.biz .b {
+  background-image: url("/gate-biz-2.png");
+  background-position: left 65%;
+}
+.biz .c {
+  background-image: url("/gate-biz-3.png");
+  background-position: center 80%;
+}
     .shot-label { height:100%; display:flex; align-items:flex-end; padding:18px; font-size:13px; color:rgba(255,255,255,.78); }
     @media (max-width:860px) {
       .page { grid-template-columns:1fr; min-height:auto; }
