@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 export default function ConceptsStrip() {
   const slides = concepts.slides;
   const [i, setI] = useState(0);
+  const [review, setReview] = useState<string | null>(null);
   const [yt, setYt] = useState<string | null>(null);
   const prevSlide = slides[(i - 1 + slides.length) % slides.length];
   const nextSlide = slides[(i + 1) % slides.length];
@@ -120,6 +121,17 @@ export default function ConceptsStrip() {
                               : "Инстаграм"}
                           </a>
                         ) : null}
+                           {"reviewImage" in slide && slide.reviewImage ? (
+                          <button
+                            type="button"
+                            onClick={() => setReview(slide.reviewImage as string)}
+                            className="text-[17px] leading-7 text-fg-dim underline decoration-black/25 underline-offset-4 hover:text-fg hover:decoration-black"
+                          >
+                            {"reviewLabel" in slide && slide.reviewLabel
+                              ? (slide.reviewLabel as string)
+                              : "Отзыв финалистки"}
+                          </button>
+                        ) : null}
                       </div>
                     </div>
                     <div className="pointer-events-auto overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev">
@@ -214,6 +226,27 @@ export default function ConceptsStrip() {
             </div>
           </div>
         </div>
+                {review && (
+          <div
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-black/50 p-4"
+            onClick={() => setReview(null)}
+          >
+            <button
+              type="button"
+              aria-label="Закрыть"
+              onClick={() => setReview(null)}
+              className="absolute right-5 top-5 text-white"
+            >
+              ✕
+            </button>
+            <img
+              src={review}
+              alt="Отзыв"
+              className="max-h-[85vh] max-w-[560px] rounded-[16px] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
         {yt && (
           <div
             className="fixed inset-0 z-[80] flex items-center justify-center bg-black/80 p-4"
