@@ -167,6 +167,8 @@ export const concepts = {
       linkLabel: "Сайт",
       href2: "https://www.instagram.com/praktikarosta.bsg",
       linkLabel2: "Инстаграм",
+       reviewImage: "/edu-extra-rosta-review.png",
+       reviewLabel: "Отзыв финалистки",
     },
     {
       title: "«Всё дело в папе». Визуал и соцсети для проекта UNFPA",
