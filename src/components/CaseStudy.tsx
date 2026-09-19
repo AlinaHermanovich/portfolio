@@ -212,7 +212,7 @@ export default function CaseStudy({
                     />
                   ))}
                 </div>
-                <div className="mx-auto grid w-full max-w-[420px] grid-cols-2 gap-4">
+                <div className="grid w-full max-w-[360px] grid-cols-2 gap-4">
                   {videos.map((src, i) => (
                     <Figure
                       key={src}
