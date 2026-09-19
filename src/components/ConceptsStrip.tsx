@@ -177,13 +177,28 @@ export default function ConceptsStrip() {
                       {slide.body}
 
                     </p>
-
-                    {"note" in slide && slide.note ? (
-
-                      <p className="mt-3 max-w-[460px] text-[13px] leading-5 text-black/35">
-
-                        {slide.note}
-
+                  <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+  {"href" in slide && slide.href ? (
+    <a
+      href={slide.href}
+      target="_blank"
+      rel="noreferrer"
+      className="text-[17px] leading-7 text-fg-dim underline decoration-black/25 underline-offset-4 hover:text-fg hover:decoration-black"
+    >
+      {"linkLabel" in slide && slide.linkLabel ? slide.linkLabel : "Сайт"}
+    </a>
+  ) : null}
+  {"href2" in slide && slide.href2 ? (
+    <a
+      href={slide.href2}
+      target="_blank"
+      rel="noreferrer"
+      className="text-[17px] leading-7 text-fg-dim underline decoration-black/25 underline-offset-4 hover:text-fg hover:decoration-black"
+    >
+      {"linkLabel2" in slide && slide.linkLabel2 ? slide.linkLabel2 : "Инстаграм"}
+    </a>
+  ) : null}
+</div>
                       </p>
 
                     ) : null}
