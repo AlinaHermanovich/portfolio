@@ -144,7 +144,6 @@ export const caseDetails: Record<string, CaseDetail> = {
           "/atrium-ads-1.png",
           "/atrium-shoot-1.mp4",
           "/atrium-shoot-2.mp4",
-          "/atrium-shoot-3.mp4",
         ],
       },
     ],
