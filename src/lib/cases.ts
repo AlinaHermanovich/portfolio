@@ -43,8 +43,8 @@ export const caseDetails: Record<string, CaseDetail> = {
         body: "Сайта у площадки не было — первую версию я собрала с нуля, чтобы закрыть базовые вопросы посетителей. Когда комплекс вырос, полностью пересобрала структуру и логику админки. Сейчас я ежедневно сопровождаю проект: управляю контентом, а при технических сбоях ставлю задачи разработчикам на поддержке.",
         captions: [
           "Базовая версия сайта (2019).",
-          "Редизайн",
-          "Редизайн",
+          "Редизайн: акции и структура.",
+          "Редизайн: внутренний раздел.",
         ],
         images: [
           "/atrium-site-old-1.png",
@@ -99,13 +99,15 @@ export const caseDetails: Record<string, CaseDetail> = {
           "Оклейка лифтов.",
           "Галерея ТЦ.",
           "Эскалатор.",
+          "Уличный экран.",
           "Билборд.",
         ],
         images: [
-          "/atrium-media-lift-banners.png",
-          "/atrium-media-lift-wrap.png",
+          "/atrium-media-lift-screen.png",
+          "/atrium-media-lift.png",
           "/atrium-media-gallery.png",
           "/atrium-media-escalator.png",
+          "/atrium-media-outdoor.png",
           "/atrium-media-billboard.png",
         ],
       },
