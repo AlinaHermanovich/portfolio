@@ -103,7 +103,7 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
 
 type NavLink = { slug: string; client: string };
 
-const STACK = new Set(["offline", "social", "instagram", "ig"]);
+const STACK = new Set(["offline", "instagram", "ig"]);
 
 export default function CaseStudy({
   project,
@@ -152,6 +152,9 @@ export default function CaseStudy({
 
         {detail.sections.map((s) => {
           const figures = s.images && s.images.length > 0 ? s.images : [];
+          const stills = figures.filter((src) => !src.endsWith(".mp4"));
+          const videos = figures.filter((src) => src.endsWith(".mp4"));
+          const socialSplit = s.id === "social" && videos.length > 0;
           return (
           <Section key={s.id} id={s.id} title={s.title}>
             <p className="max-w-2xl text-fg-dim">
@@ -196,6 +199,29 @@ export default function CaseStudy({
                         : "aspect-video"
                   }
                 />
+              </div>
+            ) : socialSplit ? (
+              <div className="mt-10 flex flex-col gap-6">
+                <div className={`grid gap-6 ${stills.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                  {stills.map((src, i) => (
+                    <Figure
+                      key={src}
+                      caption={s.captions?.[i] ?? ""}
+                      src={src}
+                      ratio="h-auto"
+                    />
+                  ))}
+                </div>
+                <div className="mx-auto grid w-full max-w-[420px] grid-cols-2 gap-4">
+                  {videos.map((src, i) => (
+                    <Figure
+                      key={src}
+                      caption={i === 0 ? s.captions?.[stills.length] ?? "" : ""}
+                      src={src}
+                      ratio="aspect-[9/16]"
+                    />
+                  ))}
+                </div>
               </div>
             ) : (
               figures.length > 0 && (
