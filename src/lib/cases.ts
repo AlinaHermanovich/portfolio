@@ -119,15 +119,11 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Карусель на входе",
           "Экран над фудкортом",
-          "Щит на паркинге",
         ],
         images: [
           "/atrium-sales-1.png",
           "/atrium-sales-2.png",
-          "/atrium-sales-3.png",
         ],
-        carousel: true,
-        carouselPerView: 1,
       },
        {
         id: "social",
