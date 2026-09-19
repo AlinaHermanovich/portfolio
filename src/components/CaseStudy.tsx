@@ -153,7 +153,9 @@ export default function CaseStudy({
         {detail.sections.map((s) => {
           const figures = s.images && s.images.length > 0 ? s.images : [];
           const stills = figures.filter((src) => !src.endsWith(".mp4"));
-          const videos = figures.filter((src) => src.endsWith(".mp4"));
+          const videos = figures
+            .filter((src) => src.endsWith(".mp4") && !src.includes("shoot-3"))
+            .slice(0, 2);
           const socialSplit = s.id === "social" && videos.length > 0;
           return (
           <Section key={s.id} id={s.id} title={s.title}>
