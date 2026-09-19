@@ -77,16 +77,16 @@ export const caseDetails: Record<string, CaseDetail> = {
         captions: [
           "Лифт ТЦ.",
           "Лифт паркинга.",
-          "Указатели на паркинге.",
           "Старый паркинг.",
           "Новый паркинг.",
+          "Указатели на паркинге.",
         ],
         images: [
           "/atrium-nav-lift.png",
           "/atrium-nav-parking-lift.png",
-          "/atrium-nav-sign.png",
           "/atrium-parking-before.png",
           "/atrium-parking-after.png",
+          "/atrium-nav-sign.png",
         ],
       },
             {
