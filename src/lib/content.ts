@@ -217,8 +217,6 @@ export const concepts = {
       body: "Упаковала республиканский бизнес-конкурс: весь визуал от логотипа до наградной продукции. Как спикер разбирала с участниками их презентации. Как ментор прошла с финалисткой весь путь до защиты: пересобрали логику проекта, продумали слайды и речь для жюри.",
       image: "/edu-extra-rosta.png",
       youtube: "",
-      href: "https://resources.by/contest",
-      linkLabel: "О проекте",
       href2: "https://www.instagram.com/praktikarosta.bsg",
       linkLabel2: "Инстаграм",
        reviewImage: "/edu-extra-rosta-review.png",
