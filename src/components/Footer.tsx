@@ -8,7 +8,7 @@ export default function Footer() {
           {new Date().getFullYear()} {site.name}. Зовите дизайнера
         </span>
         <a
-          href="https://zovite-designera-git-b2b-kemaldogan444139-7314s-projects.vercel.app/"
+          href="/"
           className="eyebrow text-white/50 transition-colors hover:text-white sm:justify-self-center"
         >
           Другие работы
