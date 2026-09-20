@@ -4,7 +4,7 @@
    Your project videos are set on the `video:` lines below (files live in public/).
    New here? Read README.md first.  |  Новичок? Сначала прочитай README.md.
    ============================================================================ */
-
+import { caseDetails as bizCaseDetails } from "./cases-biz";
 export const site = {
   name: "Алина Германович",
   role: "UI/UX Designer, маркетолог",
@@ -262,7 +262,7 @@ export type CaseDetail = {
   sections: CaseBlock[];
 };
 
-export const caseDetails: Record<string, CaseDetail> = {
+const eduCaseDetails: Record<string, CaseDetail> = {
   smartbook: {
     summary:
       "Полное дизайн-сопровождение детской школы финансовой грамотности.",
@@ -568,3 +568,7 @@ export const projectsDraft: Project[] = [
     video: "/uhd_30fps.mp4",
   },
 ];
+export const caseDetails: Record<string, CaseDetail> = {
+  ...eduCaseDetails,
+  ...bizCaseDetails,
+};
