@@ -1,68 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
-import Link from "next/link";
-import type { CaseDetail, Project } from "@/lib/content";
-import Nav from "./Nav";
-import CaseFrame from "./CaseFrame";
-import CaseSectionNav from "./CaseSectionNav";
-import Reveal from "./Reveal";
-import Footer from "./Footer";
-import SlideCarousel from "./SlideCarousel";
-
-function Figure({
-  caption,
-  ratio = "aspect-[16/9]",
-  src,
-}: {
-  caption: string;
-  ratio?: string;
-  src?: string;
-}) {
-  return (
-    <figure>
-      <div
-        className={`w-full overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev ${ratio}`}
-      >
-        {src && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={src}
-            alt={caption}
-            className="h-full w-full object-cover object-top"
-          />
-        )}
-      </div>
-      {caption ? (
-        <figcaption className="eyebrow mt-3 text-fg-faint">{caption}</figcaption>
-      ) : null}
-    </figure>
-  );
-}
-
-function Section({
-  id,
-  title,
-  children,
-}: {
-  id: string;
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <Reveal>
-      <section
-        id={id}
-        className="shell scroll-mt-32 border-t border-line py-16 sm:py-24"
-      >
-        <div className="grid gap-x-12 gap-y-8 lg:grid-cols-12">
-          <h2 className="display t-h2 lg:col-span-4">{title}</h2>
-          <div className="lg:col-span-8">{children}</div>
-        </div>
-      </section>
-    </Reveal>
-  );
-}
+import { useEffect, useState } from "react";
 
 function Arrow({ dir }: { dir: "left" | "right" }) {
   const d =
@@ -90,132 +28,94 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
   );
 }
 
-type NavLink = { slug: string; client: string };
-
-export default function CaseStudy({
-  project,
-  detail,
-  prev,
-  next,
+export default function SlideCarousel({
+  images,
+  caption,
+  captions,
+  perView = 2,
+  ratio = "aspect-video",
 }: {
-  project: Project;
-  detail: CaseDetail;
-  prev: NavLink;
-  next: NavLink;
+  images: string[];
+  caption?: string;
+  captions?: string[];
+  perView?: 1 | 2;
+  ratio?: string;
 }) {
-    const navSections = detail.sections.map((s) => ({
-    id: s.id,
-    navLabel: s.navLabel,
-  }));
+  const [index, setIndex] = useState(0);
+  const [pair, setPair] = useState(false);
+  const [touch, setTouch] = useState<number | null>(null);
 
-  const shortName = (client: string) =>
-    client.includes("ИПК") ? "ИПК БРУ" : client;
+  useEffect(() => {
+    if (perView === 1) {
+      setPair(false);
+      return;
+    }
+    const mq = window.matchMedia("(min-width: 640px)");
+    const sync = () => setPair(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [perView]);
+
+  if (images.length === 0) return null;
+
+  const step = pair ? 2 : 1;
+  const prev = () =>
+    setIndex((n) => (n - step + images.length) % images.length);
+  const next = () => setIndex((n) => (n + step) % images.length);
+
+  const visible = pair
+    ? [images[index], images[(index + 1) % images.length]]
+    : [images[index]];
+
+  const label = captions?.[index] ?? caption;
 
   return (
-    <>
-      <Nav />
-      <main className="pt-28 sm:pt-32">
-        <header className="shell">
-          <p className="eyebrow text-fg-faint">
-            {project.client} / {project.category} / {project.year}
-          </p>
-          <h1 className="display t-h1 mt-5 max-w-4xl text-fg">
-            {project.title}
-          </h1>
-        </header>
-
-        <div className="mt-10 px-[clamp(1.25rem,4vw,3.5rem)]">
-          <div className="h-[40vh] w-full">
-            <CaseFrame
-              video={project.video}
-              preview={project.preview}
-              previewMobile={project.previewMobile}
-              color
-            />
-          </div>
+    <figure>
+      <div className="relative">
+        <div className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}>
+          {visible.map((src, i) => (
+              <div
+              key={`${src}-${i}`}
+              className={`${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev`}
+              onTouchStart={(e) => setTouch(e.touches[0].clientX)}
+              onTouchEnd={(e) => {
+                if (touch === null) return;
+                const dx = e.changedTouches[0].clientX - touch;
+                if (dx > 40) prev();
+                if (dx < -40) next();
+                setTouch(null);
+              }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={label ?? "Слайд"}
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+          ))}
         </div>
-
-        <CaseSectionNav sections={navSections} />
-
-        {detail.sections.map((s) => (
-          <Section key={s.id} id={s.id} title={s.title}>
-            <p className="max-w-2xl text-fg-dim">{s.body}</p>
-            {s.carousels && s.carousels.length > 0 ? (
-              <div className="mt-10 flex flex-col gap-[44px]">
-                {s.carousels.map((g) => (
-                  <SlideCarousel
-                    key={g.caption ?? g.images[0]}
-                    images={g.images}
-                    caption={g.caption}
-                    perView={1}
-                  />
-                ))}
-              </div>
-            ) : s.carousel && s.images && s.images.length > 0 ? (
-              <div className="mt-10">
-                <SlideCarousel
-                  images={s.images ?? []}
-                  captions={s.captions}
-                  perView={s.carouselPerView ?? 2}
-                />
-              </div>
-            ) : (
-              s.captions &&
-              s.captions.length > 0 && (
-                <div
-                  className={`mt-10 grid gap-6 ${
-                    s.captions.length > 1 ? "sm:grid-cols-2" : ""
-                  }`}
-                >
-                  {s.captions.map((c, i) => (
-                    <Figure
-                      key={c || `figure-${i}`}
-                      caption={c}
-                      src={s.images?.[i]}
-                      ratio={
-                        s.id === "site" && i < 2
-                          ? "h-[581px]"
-                          : s.captions!.length === 1
-                            ? "aspect-[16/9]"
-                            : "aspect-[4/3]"
-                      }
-                    />
-                  ))}
-                </div>
-              )
-            )}
-          </Section>
-        ))}
-
-        <nav className="border-t border-line">
-          <div className="shell grid grid-cols-2">
-            <Link
-              href={`/work/${prev.slug}`}
-              className="group flex items-center gap-4 border-r border-line py-10 pr-6"
-            >
-              <Arrow dir="left" />
-              <span>
-                <span className="eyebrow block text-fg-faint">Назад</span>
-                 <span className="display t-h2">{shortName(prev.client)}</span>
-              </span>
-            </Link>
-            <Link
-              href={`/work/${next.slug}`}
-              className="group flex items-center justify-end gap-4 py-10 pl-6 text-right"
-            >
-              <span>
-                <span className="eyebrow block text-fg-faint">Далее</span>
-                <span className="display t-h2">{shortName(next.client)}</span>
-              </span>
-              <Arrow dir="right" />
-            </Link>
-          </div>
-        </nav>
-      </main>
-
-      <div className="bg-fg">
-        <Footer />
+        <button
+          type="button"
+          onClick={prev}
+          className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-1/2 items-center justify-center text-fg"
+          aria-label="Назад"
+        >
+          <Arrow dir="left" />
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          className="group absolute inset-y-0 right-0 z-10 flex w-16 translate-x-1/2 items-center justify-center text-fg"
+          aria-label="Вперёд"
+        >
+          <Arrow dir="right" />
+        </button>
       </div>
-    </>
+      {label && (
+        <figcaption className="eyebrow mt-3 text-fg-faint">{label}</figcaption>
+      )}
+    </figure>
   );
 }
