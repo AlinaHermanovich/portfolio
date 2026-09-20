@@ -218,7 +218,7 @@ export const concepts = {
       image: "/edu-extra-rosta.png",
       youtube: "",
       href: "https://resources.by/contest",
-      linkLabel: "Сайт",
+      linkLabel: "О проекте",
       href2: "https://www.instagram.com/praktikarosta.bsg",
       linkLabel2: "Инстаграм",
        reviewImage: "/edu-extra-rosta-review.png",
