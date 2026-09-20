@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Алина Германович</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#0b0b0b; --text:#ededed; --muted:#8a8a8a; --line:#222; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html,body { height:100%; background:var(--bg); color:var(--text); font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    .page { min-height:100%; display:grid; grid-template-columns:1fr 1fr; }
+    .col { position:relative; min-height:100vh; padding:40px 48px 48px; display:flex; flex-direction:column; justify-content:space-between; }
+    .left { border-right:1px solid var(--line); }
+    .identity { display:flex; flex-direction:column; gap:16px; max-width:280px; }
+    .avatar { width:44px; height:44px; border-radius:50%; background:radial-gradient(circle at 30% 20%, #d9b99b, #8a6a52 42%, #3d2c24 100%); }
+    .name { font-size:14px; font-weight:400; line-height:1.35; }
+    .role { margin-top:3px; font-size:14px; line-height:1.4; color:var(--muted); }
+    .doors { display:flex; flex-direction:column; gap:6px; max-width:340px; }
+    .door { display:block; padding:8px 0; cursor:pointer; color:inherit; }
+    .door-title { font-size:16px; font-weight:400; letter-spacing:-0.02em; line-height:1.25; color:var(--text); }
+    .door-sub { margin-top:3px; font-size:14px; line-height:1.35; color:var(--muted); }
+    .door-cta { margin-top:3px; font-size:14px; color:var(--muted); }
+    .door:hover .door-title, .door.is-on .door-title { color:#fff; }
+    .right { overflow:hidden; }
+    .about-wrap { max-width:520px; }
+    .about { font-size:22px; line-height:1.35; letter-spacing:-0.03em; font-weight:400; }
+    .contacts { margin-top:28px; display:flex; flex-direction:column; gap:6px; font-size:22px; line-height:1.35; letter-spacing:-0.03em; }
+    .contacts a { width:fit-content; color:var(--text); }
+    .contacts a:hover { text-decoration:underline; text-underline-offset:4px; }
+    .preview { position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .2s ease; background:#111; }
+    .preview.is-on { opacity:1; }
+    .preview-grid { height:100%; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:16px; }
+    .shot { border-radius:6px; min-height:0; }
+    .shot.wide { grid-column:1 / -1; }
+    .edu .a,
+.edu .b,
+.edu .c {
+  background-size: cover;
+  background-position: center;
+}
+.edu .a { background-image: url("/gate-edu-1.png"); }
+.edu .b { background-image: url("/gate-edu-2.png"); }
+.edu .c { background-image: url("/gate-edu-3.png"); }
+   .biz .a,
+.biz .b,
+.biz .c {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.biz .a {
+  background-image: url("/gate-biz-1.png");
+  background-position: center center;
+}
+.biz .b {
+  background-image: url("/gate-biz-2.png");
+  background-position: center center;
+}
+.biz .c {
+  background-image: url("/gate-biz-3.png");
+  background-position: center center;
+}
+    .shot-label { height:100%; display:flex; align-items:flex-end; padding:18px; font-size:13px; color:rgba(255,255,255,.78); }
+    @media (max-width:860px) {
+      .page { grid-template-columns:1fr; min-height:auto; }
+      .col { min-height:0; padding:28px 22px; justify-content:flex-start; }
+      .left { border-right:0; padding-bottom:36px; }
+      .right { padding-top:36px; border-top:1px solid var(--line); }
+      .identity { max-width:none; }
+      .doors { margin-top:48px; max-width:none; }
+      .about,.contacts { font-size:18px; line-height:1.4; max-width:none; }
+      .contacts { margin-top:22px; }
+      .preview { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="col left">
+      <div class="identity">
+       <img class="avatar" src="/avatar.png" alt="" />
+        <div>
+          <div class="name">Алина Германович</div>
+          <div class="role">Дизайнер и&nbsp;маркетолог</div>
+        </div>
+      </div>
+      <nav class="doors">
+        <a class="door" href="/edu" data-preview="edu">
+          <div class="door-title">Образование и&nbsp;эксперты</div>
+          <div class="door-sub">Школы, курсы, инфопродукты</div>
+          <div class="door-cta">→ Смотреть работы</div>
+        </a>
+        <a class="door" href="/biz" data-preview="biz">
+          <div class="door-title">Компании и&nbsp;производство</div>
+          <div class="door-sub">Недвижимость, торговля, промышленность</div>
+          <div class="door-cta">→ Смотреть работы</div>
+        </a>
+      </nav>
+    </section>
+    <section class="col right">
+      <div class="about-wrap">
+        <p class="about">От образовательных проектов до промышленных предприятий. Проектирую интерфейсы и&nbsp;визуальную упаковку для экспертов и&nbsp;компаний. Сайты, презентации, соцсети.</p>
+        <div class="contacts">
+          <a href="mailto:box.lid@mail.ru">box.lid@mail.ru</a>
+          <a href="https://t.me/zovite_alinu" target="_blank" rel="noreferrer">telegram</a>
+          <a href="viber://chat?number=%2B375291022956">viber</a>
+          <a href="https://wa.me/375291022956" target="_blank" rel="noreferrer">whatsapp</a>
+          <a href="https://t.me/zovite_designera" target="_blank" rel="noreferrer">канал в&nbsp;Tg</a>
+        </div>
+      </div>
+      <div class="preview edu" id="preview-edu">
+        <div class="preview-grid">
+          <div class="shot edu a wide"><div class="shot-label">Сайты</div></div>
+         <div class="shot edu b"><div class="shot-label">Материалы</div></div>
+          <div class="shot edu c"><div class="shot-label">Соцсети</div></div>
+        </div>
+      </div>
+      <div class="preview biz" id="preview-biz">
+        <div class="preview-grid">
+          <div class="shot biz a wide"><div class="shot-label">Площадки</div></div>
+       <div class="shot biz b"><div class="shot-label">Производство</div></div>
+       <div class="shot biz c"><div class="shot-label">Мероприятия</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const doors = document.querySelectorAll(".door");
+    const previews = { edu: document.getElementById("preview-edu"), biz: document.getElementById("preview-biz") };
+    function hide() {
+      doors.forEach((d) => d.classList.remove("is-on"));
+      Object.values(previews).forEach((p) => p.classList.remove("is-on"));
+    }
+    function show(key) {
+      hide();
+      previews[key] && previews[key].classList.add("is-on");
+      var el = document.querySelector('[data-preview="' + key + '"]');
+      if (el) el.classList.add("is-on");
+    }
+    doors.forEach((door) => {
+      var key = door.dataset.preview;
+      door.addEventListener("mouseenter", function(){ show(key); });
+      door.addEventListener("mouseleave", hide);
+    });
+  </script>
+</body>
+</html>
