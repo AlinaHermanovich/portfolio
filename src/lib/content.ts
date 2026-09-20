@@ -123,6 +123,7 @@ export const projects: Project[] = [
     cta: "Смотреть сайт",
     video: "/19800595-hd_1920_1080_25fps.mp4",
     preview: "/prometei-home-1.png",
+     previewMobile: "/prometei-home-mobile.png",
     track: "biz",
   },
   {
