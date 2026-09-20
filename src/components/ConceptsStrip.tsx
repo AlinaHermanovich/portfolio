@@ -99,6 +99,11 @@ export default function ConceptsStrip() {
                       <p className="mt-6 max-w-[520px] text-[17px] leading-7 text-fg-dim">
                         {slide.body}
                       </p>
+                       {"note" in slide && slide.note ? (
+                        <p className="mt-3 max-w-[520px] text-[13px] leading-5 text-black/35">
+                          {String(slide.note)}
+                        </p>
+                      ) : null}
                       <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
                         {"href" in slide && slide.href ? (
                           <a
