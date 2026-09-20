@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import ContactModal from "./ContactModal";
 
 type HugCard = {
   src?: string;
@@ -47,9 +48,10 @@ const cards: HugCard[] = [
   },
 ];
 
-const TELEGRAM_URL = "https://t.me/zovite_alinu";
+
 
 export default function Hug() {
+  const [contactOpen, setContactOpen] = useState(false);
   const [showSecret, setShowSecret] = useState(false);
   const [active, setActive] = useState<number | null>(null);
   const accumulated = useRef(0);
@@ -108,14 +110,13 @@ export default function Hug() {
                   Окей, вы зависли здесь... может, лучше обсудим ваш проект? 👀
                 </p>
                 <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href={TELEGRAM_URL}
-                    target="_blank"
-                    rel="noreferrer"
+                    <button
+                    type="button"
+                    onClick={() => setContactOpen(true)}
                     className="rounded-full bg-black px-5 py-2.5 text-sm text-white transition-opacity hover:opacity-80"
                   >
                     Давайте!
-                  </a>
+                  </button>
                   <button
                     type="button"
                     onClick={() => setShowSecret(false)}
@@ -182,6 +183,10 @@ export default function Hug() {
           ))}
         </ul>
       </div>
+            <ContactModal
+        open={contactOpen}
+        onClose={() => setContactOpen(false)}
+      />
     </section>
   );
 }
