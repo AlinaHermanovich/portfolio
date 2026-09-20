@@ -2,11 +2,14 @@
 
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { concepts } from "@/lib/content";
+import { concepts, conceptsBiz } from "@/lib/content";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 
 export default function ConceptsStrip() {
-  const slides = concepts.slides;
+   const path = usePathname();
+  const data = path.startsWith("/biz") ? conceptsBiz : concepts;
+  const slides = data.slides;
   const [i, setI] = useState(0);
   const [review, setReview] = useState<string | null>(null);
   const [yt, setYt] = useState<string | null>(null);
