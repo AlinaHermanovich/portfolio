@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { projects } from "@/lib/content";
 import TypewriterText from "./TypewriterText";
@@ -10,6 +11,10 @@ import CaseFrame from "./CaseFrame";
 const NAME = "Привет, я Алина";
 
 export default function Narrator() {
+    const path = usePathname();
+  const list = projects.filter((p) =>
+    path.startsWith("/biz") ? p.track === "biz" : p.track !== "biz",
+  );
   return (
     <section id="top" className="relative pt-28 pb-8 sm:pt-32">
       <div className="shell">
@@ -23,7 +28,7 @@ export default function Narrator() {
       </div>
 
       <div id="work" className="mt-16 flex flex-col gap-24 sm:mt-24 sm:gap-32">
-        {projects.map((p, i) => (
+        {list.map((p, i) => (
           <CaseBlock key={p.slug} project={p} index={i} />
         ))}
       </div>
