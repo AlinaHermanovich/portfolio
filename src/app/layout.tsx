@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   description:
     "Дизайн для бизнеса и экспертов: сайты, презентации и материалы. Зовите дизайнера.",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.webp",
   },
   openGraph: {
     title: `${site.name} — ${site.role}`,

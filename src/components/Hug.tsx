@@ -15,7 +15,7 @@ type HugCard = {
 
 const cards: HugCard[] = [
   {
-    src: "/hug/photo-1.png",
+    src: "/hug/photo-1.webp",
     alt: "Photo 1",
     rotation: 4.6,
     emoji: "🎤",
@@ -23,7 +23,7 @@ const cards: HugCard[] = [
     hoverX: -226,
   },
   {
-    src: "/hug/photo-2.png",
+    src: "/hug/photo-2.webp",
     alt: "Photo 2",
     rotation: -4,
     emoji: "🏔️",
@@ -31,7 +31,7 @@ const cards: HugCard[] = [
     hoverX: -206,
   },
   {
-    src: "/hug/photo-3.png",
+    src: "/hug/photo-3.webp",
     alt: "Photo 3",
     rotation: 3.6,
     emoji: "🐱",
@@ -39,7 +39,7 @@ const cards: HugCard[] = [
     hoverX: 126,
   },
   {
-    src: "/hug/photo-4.png",
+    src: "/hug/photo-4.webp",
     alt: "Photo 4",
     rotation: -3.2,
     emoji: "❤️",

@@ -56,8 +56,8 @@ export const projects: Project[] = [
     tags: ["Сайт", "Презентации", "Упаковка"],
     cta: "Смотреть школу",
     video: "/9150545-hd_1920_1080_24fps.mp4",
-    preview: "/case-1-preview.png",
-    previewMobile: "/case-1-preview-mobile.png",
+    preview: "/case-1-preview.webp",
+    previewMobile: "/case-1-preview-mobile.webp",
     track: "edu",
   },
     {
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     tags: ["Соцсети", "Фирменный стиль", "Таргет"],
     cta: "Смотреть стиль",
     video: "/19800595-hd_1920_1080_25fps.mp4",
-    preview: "/case-2-preview.png",
+    preview: "/case-2-preview.webp",
      track: "edu",
   },
     {
@@ -89,8 +89,8 @@ export const projects: Project[] = [
     tags: ["Сайт", "Прототип", "Презентация"],
     cta: "Смотреть сайт",
     video: "/uhd_30fps.mp4",
-    preview: "/case-3-preview.png",
-    previewMobile: "/case-3-preview-mobile.png",
+    preview: "/case-3-preview.webp",
+    previewMobile: "/case-3-preview-mobile.webp",
     track: "edu",
   },
      {
@@ -106,8 +106,8 @@ export const projects: Project[] = [
     tags: ["Сайт", "Навигация", "Реклама"],
     cta: "Смотреть кейс",
     video: "/9150545-hd_1920_1080_24fps.mp4",
-    preview: "/atrium-preview.png",
-    previewMobile: "/atrium-preview-mobile.png",
+    preview: "/atrium-preview.webp",
+    previewMobile: "/atrium-preview-mobile.webp",
     track: "biz",
   },
   {
@@ -122,8 +122,8 @@ export const projects: Project[] = [
     tags: ["Сайт", "Прототип", "Мобилка"],
     cta: "Смотреть сайт",
     video: "/19800595-hd_1920_1080_25fps.mp4",
-    preview: "/prometei-home-1.png",
-     previewMobile: "/prometei-home-mobile.png",
+    preview: "/prometei-home-1.webp",
+     previewMobile: "/prometei-home-mobile.webp",
     track: "biz",
   },
   {
@@ -139,8 +139,8 @@ export const projects: Project[] = [
     tags: ["Логотип", "Носители", "Ивент"],
     cta: "Смотреть оформление",
     video: "/9150545-hd_1920_1080_24fps.mp4",
-    preview: "/vcc-preview.png",
-    previewMobile: "/vcc-preview-mobile.png",
+    preview: "/vcc-preview.webp",
+    previewMobile: "/vcc-preview-mobile.webp",
     track: "biz",
   },
 ];
@@ -215,7 +215,7 @@ export const concepts = {
     {
       title: "«Практика роста». Дизайнер, спикер и ментор",
       body: "Упаковала республиканский бизнес-конкурс: весь визуал от логотипа до наградной продукции. Как спикер разбирала с участниками их презентации. Как ментор прошла с финалисткой весь путь до защиты: пересобрали логику проекта, продумали слайды и речь для жюри.",
-      image: "/edu-extra-rosta.png",
+      image: "/edu-extra-rosta.webp",
       youtube: "",
       href2: "https://www.instagram.com/praktikarosta.bsg",
       linkLabel2: "Инстаграм",
@@ -225,7 +225,7 @@ export const concepts = {
     {
       title: "«Всё дело в папе». Визуал и соцсети для проекта UNFPA",
       body: "Комплексное сопровождение социальной инициативы Фонда ООН. Делала макеты, сторис и материалы клуба, снимала и монтировала ролики. Каждый баннер сначала согласовывался — стиль выдерживался строго по брендбуку фонда.",
-      image: "/edu-extra-papa.png",
+      image: "/edu-extra-papa.webp",
       youtube: "",
     },
     {
@@ -246,14 +246,14 @@ export const conceptsBiz = {
       title: "ACT. Анимированная презентация",
       body: "Анимация здесь — инструмент управления вниманием. Текст появляется порциями по клику, чтобы клиент или инвестор не читал слайд наперед, а слушал спикера. Дополнительный плюс: такую сборку легко перевести в промо-ролик.",
       note: "Концепт. Материалы принадлежат бренду",
-      image: "/act-preview.png",
+      image: "/act-preview.webp",
       youtube: "sSszvPIyVeM",
     },
     {
       title: "DataWeave. Макет для IT-платформы",
       body: "Проектирование сценария пользователя: в какой последовательности выдавать информацию, чтобы органично подвести клиента к заявке. Тёмная тема и плавная подача держат внимание на главном.",
       note: "Концепт",
-      image: "/dataweave-preview.png",
+      image: "/dataweave-preview.webp",
       href: "https://dataweave.framer.website/",
       linkLabel: "Смотреть макет",
     },
@@ -261,7 +261,7 @@ export const conceptsBiz = {
       title: "Porsche. Презентация с 3D-графикой",
       body: "Пример того, как эффектно презентовать физический продукт. 3D-модель цепляет взгляд, а спокойная анимация не мешает считывать сухие технические характеристики. Можно сохранить как видео для экранов.",
       note: "Концепт. Материалы принадлежат бренду",
-      image: "/porsche-preview.png",
+      image: "/porsche-preview.webp",
       youtube: "037BoLKsdSg",
     },
   ],
@@ -305,9 +305,9 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Так выглядит на телефоне",
         ],
         images: [
-          "/smartbook-old.png",
-          "/smartbook-new.png",
-          "/smartbook-mobile.png",
+          "/smartbook-old.webp",
+          "/smartbook-new.webp",
+          "/smartbook-mobile.webp",
         ],
       },
             {
@@ -318,16 +318,16 @@ const eduCaseDetails: Record<string, CaseDetail> = {
         captions: ["Коммерческое предложение"],
         carousel: true,
          images: [
-          "/smartbook-kp-1.png",
-          "/smartbook-kp-2.png",
-          "/smartbook-kp-3.png",
-          "/smartbook-kp-4.png",
-          "/smartbook-kp-5.png",
-          "/smartbook-kp-6.png",
-          "/smartbook-kp-7.png",
-          "/smartbook-kp-8.png",
-          "/smartbook-kp-9.png",
-          "/smartbook-kp-10.png",
+          "/smartbook-kp-1.webp",
+          "/smartbook-kp-2.webp",
+          "/smartbook-kp-3.webp",
+          "/smartbook-kp-4.webp",
+          "/smartbook-kp-5.webp",
+          "/smartbook-kp-6.webp",
+          "/smartbook-kp-7.webp",
+          "/smartbook-kp-8.webp",
+          "/smartbook-kp-9.webp",
+          "/smartbook-kp-10.webp",
         ],
       },
             {
@@ -339,17 +339,17 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           {
             caption: "Презентация для родительских встреч",
             images: [
-              "/smartbook-parents-1.png",
-              "/smartbook-parents-2.png",
-              "/smartbook-parents-3.png",
+              "/smartbook-parents-1.webp",
+              "/smartbook-parents-2.webp",
+              "/smartbook-parents-3.webp",
             ],
           },
           {
             caption: "Материалы для педагогов",
             images: [
-              "/smartbook-teachers-1.png",
-              "/smartbook-teachers-2.png",
-              "/smartbook-teachers-3.png",
+              "/smartbook-teachers-1.webp",
+              "/smartbook-teachers-2.webp",
+              "/smartbook-teachers-3.webp",
             ],
           },
         ],
@@ -365,9 +365,9 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Готовая тетрадь",
         ],
         images: [
-          "/smartbook-workbook-1.png",
-          "/smartbook-workbook-2.png",
-          "/smartbook-workbook-3.png",
+          "/smartbook-workbook-1.webp",
+          "/smartbook-workbook-2.webp",
+          "/smartbook-workbook-3.webp",
         ],
       },
              {
@@ -380,8 +380,8 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Креативы для летнего лагеря",
         ],
         images: [
-          "/smartbook-rollup.png",
-          "/smartbook-ads.png",
+          "/smartbook-rollup.webp",
+          "/smartbook-ads.webp",
         ],
       },
       {
@@ -394,8 +394,8 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Сторис",
         ],
         images: [
-          "/smartbook-ig-1.png",
-          "/smartbook-ig-2.png",
+          "/smartbook-ig-1.webp",
+          "/smartbook-ig-2.webp",
         ],
       },
     ],
@@ -411,7 +411,7 @@ const eduCaseDetails: Record<string, CaseDetail> = {
         title: "Анализ конкурентов",
         body: "Проанализировала аккаунты вузов и ИПК: где сильный контент, но слабая подача, где нет единой системы. Цель — узнаваемый визуал, аккуратные шаблоны и простой формат, с которым команда работает без дизайнера.",
         captions: ["Подборка конкурентов"],
-        images: ["/ipk-analysis.png"],
+        images: ["/ipk-analysis.webp"],
       },
             {
         id: "concept",
@@ -423,8 +423,8 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Логотип на носителе",
         ],
         images: [
-          "/ipk-sign.png",
-          "/ipk-palette.png",
+          "/ipk-sign.webp",
+          "/ipk-palette.webp",
         ],
       },
       {
@@ -433,7 +433,7 @@ const eduCaseDetails: Record<string, CaseDetail> = {
         title: "Иконки",
         body: "Набор иконок — в одном стиле с концепцией, чтобы рубрики и навигация в соцсетях выглядели цельно.",
         captions: ["Набор иконок в фирменном стиле"],
-        images: ["/ipk-icons.png"],
+        images: ["/ipk-icons.webp"],
       },
            {
         id: "reels",
@@ -447,8 +447,8 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Шаблон в Canva",
         ],
         images: [
-          "/ipk-reels-1.png",
-          "/ipk-reels-2.png",
+          "/ipk-reels-1.webp",
+          "/ipk-reels-2.webp",
         ],
       },
        {
@@ -463,8 +463,8 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Примеры в ленте",
         ],
         images: [
-          "/ipk-stories-1.png",
-          "/ipk-stories-2.png",
+          "/ipk-stories-1.webp",
+          "/ipk-stories-2.webp",
         ],
       },
             {
@@ -479,10 +479,10 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Отзыв таргетолога",
         ],
         images: [
-          "/ipk-ads-1.png",
-          "/ipk-ads-2.png",
-          "/ipk-ads-3.png",
-          "/ipk-ads-4.png",
+          "/ipk-ads-1.webp",
+          "/ipk-ads-2.webp",
+          "/ipk-ads-3.webp",
+          "/ipk-ads-4.webp",
         ],
       },
     ],
@@ -506,10 +506,10 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Выбранный вариант",
         ],
         images: [
-          "/bntu-concept-1.png",
-          "/bntu-concept-2.png",
-          "/bntu-concept-3.png",
-          "/bntu-concept-4.png",
+          "/bntu-concept-1.webp",
+          "/bntu-concept-2.webp",
+          "/bntu-concept-3.webp",
+          "/bntu-concept-4.webp",
         ],
       },
             {
@@ -518,7 +518,7 @@ const eduCaseDetails: Record<string, CaseDetail> = {
         title: "Структура сайта",
         body: "Собрала схему сайта под задачи вуза: отдельные сценарии для студентов, преподавателей и партнёров. Структура держит смысл — пользователь быстро находит своё, без лишних уровней меню.",
         captions: ["Карта сайта"],
-        images: ["/bntu-structure.png"],
+        images: ["/bntu-structure.webp"],
       },
         {
         id: "prototype",
@@ -526,7 +526,7 @@ const eduCaseDetails: Record<string, CaseDetail> = {
         title: "Прототип",
         body: "Сделала кликабельный прототип для согласования логики до финальной отрисовки. На этом этапе проверили переходы, приоритеты блоков и наполнение ключевых страниц.",
         captions: ["Прототип основных экранов"],
-        images: ["/bntu-prototype.png"],
+        images: ["/bntu-prototype.webp"],
       },
       {
         id: "design",
@@ -542,10 +542,10 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Мобильная версия",
         ],
         images: [
-          "/bntu-design-1.png",
-          "/bntu-design-2.png",
-          "/bntu-design-3.png",
-          "/bntu-design-4.png",
+          "/bntu-design-1.webp",
+          "/bntu-design-2.webp",
+          "/bntu-design-3.webp",
+          "/bntu-design-4.webp",
         ],
       },
       {
@@ -561,9 +561,9 @@ const eduCaseDetails: Record<string, CaseDetail> = {
           "Слайд 3",
         ],
         images: [
-          "/bntu-deck-1.png",
-          "/bntu-deck-2.png",
-          "/bntu-deck-3.png",
+          "/bntu-deck-1.webp",
+          "/bntu-deck-2.webp",
+          "/bntu-deck-3.webp",
         ],
       },
     ],
