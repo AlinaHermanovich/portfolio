@@ -39,6 +39,7 @@ export type Project = {
   video?: string;
   preview?: string;
   previewMobile?: string;
+  track?: "edu" | "biz";
 };
 
 export const projects: Project[] = [
@@ -57,6 +58,7 @@ export const projects: Project[] = [
     video: "/9150545-hd_1920_1080_24fps.mp4",
     preview: "/case-1-preview.png",
     previewMobile: "/case-1-preview-mobile.png",
+    track: "edu",
   },
     {
     slug: "ipk-bru",
@@ -72,6 +74,7 @@ export const projects: Project[] = [
     cta: "Смотреть стиль",
     video: "/19800595-hd_1920_1080_25fps.mp4",
     preview: "/case-2-preview.png",
+     track: "edu",
   },
     {
     slug: "confucius-bntu",
@@ -88,6 +91,56 @@ export const projects: Project[] = [
     video: "/uhd_30fps.mp4",
     preview: "/case-3-preview.png",
     previewMobile: "/case-3-preview-mobile.png",
+    track: "edu",
+  },
+     {
+    slug: "atrium",
+    client: "ТЦ Атриум",
+    title: "Дизайн и маркетинг АДЦ с 2019г",
+    headline:
+      "Веду маркетинг и дизайн АДЦ «Атриум» с 2019 года — сайт, навигация, реклама, всё визуальное сопровождение.",
+    category: "Площадка",
+    year: "2019 – н.в.",
+    blurb:
+      "Сайт, карты этажей и реклама торгового центра — от структуры до согласования с подрядчиками.",
+    tags: ["Сайт", "Навигация", "Реклама"],
+    cta: "Смотреть кейс",
+    video: "/9150545-hd_1920_1080_24fps.mp4",
+    preview: "/atrium-preview.png",
+    previewMobile: "/atrium-preview-mobile.png",
+    track: "biz",
+  },
+  {
+    slug: "prometei",
+    client: "Прометей",
+    title: "Сайт строительной компании: услуги, квартиры и партнёры",
+    headline:
+      "Разработала сайт многопрофильной строительной компании — разделила потоки B2B,\u00A0\u00A0B2C\u00A0\u00A0и\u00A0\u00A0партнеров.",
+    category: "Производство",
+    year: "производство",
+    blurb: "Услуги, квартиры и сотрудничество — разные входы на одном сайте.",
+    tags: ["Сайт", "Прототип", "Мобилка"],
+    cta: "Смотреть сайт",
+    video: "/19800595-hd_1920_1080_25fps.mp4",
+    preview: "/prometei-home-1.png",
+    track: "biz",
+  },
+  {
+    slug: "vcc",
+    client: "Venture Capital Club",
+    title: "Айдентика и упаковка точек касания венчурного клуба",
+    headline:
+      "Упаковала запуск венчурного клуба VCC — от материалов питч-сессий до визуальной базы для сайта.",
+    category: "Событие и стиль",
+    year: "запуск",
+    blurb:
+      "Строгая технологичная айдентика с нуля: логотип, соцсети, презентация, офлайн.",
+    tags: ["Логотип", "Носители", "Ивент"],
+    cta: "Смотреть оформление",
+    video: "/9150545-hd_1920_1080_24fps.mp4",
+    preview: "/vcc-preview.png",
+    previewMobile: "/vcc-preview-mobile.png",
+    track: "biz",
   },
 ];
 
