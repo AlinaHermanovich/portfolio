@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "motion/react";
 import { site } from "@/lib/content";
 import ContactModal from "./ContactModal";
@@ -9,6 +10,7 @@ import ContactModal from "./ContactModal";
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const path = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -34,7 +36,7 @@ export default function Nav() {
         }`}
       >
         <div className="flex items-center gap-3">
-         <Link href="/edu" data-wave className="group flex items-center">
+         <Link href={path.startsWith("/biz") ? "/biz" : "/edu"} data-wave className="group flex items-center">
             <span className="eyebrow !tracking-[0.12em] text-fg">
               {site.name}
             </span>
