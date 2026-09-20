@@ -29,9 +29,14 @@ export default async function Page({
   const detail = caseDetails[slug];
   if (!project || !detail) notFound();
 
-  const idx = projects.findIndex((p) => p.slug === slug);
-  const prev = projects[(idx - 1 + projects.length) % projects.length];
-  const next = projects[(idx + 1) % projects.length];
+    const idxAll = projects.findIndex((p) => p.slug === slug);
+  const track = projects[idxAll]?.track;
+  const siblings = projects.filter((p) =>
+    track === "biz" ? p.track === "biz" : p.track !== "biz",
+  );
+  const idx = siblings.findIndex((p) => p.slug === slug);
+  const prev = siblings[(idx - 1 + siblings.length) % siblings.length];
+  const next = siblings[(idx + 1) % siblings.length];
 
   return (
     <CaseStudy
