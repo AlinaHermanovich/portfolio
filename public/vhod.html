@@ -31,38 +31,41 @@
     .contacts { margin-top:28px; display:flex; flex-direction:column; gap:6px; font-size:22px; line-height:1.35; letter-spacing:-0.03em; }
     .contacts a { width:fit-content; color:var(--text); }
     .contacts a:hover { text-decoration:underline; text-underline-offset:4px; }
-    .preview { position:absolute; inset:0; opacity:0; pointer-events:none; transition:opacity .2s ease; background:#111; }
-    .preview.is-on { opacity:1; }
-    .preview-grid { height:100%; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:16px; }
-    .shot { border-radius:6px; min-height:0; }
-    .shot.wide { grid-column:1 / -1; }
-    .edu .a,
-.edu .b,
-.edu .c {
-  background-size: cover;
-  background-position: center;
-}
-.edu .a { background-image: url("/gate-edu-1.webp"); }
-.edu .b { background-image: url("/gate-edu-2.webp"); }
-.edu .c { background-image: url("/gate-edu-3.webp"); }
-   .biz .a,
-.biz .b,
-.biz .c {
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.biz .a {
-  background-image: url("/gate-biz-1.webp");
-  background-position: center center;
-}
-.biz .b {
-  background-image: url("/gate-biz-2.webp");
-  background-position: center center;
-}
-.biz .c {
-  background-image: url("/gate-biz-3.webp");
-  background-position: center center;
-}
+        .preview {
+      position: absolute;
+      inset: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      background: #111;
+      overflow: auto;
+    }
+    .preview.is-on { opacity: 1; }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      align-content: start;
+    }
+    .shot {
+      border-radius: 6px;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .shot.wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 9;
+    }
+    .shot:not(.wide) {
+      aspect-ratio: 1 / 1;
+    }
+    .edu .a { background-image: url("/gate-edu-1.webp"); }
+    .edu .b { background-image: url("/gate-edu-2.webp"); }
+    .edu .c { background-image: url("/gate-edu-3.webp"); }
+    .biz .a { background-image: url("/gate-biz-1.webp"); }
+    .biz .b { background-image: url("/gate-biz-2.webp"); }
+    .biz .c { background-image: url("/gate-biz-3.webp"); }
     .shot-label { height:100%; display:flex; align-items:flex-end; padding:18px; font-size:13px; color:rgba(255,255,255,.78); }
     @media (max-width:860px) {
       .page { grid-template-columns:1fr; min-height:auto; }
