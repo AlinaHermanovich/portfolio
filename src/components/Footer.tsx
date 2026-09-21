@@ -11,7 +11,7 @@ export default function Footer() {
           href="/"
          className="eyebrow cursor-pointer text-white/50 transition-colors hover:text-white sm:justify-self-center"
         >
-          Другие работы
+          На главную
         </a>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 sm:justify-self-end">
           {site.socials.map((s) => (
