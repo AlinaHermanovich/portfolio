@@ -73,7 +73,7 @@ export default function SlideCarousel({
   return (
     <figure>
       <div
-        className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}
+        className={`relative grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}
         onTouchStart={(e) => setTouch(e.touches[0].clientX)}
         onTouchEnd={(e) => {
           if (touch === null) return;
@@ -96,6 +96,22 @@ export default function SlideCarousel({
             />
           </div>
         ))}
+        <button
+          type="button"
+          onClick={prev}
+          className="group absolute inset-y-0 left-0 z-10 flex w-12 items-center justify-center text-fg sm:hidden"
+          aria-label="Назад"
+        >
+          <Arrow dir="left" />
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          className="group absolute inset-y-0 right-0 z-10 flex w-12 items-center justify-center text-fg sm:hidden"
+          aria-label="Вперёд"
+        >
+          <Arrow dir="right" />
+        </button>
       </div>
       <div className="mt-3 flex items-center justify-between gap-4">
         {label ? (
@@ -106,7 +122,7 @@ export default function SlideCarousel({
           <span />
         )}
         {images.length > step && (
-          <div className="flex shrink-0 items-center gap-1">
+          <div className="hidden shrink-0 items-center gap-1 sm:flex">
             <button
               type="button"
               onClick={prev}
