@@ -1,13 +1,17 @@
 "use client";
 
 import { motion } from "motion/react";
-import { aboutPoints } from "@/lib/content";
+import { aboutPoints, aboutPointsBiz } from "@/lib/content";
+import { usePathname } from "next/navigation";
 
 export default function Approach() {
+  const path = usePathname();
+  const points = path.startsWith("/biz") ? aboutPointsBiz : aboutPoints;
+
   return (
     <section id="approach" className="relative pb-24 pt-2 sm:pb-36">
       <div className="shell grid grid-cols-1 gap-y-12 md:grid-cols-4">
-        {aboutPoints.map((p, i) => (
+        {points.map((p, i) => (
           <motion.div
             key={p.title}
             initial={{ opacity: 0, y: 24 }}
