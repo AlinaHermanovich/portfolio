@@ -9,7 +9,7 @@ export default function Footer() {
         </span>
         <a
           href="/"
-          className="eyebrow text-white/50 transition-colors hover:text-white sm:justify-self-center"
+         className="eyebrow cursor-pointer text-white/50 transition-colors hover:text-white sm:justify-self-center"
         >
           Другие работы
         </a>
@@ -20,7 +20,7 @@ export default function Footer() {
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="eyebrow text-white/50 transition-colors hover:text-white"
+            className="eyebrow cursor-pointer text-white/50 transition-colors hover:text-white"
             >
               {s.label}
             </a>
