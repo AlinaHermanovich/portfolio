@@ -101,15 +101,14 @@ export default function SlideCarousel({
         <button
           type="button"
           onClick={prev}
-          className="group absolute top-1/2 left-0 z-10 flex h-14 w-14 -translate-x-1/4 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
-          aria-label="Назад"
+          className="group absolute top-1/2 left-0 z-10 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
         >
           <Arrow dir="left" size={36} />
         </button>
         <button
           type="button"
           onClick={next}
-          className="group absolute top-1/2 right-0 z-10 flex h-14 w-14 translate-x-1/4 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
+          className="group absolute top-1/2 right-0 z-10 flex h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
           aria-label="Вперёд"
         >
           <Arrow dir="right" size={36} />
