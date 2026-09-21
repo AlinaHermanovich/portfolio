@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-function Arrow({ dir }: { dir: "left" | "right" }) {
+function Arrow({ dir, size = 20 }: { dir: "left" | "right"; size?: number }) {
   const d =
     dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6";
   return (
     <svg
-      width="20"
-      height="20"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       className={`shrink-0 transition-transform duration-300 ${
@@ -99,18 +99,18 @@ export default function SlideCarousel({
         <button
           type="button"
           onClick={prev}
-          className="group absolute top-1/2 left-0 z-10 flex w-10 -translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
+          className="group absolute top-1/2 left-0 z-10 flex h-12 w-12 -translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
           aria-label="Назад"
         >
-          <Arrow dir="left" />
+          <Arrow dir="left" size={28} />
         </button>
         <button
           type="button"
           onClick={next}
-          className="group absolute top-1/2 right-0 z-10 flex w-10 translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
+          className="group absolute top-1/2 right-0 z-10 flex h-12 w-12 translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
           aria-label="Вперёд"
         >
-          <Arrow dir="right" />
+          <Arrow dir="right" size={28} />
         </button>
       </div>
       <div className="mt-3 flex items-center justify-between gap-4">
