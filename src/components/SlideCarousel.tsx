@@ -7,14 +7,14 @@ function Arrow({ dir }: { dir: "left" | "right" }) {
     dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M19 12H5M11 6l-6 6 6 6";
   return (
     <svg
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       className={`shrink-0 transition-transform duration-300 ${
         dir === "right"
-          ? "group-hover:translate-x-1.5"
-          : "group-hover:-translate-x-1.5"
+          ? "group-hover:translate-x-1"
+          : "group-hover:-translate-x-1"
       }`}
     >
       <path
@@ -72,50 +72,60 @@ export default function SlideCarousel({
 
   return (
     <figure>
-      <div className="relative">
-        <div className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}>
-          {visible.map((src, i) => (
-              <div
-              key={`${src}-${i}`}
-              className={`${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev`}
-              onTouchStart={(e) => setTouch(e.touches[0].clientX)}
-              onTouchEnd={(e) => {
-                if (touch === null) return;
-                const dx = e.changedTouches[0].clientX - touch;
-                if (dx > 40) prev();
-                if (dx < -40) next();
-                setTouch(null);
-              }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt={label ?? "Слайд"}
-                className="h-full w-full object-cover object-top"
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={prev}
-          className="group absolute inset-y-0 left-0 z-10 flex w-16 -translate-x-1/2 items-center justify-center text-fg"
-          aria-label="Назад"
-        >
-          <Arrow dir="left" />
-        </button>
-        <button
-          type="button"
-          onClick={next}
-          className="group absolute inset-y-0 right-0 z-10 flex w-16 translate-x-1/2 items-center justify-center text-fg"
-          aria-label="Вперёд"
-        >
-          <Arrow dir="right" />
-        </button>
+      <div
+        className={`grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}
+        onTouchStart={(e) => setTouch(e.touches[0].clientX)}
+        onTouchEnd={(e) => {
+          if (touch === null) return;
+          const dx = e.changedTouches[0].clientX - touch;
+          if (dx > 40) prev();
+          if (dx < -40) next();
+          setTouch(null);
+        }}
+      >
+        {visible.map((src, i) => (
+          <div
+            key={`${src}-${i}`}
+            className={`${ratio} overflow-hidden rounded-[4px] border border-[#F4F4F4] bg-bg-elev`}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={src}
+              alt={label ?? "Слайд"}
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+        ))}
       </div>
-      {label && (
-        <figcaption className="eyebrow mt-3 text-fg-faint">{label}</figcaption>
-      )}
+      <div className="mt-3 flex items-center justify-between gap-4">
+        {label ? (
+          <figcaption className="eyebrow m-0 flex-1 text-fg-faint">
+            {label}
+          </figcaption>
+        ) : (
+          <span />
+        )}
+        {images.length > step && (
+          <div className="flex shrink-0 items-center gap-1">
+            <button
+              type="button"
+              onClick={prev}
+              className="group flex h-10 w-10 items-center justify-center text-fg"
+              aria-label="Назад"
+            >
+              <Arrow dir="left" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              className="group flex h-10 w-10 items-center justify-center text-fg"
+              aria-label="Вперёд"
+            >
+              <Arrow dir="right" />
+            </button>
+          </div>
+        )}
+      </div>
     </figure>
   );
 }
