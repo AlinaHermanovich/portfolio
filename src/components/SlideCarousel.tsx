@@ -20,7 +20,7 @@ function Arrow({ dir, size = 20 }: { dir: "left" | "right"; size?: number }) {
       <path
         d={d}
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.6"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -71,9 +71,11 @@ export default function SlideCarousel({
   const label = captions?.[index] ?? caption;
 
   return (
-    <figure>
+    <figure className="px-8 sm:px-0">
       <div
-        className={`relative grid gap-6 ${pair ? "grid-cols-2" : "grid-cols-1"}`}
+        className={`relative touch-pan-y grid gap-6 ${
+          pair ? "grid-cols-2" : "grid-cols-1"
+        }`}
         onTouchStart={(e) => setTouch(e.touches[0].clientX)}
         onTouchEnd={(e) => {
           if (touch === null) return;
@@ -99,18 +101,18 @@ export default function SlideCarousel({
         <button
           type="button"
           onClick={prev}
-          className="group absolute top-1/2 left-0 z-10 flex h-12 w-12 -translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
+          className="group absolute top-1/2 left-0 z-10 flex h-14 w-14 -translate-x-3/4 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
           aria-label="Назад"
         >
-          <Arrow dir="left" size={28} />
+          <Arrow dir="left" size={36} />
         </button>
         <button
           type="button"
           onClick={next}
-          className="group absolute top-1/2 right-0 z-10 flex h-12 w-12 translate-x-[70%] -translate-y-1/2 items-center justify-center text-fg sm:hidden"
+          className="group absolute top-1/2 right-0 z-10 flex h-14 w-14 translate-x-3/4 -translate-y-1/2 items-center justify-center text-fg sm:hidden"
           aria-label="Вперёд"
         >
-          <Arrow dir="right" size={28} />
+          <Arrow dir="right" size={36} />
         </button>
       </div>
       <div className="mt-3 flex items-center justify-between gap-4">
